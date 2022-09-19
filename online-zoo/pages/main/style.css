@@ -3,9 +3,10 @@ html {
   scroll-behavior: smooth; /*Плавная прокрутка по якорям*/
 }
 .container-content {
-  max-width: 1160px;
+  max-width: 1180px;
   margin: 0 auto;
   padding: 0 15px;
+  overflow: hidden;
 }
 .header {
   background: #000000;
@@ -20,9 +21,13 @@ html {
   height: 80px;
 
 }
+.logo {
+  margin-left: 18px;
+  margin-top: 5px;
+}
 .nav {
-  margin-left: 63px;
-  margin-right: 438px;
+  margin-left: 55px;
+  margin-right: 430px;
 }
 .nav-list {
   display: flex;
@@ -31,7 +36,7 @@ html {
   justify-content: space-between;
   align-items: flex-start;
   padding: 0px;
-  gap: 48px;
+  gap: 58px;
   list-style: none;
 } 
 .link, .designed {
@@ -49,23 +54,29 @@ html {
 .link:active, .designed:active {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
+.link-active {
+  color: rgba(254, 144, 19, 1);
+}
 .petStory-online {
   display: none;
 }
 .watch-online {
   background: #283035;
+  margin-bottom: 16px;
 }
 .watch-online-background {
   background: url(../../assets/images/Giant\ Panda.jpg);
   background-repeat: no-repeat;
   background-position: center 0;
+  background-size: cover;
   height: 780px;
   margin-top: -80px;
 }
 .watch-online-container {
   display: flex;
-  justify-content: end;
-  padding-top: 166px;
+  flex-direction: column;
+  align-items: flex-end;
+  padding-top: 92px;
 }
 .watch-animal {
   width: 500.31px;
@@ -79,7 +90,184 @@ html {
   text-transform: uppercase;
   color: #FFFFFF;
   margin: 0;
+  margin-top: -391px;
+  margin-bottom: 60px;
+  z-index: 2;
 }
 span {
   color: rgba(255, 238, 46, 1);
+}
+.background-behind-text {
+  width: 465px;
+  height: 465px;
+  background-color: #F9804B;
+  border-radius: 50%;
+  z-index: 0;
+  margin-right: 110px;
+}
+.button {
+  width: 298px;
+  height: 54px;
+  background-color: rgba(254, 144, 19, 1);
+  border:rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-right: 100px;
+  cursor: pointer;
+}
+button:hover {
+  background-color: rgba(249, 128, 75, 1);
+}
+button:active {
+  background-color: #4B9200;
+}
+.how-it-works {
+  /* background-image: url(../../assets/images/flower_foto1.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  height: 605px; */
+  margin-bottom: 175px;
+}
+.how-it-works-container {
+  display: flex;
+  gap: 87px;
+  margin-left: 17px;
+  margin-top: 140px;
+}
+.how-it-works-img {
+  width: 609px;
+  height: 403px;
+}
+.how-it-works-text {
+  width: 465px;
+}
+.how-it-works-text-header {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 120%;
+  color: #333B41;
+  margin: 0;
+  margin-bottom: 22px;
+}
+.how-it-works-text-info {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 130%;
+  color: #333B41;
+  margin: 0;
+  margin-bottom: 54px;
+}
+.how-it-works-text-subtitle {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+  color: #333B41;
+  margin: 0;
+  margin-bottom: 34px;
+}
+.how-it-works-text-goal {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333B41;
+  margin: 0;
+}
+
+.slider-animals {
+  margin-bottom: 105px;
+}
+.container-cards {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 20px 30px;
+  margin-left: 18px;
+  margin-bottom: 60px;
+}
+.container-card {
+  width: 366px;
+  height: 426px;
+  border: 1px solid rgba(250, 111, 50, 1);
+  border-radius: 5px;
+  cursor: pointer;
+}
+.container-card:hover {
+  border: 1px solid rgba(254, 144, 19, 1);
+}
+.cards {
+  height: 366px;
+  margin: 0;
+}
+.cards-caption {
+  display: flex;
+  justify-content: space-between;
+  width: 336px;
+  margin: 0 auto;
+  padding-top: 8px;
+}
+.cards-caption-text {
+  padding-left: 2px;
+}
+.animal-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  margin-bottom: -3px;
+}
+.animal-where {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #000000;
+  margin: 0;
+}
+.arrow {
+  display: flex;
+  justify-content: space-between;
+  width: 1325px;
+  margin: 0 auto;
+  position: relative;
+  top: -489px;
+  z-index: 3;
+}
+.arrow-left, .arrow-right {
+  width: 62px;
+  height: 62px;
+  background-color: #F9804B;
+  border-radius: 50%;
+  left: 288px;
+  cursor: pointer;
+}
+.arrow-left:active, .arrow-right:active {
+  background-color: #4B9200;
+}
+.arrow-left-img {
+  margin: 26px 22px;
+}
+.arrow-right-img {
+  margin: 26px 22px;
+}
+.button-slider-animals {
+  margin-left: 439px;
 }
