@@ -45,6 +45,7 @@ html {
   font-weight: 500;
   font-size: 16px;
   line-height: 140%;
+  transition: all 0.5s ease-out;
 }
 .link:hover {
   color: rgba(249, 128, 75, 1);
@@ -127,10 +128,6 @@ button:active {
   background-color: #4B9200;
 }
 .how-it-works {
-  /* background-image: url(../../assets/images/flower_foto1.jpg);
-  background-repeat: no-repeat;
-  background-position: right;
-  height: 605px; */
   margin-bottom: 175px;
 }
 .how-it-works-container {
@@ -207,6 +204,13 @@ button:active {
 .cards {
   height: 366px;
   margin: 0;
+}
+.cards-img {
+  transition: width 7s ease-in-out 7s;
+}
+.cards-img:hover {
+  width: 376px;
+  height: 376px;
 }
 .cards-caption {
   display: flex;
@@ -316,7 +320,19 @@ button:active {
 
 .feed-friend-text-info{
   width: 863px;
-  margin-bottom: 61px;
+  margin-bottom: -2px;
+}
+.feed-friend-link {
+  color: #333B41;
+
+}
+.line {
+  width: 178px;
+  height: 1px;
+  border-bottom: 1px solid #FE9013;
+  margin-left: 87px;
+  margin-bottom: 20px;
+  margin-bottom: 59px;
 }
 .feed-friend-icon-header {
   font-family: 'Roboto';
@@ -564,8 +580,21 @@ button:active {
   padding-top: 4px;
 }
 .nav-footer {
-  margin-right: 398px;
+  margin-right: -64px;
 }
 .nav-list-footer {
   margin-bottom: 0;
+}
+.footer-designed {
+  width: 228px;
+}
+.designed {
+  margin: 0;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 130%;
+  color: #FFFFFF;
+  padding-top: 11px;
 }
