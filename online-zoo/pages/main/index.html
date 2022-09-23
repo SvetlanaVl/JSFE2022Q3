@@ -69,7 +69,7 @@
           <div class="container-cards">
             <div class="container-card">
               <figure class="cards">
-                <img src="../../assets/images/Rectangle 5.jpg" alt="pandas">
+                <img class="cards-img" src="../../assets/images/Rectangle 5.jpg" alt="pandas">
               </figure>
                 <div class="cards-caption">
                   <div class="cards-caption-text">
@@ -192,7 +192,8 @@
             <h2 class="feed-friend-header">Pick and feed a friend</h2>
             <p class="text-subtitle feed-friend-text-subtitle">We know the animals bring you joy, and in these extraordinary times, we’re glad.</p>
             <p class="feed-friend-text">During a time when the COVID-19 epidemic is touching all of our lives, we’re proud and glad that people around the world find joy in PetStory.</p>
-            <p class="text-info feed-friend-text-info">Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider a gift to our Emergency Support Fund . </p>
+            <p class="text-info feed-friend-text-info">Even though the zoo has reopened, we need you now more than ever to help us deal with these problems. Please consider a gift to our <a class="link feed-friend-link" href="../donate/index.html">Emergency Support Fund</a> . </p>
+            <div class="line"></div>
             <h3 class="feed-friend-icon-header">How it works</h3>
           </div>
           <div class="feed-friend-icon">
@@ -226,7 +227,10 @@
             </div>
           </div>
 
-          <button class="button button-slider-animals">Feed a friend now</button>
+          <form action="../donate/index.html">
+            <button class="button button-slider-animals">Feed a friend now</button>
+          </form>
+          
 
         </div>
       </section>
@@ -235,7 +239,6 @@
         <div class="container-content">
           <h3 class="feed-friend-icon-header testimonials-header">Testimonials</h3>
         <div class="reviews">
-          <p>jhfoudshoj</p>
           <div class="review">
             <div class="user">
               <img src="../../assets/icons/user_icon.svg" alt="user icon">
@@ -332,7 +335,94 @@
         
       </section>
     </main>
-    <footer></footer>
+    <footer class="footer">
+      <div class="container-content">
+        <div class="footer-header">
+          <div class="logo">
+            <a href="#"><img src="../../assets/icons/logo.svg" alt="logo"></a>
+          </div>
+          <div class="subscribe">
+            <p class="text-subtitle footer-subtitle">Subscribe to our news</p>
+            <input type="email" class="email" name="email" placeholder="Enter your email">
+            <button class="button-footer">Submit</button>
+          </div>
+        </div>
+
+        <form action="../donate/index.html">
+          <button class="button button-slider-animals button-testimonials button-footer-big">donate for volunteers</button>
+        </form>
+        
+        
+        <div class="contacts-and-nav">
+          <!-- <ul class="contacts">
+            <li class="contact">
+              <a class="link background-icon" href="#">
+                <img class="footer-img" src="../../assets/icons/facebook.svg" alt="facebook">
+              </a>
+            </li>
+            <li class="contact">
+              <a class="link background-icon" href="#">
+                <img class="footer-img" src="../../assets/icons/facebook.svg" alt="facebook">
+              </a>
+            </li>
+            <li class="contact">
+              <a class="link background-icon" href="#">
+                <img class="footer-img" src="../../assets/icons/facebook.svg" alt="facebook">
+              </a>
+            </li>
+            <li class="contact">
+              <a class="link background-icon" href="#">
+                <img class="footer-img" src="../../assets/icons/facebook.svg" alt="facebook">
+              </a>
+            </li>
+          </ul> -->
+          <div class="contacts">
+            <div class="contact">
+              <div class="background-icon">
+                <img class="footer-img background-icon" src="../../assets/icons/facebook.svg" alt="facebook">
+              </div>
+              <p class="social-network">Facebook</p>
+            </div>
+  
+            <div class="contact">
+              <div class="background-icon">
+                <img class="footer-img" src="../../assets/icons/twitter.svg" alt="twitter">
+              </div>
+              <p class="social-network">Twitter</p>
+            </div>
+  
+            <div class="contact">
+              <div class="background-icon">
+                <img class="footer-img" src="../../assets/icons/instagram.svg" alt="instagram">
+              </div>
+              <p class="social-network">Instagram</p>
+            </div>
+  
+            <div class="contact">
+              <div class="background-icon">
+                <img class="footer-img" src="../../assets/icons/youtube.svg" alt="you tube">
+              </div>
+              <p class="social-network">YouTube</p>
+            </div>
+          </div>
+          
+
+          <nav class="nav nav-footer">
+            <ul class="nav-list nav-list-footer">
+              <li><a class="link link-active" href="#">About</a></li>
+              <li><a class="link" href="#">Map</a></li>
+              <li><a class="link" href="#">Zoos</a></li>
+              <li><a class="link" href="#">Contact us</a></li>
+            </ul>
+          </nav>
+
+          <div class="footer-designed">
+            <p class="designed">Designed by Alisa Samborskaya</p>
+            <p class="designed">©RSSchool & ©Yem Digital 2021</p>
+          </div>
+        </div>
+      </div>
+    </footer>
     <script src="script.js"></script>
   </body>
 </html>
