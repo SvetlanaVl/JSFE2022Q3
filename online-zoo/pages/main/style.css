@@ -273,6 +273,7 @@ button:active {
   background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
   opacity: 0.9;
   padding-top: 69px;
+  margin-bottom: 141px;
 }
 .container-feed-friend {
   height: 835px;
@@ -378,4 +379,86 @@ button:active {
 }
 .arrow-icon {
   margin-top: 60px;
+}
+
+.testimonials {
+  min-height: 575px;
+}
+.testimonials-header {
+  margin: 0;
+  margin-bottom: 47px;
+}
+.reviews {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 30px;
+  width: 1160px;
+  min-height: 391px;
+  margin: 0 auto;
+  margin-bottom: 15px;
+}
+.review {
+  box-sizing: border-box;
+  position: absolute;
+  width: 268px;
+  height: 391px;
+  background: #F1F3F2;
+  border-radius: 20px;
+  padding-top: 10px;
+}
+.user {
+  width: 237px;
+  margin: 0 auto;
+  display: flex;
+  gap: 10px;
+  margin-bottom: 10px;
+}
+.about-user {
+  padding-top: 5px;
+}
+.about-user-name {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 120%;
+  color: #000000;
+  margin: 0;
+}
+.about-user-text {
+  display: flex;
+  gap: 8px;
+}
+.about-user-local, .about-user-day {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #BDBDBD;
+  margin: 0;
+}
+.rewiew-text {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 300;
+  font-size: 15px;
+  line-height: 120%;
+  color: #767474;
+  width: 237px;
+  margin: 0 auto;
+  
+}
+.input {
+  text-align: center;
+  margin-bottom: 26px;
+}
+.line-scrol {
+  width: 599px;
+  height: 8px;
+  
+}
+.button-testimonials {
+  border-radius: 5px;
+  margin: 0;
 }
