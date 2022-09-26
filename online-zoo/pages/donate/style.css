@@ -1,0 +1,470 @@
+html {
+  box-sizing: border-box;
+  scroll-behavior: smooth; /*Плавная прокрутка по якорям*/
+}
+.container-content {
+  max-width: 1160px;
+  margin: 0 auto;
+  overflow: hidden;
+}
+.header {
+  background: #000000;
+  backdrop-filter: blur(2px);
+  height: 80px;
+}
+.header-container {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 8px;
+  height: 80px;
+}
+.logo {
+  margin-top: 5px;
+}
+.nav {
+  margin-left: 55px;
+  margin-right: 430px;
+}
+.nav-list {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  padding: 0px;
+  gap: 58px;
+  list-style: none;
+}
+.link,
+.designed {
+  text-decoration: none;
+  color: #ffffff;
+  font-family: "Roboto", sans-serif;
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  transition: all 0.5s ease-out;
+}
+.link:hover,
+.designed:hover {
+  color: rgba(249, 128, 75, 1);
+}
+
+.link:active,
+.designed:active {
+  background: linear-gradient(113.96deg, #f9804b 1.49%, #fe9013 101.44%);
+}
+.link-active {
+  color: rgba(254, 144, 19, 1);
+}
+.petStory-online {
+  display: none;
+}
+
+.watch-online {
+  background: url(../../assets/images/panda_bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: cover;
+  height: 386px;
+}
+
+.donate {
+  height: 1441px;
+  background: linear-gradient(
+      315.75deg,
+      rgba(254, 210, 144, 0.7) 30.06%,
+      #febdab 100.95%,
+      rgba(254, 210, 144, 0.7) 106.36%
+    ),
+    linear-gradient(
+      315.75deg,
+      rgba(254, 189, 171, 0.74) 30.06%,
+      rgba(243, 169, 248, 0.66) 50.74%,
+      #e0d8f0 80.49%,
+      #eaf7fe 127.9%,
+      #eaf7fe 149.54%
+    ),
+    linear-gradient(
+      315.75deg,
+      rgba(254, 189, 171, 0.74) 30.06%,
+      rgba(243, 169, 248, 0.66) 50.74%,
+      #e0d8f0 80.49%,
+      #eaf7fe 127.9%,
+      #eaf7fe 149.54%
+    );
+  opacity: 0.9;
+  padding-top: 41px;
+}
+.info {
+  
+}
+.feed-friend-icon-header {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 36px;
+  line-height: 130%;
+  color: #FFFFFF;
+  margin: 0;
+  margin-bottom: 9px;
+}
+.donate-info {
+  color: #FE9013;
+  margin-bottom: 59px;
+}
+.text-info {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  color: #FFFFFF;
+  margin: 0;
+  margin-bottom: 46px;
+}
+
+.container-feed-friend {
+  height: 835px;
+  background: rgba(253, 253, 255, 0.52);
+  backdrop-filter: blur(2px);
+  border-radius: 20px;
+}
+.container-content-feed-friend {
+  width: 976px;
+  min-height: 167px;
+  margin-left: 99px;
+  padding-top: 41px;
+}
+.feed-friend-header {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 48px;
+  line-height: 120%;
+  color: #fe9013;
+  margin: 0;
+  margin-bottom: 20px;
+  text-align: center;
+  margin-left: -27px;
+}
+
+.text-subtitle {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 24px;
+  line-height: 120%;
+  color: #333B41;
+  margin: 0;
+  margin-bottom: 34px;
+}
+.diets-panda {
+  display: flex;
+  align-items: center;
+  width: 551px;
+  margin: 0 auto;
+  margin-bottom: 48px;
+}
+.days {
+  padding-top: 82px;
+  min-height: 120px;
+  padding-left: 3px;
+}
+.number {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 80%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 11px;
+}
+.diet {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  color: #333B41;
+  margin: 0;
+}
+.plus {
+  margin-top: 24px;
+  padding-left: 10px;
+}
+.panda {
+  padding-left: 65px;
+}
+.amount {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #000000;
+  margin-left: 96px;
+}
+
+.button {
+  width: 298px;
+  height: 54px;
+  background-color: rgba(254, 144, 19, 1);
+  border:rgba(0, 0, 0, 0.25);
+  border-radius: 25px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #FFFFFF;
+  margin-right: 100px;
+  cursor: pointer;
+}
+
+.button-slider-animals {
+  margin-left: 431px;
+}
+.button-testimonials {
+  border-radius: 5px;
+  margin: 0;
+}
+button:hover {
+  background-color: rgba(249, 128, 75, 1);
+}
+button:active {
+  background-color: #4B9200;
+}
+
+
+.feed-friend-text {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 130%;
+  color: #333b41;
+  margin: 0;
+  margin-bottom: 10px;
+}
+
+.feed-friend-text-info {
+  width: 863px;
+  margin-bottom: -2px;
+}
+.feed-friend-link {
+  color: #333b41;
+}
+.line {
+  width: 178px;
+  height: 1px;
+  border-bottom: 1px solid #fe9013;
+  margin-left: 87px;
+  margin-bottom: 20px;
+  margin-bottom: 59px;
+}
+
+.feed-friend-icon {
+  width: 764px;
+  display: flex;
+  gap: 30px;
+  margin: 0 auto;
+  margin-bottom: 60px;
+}
+.container-icon {
+  width: 168px;
+  height: 244px;
+  border-radius: 5px;
+}
+
+.icon {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-sizing: border-box;
+  width: 168px;
+  height: 168px;
+  background: #ffffff;
+  border: 1px solid rgba(254, 144, 19, 1);
+  border-radius: 5px;
+  margin: 0;
+  margin-bottom: 30px;
+}
+.container-icon:first-child img {
+  width: 108px;
+  height: 60px;
+}
+.container-icon:nth-child(2) img {
+  width: 85px;
+  height: 95px;
+}
+.container-icon:last-child img {
+  width: 124px;
+  height: 71px;
+}
+.icon-caption {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #333b41;
+  margin: 0;
+}
+.arrow-icon {
+  margin-top: 60px;
+}
+
+.footer {
+  background: #111115;
+}
+.footer-header {
+  display: flex;
+  justify-content: space-between;
+  padding-top: 36px;
+  margin-bottom: 36px;
+}
+.subscribe {
+  width: 367px;
+}
+.footer-subtitle {
+  color: #ffffff;
+  padding-top: 5px;
+  margin-bottom: 13px;
+}
+.email {
+  width: 228px;
+  height: 42px;
+  box-sizing: border-box;
+  border-radius: 2px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  background-color: rgba(254, 144, 19, 0);
+  color: #bdbdbd;
+  border: 0.7px solid rgba(254, 144, 19, 1);
+  padding-left: 10px;
+  margin-right: 6px;
+}
+input[type="email"]:focus {
+  outline: none !important;
+  border: 0.9px solid #4b9200;
+}
+
+.button-footer {
+  box-sizing: border-box;
+  width: 129px;
+  height: 42px;
+  background: #f1f3f2;
+  border: 1px solid #4b9200;
+  border-radius: 5px;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #4b9200;
+}
+.button-footer-big {
+  margin-bottom: 44px;
+}
+.contacts-and-nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-bottom: 50px;
+}
+.contacts {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin: 0;
+  padding: 0;
+}
+.contact {
+  display: flex;
+  gap: 13px;
+}
+.background-icon {
+  width: 26px;
+  height: 26px;
+  background: rgba(196, 196, 196, 0.5);
+  border-radius: 50%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.background-icon:active {
+  background: #4b9200;
+}
+.background-icon:active + .social-network {
+  color: #4b9200;
+}
+.footer-img {
+  width: 8px;
+  height: 16px;
+}
+.contact:nth-child(2) img {
+  width: 16px;
+  height: 14px;
+}
+.contact:nth-child(3) img {
+  width: 16px;
+  height: 16px;
+}
+.contact:nth-child(4) img {
+  width: 18px;
+  height: 13px;
+}
+.social-network {
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #ffffff;
+  margin: 0;
+  padding-top: 4px;
+  text-decoration: none;
+}
+.social-network:active {
+  color: #4b9200;
+}
+
+.nav-footer {
+  margin-right: -64px;
+}
+.nav-list-footer {
+  margin-bottom: 0;
+}
+.footer-designed {
+  width: 228px;
+}
+.designed-by {
+  margin: 0;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 100;
+  font-size: 16px;
+  line-height: 130%;
+  color: #ffffff;
+  padding-top: 11px;
+}
+.designed-by:active {
+  color: #4b9200;
+  text-decoration: underline;
+}
+.designed-by:active + .designed-by {
+  color: #4b9200;
+  text-decoration: underline;
+}
