@@ -47,9 +47,10 @@ html {
   line-height: 140%;
   transition: all 0.5s ease-out;
 }
-.link:hover {
+.link:hover, .designed:hover {
   color: rgba(249, 128, 75, 1);
 }
+
 .link:active, .designed:active {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
@@ -128,7 +129,15 @@ button:active {
   background-color: #4B9200;
 }
 .how-it-works {
-  margin-bottom: 175px;
+  background-image: url(../../assets/images/flower_foto1.jpg);
+  background-repeat: no-repeat;
+  background-position: right;
+  background-size: cover;
+  background-size: 204px 612px;
+  background-position-x: right;
+  background-position-y: -4px;
+  min-height: 605px;
+  margin-bottom: 102px;
 }
 .how-it-works-container {
   display: flex;
@@ -182,13 +191,19 @@ button:active {
   margin: 0;
 }
 
+
 .slider-animals {
-  margin-bottom: 38px;
+  background-image: url(../../assets/images/palm_foto.jpg), 
+                    url(../../assets/images/strelitzia\ 1.jpg);
+  background-repeat: no-repeat, no-repeat;
+  background-position-x: left, right;
+  background-position-y: 645px, 831px;
+  min-height: 1106px;
 }
 .container-cards {
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  gap: 20px 30px;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 20px 28px;
   margin-bottom: 76px;
 }
 .container-card {
@@ -206,11 +221,13 @@ button:active {
   margin: 0;
 }
 .cards-img {
-  transition: width 7s ease-in-out 7s;
+  border-radius: 5px 5px 0 0;
+  transition: width 1.5s ease-in-out 7s;
 }
 .cards-img:hover {
-  width: 376px;
-  height: 376px;
+  transition: 1.5s;
+  transform: scale(1.05);
+  filter: brightness(60%);
 }
 .cards-caption {
   display: flex;
@@ -221,6 +238,9 @@ button:active {
 }
 .cards-caption-text {
   padding-left: 2px;
+}
+.cards-caption-text-active {
+  transform: translate(-40px, -60px);
 }
 .animal-name {
   font-family: 'Roboto';
@@ -287,7 +307,7 @@ button:active {
   
 }
 .container-content-feed-friend {
-  width: 1000px;
+  width: 1002px;
   min-height: 270px;
   margin-left: 99px;
   padding-top: 41px;
@@ -310,7 +330,7 @@ button:active {
 .feed-friend-text {
   font-family: 'Roboto';
   font-style: normal;
-  font-weight: 400;
+  font-weight: 500;
   font-size: 16px;
   line-height: 130%;
   color: #333B41;
@@ -398,8 +418,12 @@ button:active {
 }
 
 .testimonials {
-  min-height: 575px;
-  margin-bottom: 180px;
+  background-image: url(../../assets/images/leav_foto.jpg);
+  background-repeat: no-repeat;
+  background-position-x: right;
+  background-position-y: 505px;
+  background-size: 247px 403px;
+  min-height: 778px;
 }
 .testimonials-header {
   margin: 0;
@@ -408,7 +432,7 @@ button:active {
 .reviews {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 30px;
+  gap: 26.6px;
   width: 1160px;
   min-height: 391px;
   margin: 0 auto;
@@ -421,6 +445,25 @@ button:active {
   background: #F1F3F2;
   border-radius: 20px;
   padding-top: 10px;
+  position: relative;
+}
+.review::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 20px; 
+  border: 2px solid transparent;
+  background: linear-gradient(309deg,rgba(254, 189, 171, 0.74),
+  rgba(254, 189, 171, 0.74),
+  rgba(254, 189, 171, 0.74),
+  rgba(243, 169, 248, 0.66),
+  rgba(243, 169, 248, 0.66),
+  rgba(224, 216, 240, 1),
+  rgba(234, 247, 254, 1)) border-box;
+  -webkit-mask:
+    linear-gradient(#fff 0 0) padding-box, 
+    linear-gradient(#fff 0 0);
+  -webkit-mask-composite: xor; 
 }
 .user {
   width: 237px;
@@ -469,11 +512,46 @@ button:active {
   text-align: center;
   margin-bottom: 26px;
 }
-.line-scrol {
+input[type=range] {
   width: 599px;
   height: 8px;
-  
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
 }
+input[type=range]::-webkit-slider-runnable-track {
+  border-radius: 5px; 
+  border: 1px solid rgba(254, 189, 171, 0.74);
+  background: #FFFFFF;
+}
+input[type=range]::-webkit-slider-thumb {
+  background: #FE9013;
+  border: 1px solid #FE9013;
+  border-radius: 10px/100%;
+  cursor: pointer;
+  width: 115px;
+  height: 7px;
+  -webkit-appearance: none;
+  margin-top: 0;
+}
+
+input[type=range]::-moz-range-track {
+  border-radius: 10px/100%;
+    height: 5px;
+  border: 1px solid cyan;
+  background-color: #fff;
+}
+input[type=range]::-moz-range-thumb {
+  background: #ecf0f1;
+  border: 1px solid cyan;
+    border-radius: 10px/100%;
+  cursor: pointer;
+}
+
+
+
+
+
 .button-testimonials {
   border-radius: 5px;
   margin: 0;
@@ -493,7 +571,7 @@ button:active {
 .footer-subtitle {
   color: #FFFFFF;
   padding-top: 5px;
-    margin-bottom: 13px;
+  margin-bottom: 13px;
 }
 .email {
   width: 228px;
@@ -512,6 +590,11 @@ button:active {
   margin-right: 6px;
 
 }
+input[type=email]:focus {
+  outline: none !important;
+  border: 0.9px solid #4B9200;
+}
+
 .button-footer {
   box-sizing: border-box;
   width: 129px;
@@ -539,6 +622,8 @@ button:active {
   display: flex;
   flex-direction: column;
   gap: 10px;
+  margin: 0;
+  padding: 0;
 }
 .contact {
   display: flex;
@@ -552,6 +637,12 @@ button:active {
   display: flex;
   justify-content: center;
   align-items: center;
+}
+.background-icon:active {
+  background: #4B9200;
+}
+.background-icon:active + .social-network {
+  color: #4B9200;
 }
 .footer-img {
   width: 8px;
@@ -578,7 +669,12 @@ button:active {
   color: #FFFFFF;
   margin: 0;
   padding-top: 4px;
+  text-decoration: none;
 }
+.social-network:active {
+  color: #4B9200;
+}
+
 .nav-footer {
   margin-right: -64px;
 }
@@ -588,7 +684,7 @@ button:active {
 .footer-designed {
   width: 228px;
 }
-.designed {
+.designed-by {
   margin: 0;
   font-family: 'Roboto';
   font-style: normal;
@@ -597,4 +693,12 @@ button:active {
   line-height: 130%;
   color: #FFFFFF;
   padding-top: 11px;
+}
+.designed-by:active {
+  color: #4B9200;
+  text-decoration: underline;
+}
+.designed-by:active + .designed-by {
+  color: #4B9200;
+  text-decoration: underline;
 }
