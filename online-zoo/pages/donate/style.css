@@ -72,7 +72,7 @@ html {
 }
 
 .donate {
-  height: 935px;
+  height: 1441px;
   background: linear-gradient(
       315.75deg,
       rgba(254, 210, 144, 0.7) 30.06%,
@@ -97,7 +97,6 @@ html {
     );
   opacity: 0.9;
   padding-top: 41px;
-  margin-bottom: 141px;
 }
 .info {
   
@@ -135,7 +134,7 @@ html {
 }
 .container-content-feed-friend {
   width: 976px;
-  min-height: 270px;
+  min-height: 167px;
   margin-left: 99px;
   padding-top: 41px;
 }
@@ -152,10 +151,6 @@ html {
   margin-left: -27px;
 }
 
-
-
-
-
 .text-subtitle {
   font-family: 'Roboto';
   font-style: normal;
@@ -165,6 +160,56 @@ html {
   color: #333B41;
   margin: 0;
   margin-bottom: 34px;
+}
+.diets-panda {
+  display: flex;
+  align-items: center;
+  width: 551px;
+  margin: 0 auto;
+  margin-bottom: 48px;
+}
+.days {
+  padding-top: 82px;
+  min-height: 120px;
+  padding-left: 3px;
+}
+.number {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 500;
+  font-size: 72px;
+  line-height: 80%;
+  text-align: center;
+  text-transform: uppercase;
+  color: #000000;
+  margin: 0;
+  margin-bottom: 11px;
+}
+.diet {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  text-align: center;
+  color: #333B41;
+  margin: 0;
+}
+.plus {
+  margin-top: 24px;
+  padding-left: 10px;
+}
+.panda {
+  padding-left: 65px;
+}
+.amount {
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 140%;
+  color: #000000;
+  margin-left: 96px;
 }
 
 .button {
@@ -184,8 +229,19 @@ html {
   margin-right: 100px;
   cursor: pointer;
 }
+
 .button-slider-animals {
   margin-left: 431px;
+}
+.button-testimonials {
+  border-radius: 5px;
+  margin: 0;
+}
+button:hover {
+  background-color: rgba(249, 128, 75, 1);
+}
+button:active {
+  background-color: #4B9200;
 }
 
 
