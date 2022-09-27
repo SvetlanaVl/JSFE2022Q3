@@ -241,6 +241,24 @@ html {
   background: #ffee2e;
   cursor: pointer;
 }
+.big-circle {
+  position: absolute;
+  left: 362px;
+  top: 531px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  border: 1px solid #fe9013;
+}
+.medium-circle {
+  position: absolute;
+  left: 371px;
+  top: 540px;
+  width: 22.95px;
+  height: 22.95px;
+  border-radius: 50%;
+  border: 1px solid #fe9013;
+}
 .container-dollar {
   display: flex;
   width: 100%;
@@ -264,6 +282,7 @@ html {
 }
 .dollar:nth-child(3) {
   margin-left: -11px;
+  color: #FE9013;;
 }
 .dollar:nth-child(4) {
   margin-left: -12px;
@@ -282,6 +301,9 @@ html {
 }
 .dollar::before {
   content: url(../../assets/icons/dollar.svg);
+}
+.dollar:nth-child(3)::before {
+  content: url(../../assets/icons/dollar-orange.svg);
 }
 .circle:hover {
   background: rgba(254, 144, 19, 1);
