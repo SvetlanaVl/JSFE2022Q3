@@ -328,8 +328,13 @@ input[type="radio"] {
 .circle-active {
   background: rgba(254, 144, 19, 1);
 }
+input[type="radio"]:checked {
+  border: 1px solid rgba(254, 144, 19, 1);
+  background: rgba(254, 144, 19, 1);
+}
 .form {
   text-align: center;
+  margin-left: -16px;
   margin-bottom: 30px;
 }
 .label {
