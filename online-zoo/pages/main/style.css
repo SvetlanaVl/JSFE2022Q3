@@ -101,7 +101,7 @@ html {
 .background-behind-text {
   width: 465px;
   height: 465px;
-  background-color: #F9804B;
+  background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
   border-radius: 50%;
   z-index: 0;
   margin-right: 110px;
@@ -224,15 +224,21 @@ button:active {
 .card {
   height: 366px;
   margin: 0;
+  transition: width 1.5s ease-in-out 7s;
 }
 .card-img {
   border-radius: 5px 5px 0 0;
-  transition: width 1.5s ease-in-out 7s;
+  
 }
-.card-img:hover {
+.card:hover {
   transition: 1.5s;
   transform: scale(1.05);
-  filter: brightness(60%);
+  filter: brightness(50%);
+}
+.card:hover + .card-caption {
+  transition: 1.5s;
+  transform: translate(0, -200px);
+  color: #f3f7f0;
 }
 .card-caption {
   display: flex;
@@ -240,7 +246,9 @@ button:active {
   width: 336px;
   margin: 0 auto;
   padding-top: 8px;
+  color: #000000;
 }
+
 .card-caption-text {
   padding-left: 2px;
 }
@@ -254,7 +262,7 @@ button:active {
   font-size: 16px;
   line-height: 140%;
   text-transform: uppercase;
-  color: #000000;
+  /* color: #000000; */
   margin: 0;
   margin-bottom: -3px;
 }
@@ -264,7 +272,7 @@ button:active {
   font-weight: 300;
   font-size: 15px;
   line-height: 120%;
-  color: #000000;
+  /* color: #000000; */
   margin: 0;
 }
 .arrow {
