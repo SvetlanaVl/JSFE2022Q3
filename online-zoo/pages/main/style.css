@@ -2,23 +2,26 @@ html {
   box-sizing: border-box;
   scroll-behavior: smooth; /*Плавная прокрутка по якорям*/
 }
-.container-content {
+.wrapper {
   max-width: 1160px;
   margin: 0 auto;
+  padding: 0 15px;
   overflow: hidden;
 }
+
+/* header */
+
 .header {
   background: #000000;
   backdrop-filter: blur(2px);
   height: 80px;
 }
-.header-container {
+.header-wrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
   height: 80px;
-
 }
 .logo {
   margin-top: 5px;
@@ -37,7 +40,7 @@ html {
   gap: 58px;
   list-style: none;
 } 
-.link, .designed {
+.nav-link, .link-designed {
   text-decoration: none;
   color:#FFFFFF;
   font-family: 'Roboto', sans-serif;
@@ -47,23 +50,21 @@ html {
   line-height: 140%;
   transition: all 0.5s ease-out;
 }
-.link:hover, .designed:hover {
+.nav-link:hover, .link-designed:hover {
   color: rgba(249, 128, 75, 1);
 }
-
-.link:active, .designed:active {
+.nav-link:active, .link-designed:active {
   background: linear-gradient(113.96deg, #F9804B 1.49%, #FE9013 101.44%);
 }
-.link-active {
+.nav-link-active {
   color: rgba(254, 144, 19, 1);
 }
-.petStory-online {
+.title {
   display: none;
 }
-.watch-online {
-  background: #283035;
-  margin-bottom: 16px;
-}
+
+/* section watch online */
+
 .watch-online-background {
   background: url(../../assets/images/Giant\ Panda.jpg);
   background-repeat: no-repeat;
@@ -78,7 +79,7 @@ html {
   align-items: flex-end;
   padding-top: 92px;
 }
-.watch-animal {
+.text-first-section {
   width: 500.31px;
   height: 400px;
   font-family: 'Roboto';
@@ -94,7 +95,7 @@ html {
   margin-bottom: 60px;
   z-index: 2;
 }
-span {
+.highlighting {
   color: rgba(255, 238, 46, 1);
 }
 .background-behind-text {
@@ -128,30 +129,32 @@ button:hover {
 button:active {
   background-color: #4B9200;
 }
-.how-it-works {
+
+/* info */
+
+.info {
   background-image: url(../../assets/images/flower_foto1.jpg);
   background-repeat: no-repeat;
   background-position: right;
-  background-size: cover;
   background-size: 204px 612px;
   background-position-x: right;
-  background-position-y: -4px;
+  background-position-y: 13px;
   min-height: 605px;
-  margin-bottom: 102px;
+  margin-bottom: 118px;
 }
-.how-it-works-container {
+.info-container {
   display: flex;
   gap: 87px;
-  margin-top: 124px;
+  padding-top: 140px;
 }
-.how-it-works-img {
+.info-img {
   width: 609px;
   height: 403px;
 }
-.how-it-works-text {
+.info-text {
   width: 465px;
 }
-.how-it-works-text-header {
+.heading {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -161,7 +164,8 @@ button:active {
   margin: 0;
   margin-bottom: 22px;
 }
-.text-info {
+
+.text {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -171,7 +175,7 @@ button:active {
   margin: 0;
   margin-bottom: 54px;
 }
-.text-subtitle {
+.subtitle {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -181,7 +185,7 @@ button:active {
   margin: 0;
   margin-bottom: 34px;
 }
-.how-it-works-text-goal {
+.info-text-goal {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -191,6 +195,7 @@ button:active {
   margin: 0;
 }
 
+/* slider-animals */
 
 .slider-animals {
   background-image: url(../../assets/images/palm_foto.jpg), 
@@ -200,11 +205,11 @@ button:active {
   background-position-y: 645px, 831px;
   min-height: 1106px;
 }
-.container-cards {
+.wrapper-cards {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
-  gap: 20px 28px;
-  margin-bottom: 76px;
+  gap: 17px 27px;
+  margin-bottom: 79px;
 }
 .container-card {
   width: 366px;
@@ -216,30 +221,30 @@ button:active {
 .container-card:hover {
   border: 1px solid rgba(254, 144, 19, 1);
 }
-.cards {
+.card {
   height: 366px;
   margin: 0;
 }
-.cards-img {
+.card-img {
   border-radius: 5px 5px 0 0;
   transition: width 1.5s ease-in-out 7s;
 }
-.cards-img:hover {
+.card-img:hover {
   transition: 1.5s;
   transform: scale(1.05);
   filter: brightness(60%);
 }
-.cards-caption {
+.card-caption {
   display: flex;
   justify-content: space-between;
   width: 336px;
   margin: 0 auto;
   padding-top: 8px;
 }
-.cards-caption-text {
+.card-caption-text {
   padding-left: 2px;
 }
-.cards-caption-text-active {
+.card-caption-text-active {
   transform: translate(-40px, -60px);
 }
 .animal-name {
@@ -288,7 +293,7 @@ button:active {
 .arrow-right-img {
   margin: 26px 22px;
 }
-.button-slider-animals {
+.button-center {
   margin-left: 431px;
 }
 
@@ -299,32 +304,26 @@ button:active {
   padding-top: 69px;
   margin-bottom: 141px;
 }
-.container-feed-friend {
+.wrapper-feed-friend {
   height: 835px;
   background: rgba(253, 253, 255, 0.52);
   backdrop-filter: blur(2px);
   border-radius: 20px;
   
 }
-.container-content-feed-friend {
+.container-feed-friend {
   width: 1002px;
   min-height: 270px;
   margin-left: 99px;
   padding-top: 41px;
 }
 .feed-friend-header{
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 48px;
-  line-height: 120%;
   color: #FE9013;
-  margin: 0;
   margin-bottom: 32px;
   text-align: center;
   margin-left: -34px;
 }
-.feed-friend-text-subtitle {
+.subtitle-feed-friend {
   margin-bottom: 40px;
 }
 .feed-friend-text {
@@ -354,7 +353,7 @@ button:active {
   margin-bottom: 20px;
   margin-bottom: 59px;
 }
-.feed-friend-icon-header {
+.heading-medium {
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -404,18 +403,11 @@ button:active {
   width: 124px;
   height: 71px;
 }
-.icon-caption {
-  font-family: 'Roboto';
-  font-style: normal;
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 140%;
-  color: #333B41;
-  margin: 0;
-}
 .arrow-icon {
   margin-top: 60px;
 }
+
+/* testimonials */
 
 .testimonials {
   background-image: url(../../assets/images/leav_foto.jpg);
@@ -432,7 +424,7 @@ button:active {
 .reviews {
   display: grid;
   grid-template-columns: repeat(4, 1fr);
-  gap: 26.6px;
+  gap: 29.8px;
   width: 1160px;
   min-height: 391px;
   margin: 0 auto;
@@ -506,7 +498,6 @@ button:active {
   color: #767474;
   width: 237px;
   margin: 0 auto;
-  
 }
 .input {
   text-align: center;
@@ -534,7 +525,6 @@ input[type=range]::-webkit-slider-thumb {
   -webkit-appearance: none;
   margin-top: 0;
 }
-
 input[type=range]::-moz-range-track {
   border-radius: 10px/100%;
     height: 5px;
@@ -547,15 +537,13 @@ input[type=range]::-moz-range-thumb {
     border-radius: 10px/100%;
   cursor: pointer;
 }
-
-
-
-
-
 .button-testimonials {
   border-radius: 5px;
   margin: 0;
 }
+
+/* footer */
+
 .footer {
   background: #111115;
 }
