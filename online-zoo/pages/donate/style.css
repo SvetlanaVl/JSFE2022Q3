@@ -229,10 +229,22 @@ html {
 }
 .container-circle {
   display: flex;
-  width: 94%;
+  width: 98%;
   justify-content: space-between;
-  margin-top: -4px;
-  margin-bottom: 21px;
+  margin-top: -25px;
+  margin-bottom: 1px;
+}
+.hover-circle {
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 4;
+}
+.hover-circle:hover > .circle {
+  background: rgba(254, 144, 19, 1);
 }
 .circle {
   width: 10px;
@@ -241,23 +253,28 @@ html {
   background: #ffee2e;
   cursor: pointer;
 }
+.circle-active {
+  background: rgba(249, 128, 75, 1);
+}
 .big-circle {
   position: absolute;
-  left: 362px;
+  left: 364px;
   top: 531px;
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid #fe9013;
+  z-index: 2;
 }
 .medium-circle {
   position: absolute;
-  left: 371px;
+  left: 373px;
   top: 540px;
   width: 22.95px;
   height: 22.95px;
   border-radius: 50%;
   border: 1px solid #fe9013;
+  z-index: 2;
 }
 .container-dollar {
   display: flex;
