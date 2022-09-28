@@ -28,7 +28,7 @@ html {
 }
 .nav {
   margin-left: 55px;
-  margin-right: 430px;
+  margin-right: 37.2%;;
 }
 .nav-list {
   display: flex;
@@ -164,7 +164,6 @@ button:active {
   margin: 0;
   margin-bottom: 22px;
 }
-
 .text {
   font-family: 'Roboto';
   font-style: normal;
@@ -305,6 +304,9 @@ button:active {
   margin-left: 431px;
 }
 
+/* feed-friend  */
+
+
 .feed-friend {
   height: 935px;
   background: linear-gradient(315.75deg, rgba(254, 210, 144, 0.7) 30.06%, #FEBDAB 100.95%, rgba(254, 210, 144, 0.7) 106.36%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%), linear-gradient(315.75deg, rgba(254, 189, 171, 0.74) 30.06%, rgba(243, 169, 248, 0.66) 50.74%, #E0D8F0 80.49%, #EAF7FE 127.9%, #EAF7FE 149.54%);
@@ -322,14 +324,13 @@ button:active {
 .container-feed-friend {
   width: 1002px;
   min-height: 270px;
-  margin-left: 99px;
+  margin: 0 auto;
   padding-top: 41px;
 }
 .feed-friend-header{
   color: #FE9013;
   margin-bottom: 32px;
   text-align: center;
-  margin-left: -34px;
 }
 .subtitle-feed-friend {
   margin-bottom: 40px;
@@ -370,7 +371,6 @@ button:active {
   color: #333B41;
   text-align: center;
   margin: 0;
-  margin-left: -40px;
   margin-bottom: 39px;
 }
 .feed-friend-icon {
@@ -697,4 +697,144 @@ input[type=email]:focus {
 .designed-by:active + .designed-by {
   color: #4B9200;
   text-decoration: underline;
+}
+
+/* media  */
+
+@media screen and (max-width: 1000px) {
+  .wrapper {
+    max-width: 940px;
+  }
+
+  /* header  */
+
+  .header {
+    position: relative;
+    top: 0;
+    left: 0;
+    z-index: 5;
+  }
+  .nav {
+    margin-right: 26.5%;
+  }
+  .nav-list {
+    gap: 48px;
+  }
+
+  /* section watch online */
+
+  .watch-online-background {
+    height: 584px;
+  }
+  .watch-online-container {
+    padding-top: 69px;
+  }
+  .background-behind-text {
+    width: 367px;
+    height: 367px;
+    margin-right: 147px;
+  }
+  .text-first-section {
+    width: 400.25px;
+    height: 320px;
+    font-size: 85px;
+    margin-right: 56px;
+    margin-top: -311px;
+    margin-bottom: 38px;
+  }
+  .button {
+    margin-right: 107px;
+  }
+
+  /* info */
+
+  .info {
+    background-image: none;
+    margin-bottom: 65px;
+  }
+  .info-container {  
+    gap: 31px;
+    padding-top: 109px;
+  }
+  .info-img {  
+    width: 455px;
+    height: 408px;
+  }
+  .info-text {  
+    margin-top: -9px;
+  }
+
+  /* slider-animals */
+
+  .slider-animals {  
+    background-image: url(../../assets/images/palm_foto_small.jpg), 
+                      url(../../assets/images/strelitzia_small.jpg);
+    background-position-y: 872px, 895px;
+    min-height: 1074px;
+  }
+  .wrapper-cards {  
+    gap: 89px 27px;
+    margin-bottom: 83px;
+  }
+  .arrow {  
+    width: 295px;
+    top: -566px;
+  }
+  .container-card {  
+    width: 294px;
+    height: 352px;
+  }
+  .card {
+    height: 294px;
+  }
+  .card-img {
+    width: 294px;
+  }
+  .card-caption {
+    width: 267px;
+  }
+  .button-center {
+    margin-left: 321px;
+  }
+
+  /* feed-friend  */
+
+  .wrapper-feed-friend {
+    height: 796px;
+  }
+  .feed-friend {
+    padding-top: 30px;
+    height: 846px;
+    margin-bottom: 101px;
+  }
+  .container-feed-friend {
+    width: 843px;
+    padding-top: 30px;
+  }
+  .feed-friend-header {
+    margin-bottom: 21px;
+  }
+  .subtitle-feed-friend {
+    margin-bottom: 21px;
+  }
+  .feed-friend-text {
+    width: 813px;
+  }
+  .feed-friend-text {
+    width: 813px;
+  }
+  .feed-friend-text-info {
+    width: 823px;
+    margin-bottom: -4px;
+  }
+  .line {
+    margin-left: 151px;
+    margin-bottom: 41px;
+  }
+  .feed-friend-icon {
+    margin-bottom: 70px;
+  }
+  .testimonials-header {
+    margin-bottom: 29px;
+  }
 }
