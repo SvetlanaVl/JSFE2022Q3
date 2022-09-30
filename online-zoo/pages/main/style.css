@@ -878,11 +878,9 @@ input[type=email]:focus {
   }
   .nav-footer {
     margin-right: -64px;
+    margin-left: 25px;
   }
   .designed-by {
     padding-top: 9px;
-  }
-  .nav-footer {
-    margin-left: 25px;
   }
 }
