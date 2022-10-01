@@ -1162,8 +1162,56 @@ input[type=email]:focus {
   .nav-list {
     gap: 37px;
   }
-  
+}
 
+@media screen and (max-width: 320px) {
+  .wrapper {
+    max-width: 300px;
+    padding: 0 10px;
+  }
+
+  /* header */
+
+  .logo {
+    margin-top: 2px;
+  }
+  .hamburger {
+    margin-top: -7px;
+  }
+
+  /* section watch online */
+
+  .watch-online-background {
+    background: url(../../assets/images/Giant\ Panda_mobile.jpg);
+    background-repeat: no-repeat;
+    margin-top: 34px;
+    height: 229.96px;
+  }
+  .background-behind-text {
+    width: 119.09px;
+    height: 119.09px;
+    margin-right: 28px;
+    margin-top: 22px;
+  }
+  .text-first-section {
+    width: 128.13px;
+    height: 102.44px;
+    font-size: 28px;
+    line-height: 75%;
+    margin-right: 0px;
+    margin-top: -100px;
+    margin-bottom: 63px;
+  }
+  .button {
+    margin-right: 1px;
+  }
+
+  /* info */
+
+  .info {
+    background-image: url(../../assets/images/flower_foto1_mobile.jpg);
+    background-size: 35px 225px;
+  }
 
 
 
