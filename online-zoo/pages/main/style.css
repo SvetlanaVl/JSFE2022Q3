@@ -59,6 +59,20 @@ html {
 .nav-link-active {
   color: rgba(254, 144, 19, 1);
 }
+.hamburger {
+  width: 18px;
+  height: 10px;
+  display: none;
+  margin-top: -11px;
+}
+.hamburger-line {
+  width: 18px;
+  height: 2px;
+  background-color: #FFFFFF;
+  display: block;
+  margin: 2px auto;
+  border-radius: 2px;
+}
 .title {
   display: none;
 }
@@ -414,6 +428,15 @@ button:active {
 .arrow-icon {
   margin-top: 60px;
 }
+.arrow-icon-tablet {
+  display: none;
+  justify-content: center;
+  gap: 118px;
+  position: relative;
+  top: -330px;
+  left: -15px;
+  margin-bottom: -59px;
+}
 
 /* testimonials */
 
@@ -613,6 +636,9 @@ input[type=email]:focus {
   justify-content: space-between;
   align-items: flex-end;
   margin-bottom: 50px;
+}
+.contacts-tablet {
+  display: none;
 }
 .contacts {
   display: flex;
@@ -883,4 +909,246 @@ input[type=email]:focus {
   .designed-by {
     padding-top: 9px;
   }
+
+}
+@media screen and (max-width: 640px) {
+  .wrapper {
+    max-width: 600px;
+  }
+    
+  /* header  */
+
+  .header {
+    height: 34px;
+    position: fixed;
+    width: 100%;
+  }
+  .header-wrapper {
+    justify-content: space-between;
+    height: 34px;
+  }
+  .logo {
+    margin-top: 3px;
+  }
+  .nav, .link-designed {
+    display: none;
+  }
+  .hamburger {
+    display: block;
+  }
+
+  /* section watch online */
+
+  .watch-online-background {
+    background: url(../../assets/images/Giant_Panda_tablet.jpg);
+    height: 373px;
+    margin-top: 0;
+  }
+  .watch-online-container {
+    padding-top: 0px;
+  }
+  .background-behind-text {
+    width: 237.6px;
+    height: 237.6px;
+    margin-right: 52px;
+    margin-top: 44px;
+  }
+  .text-first-section {
+    width: 255.64px;
+    height: 204.38px;
+    font-size: 54.2894px;
+    line-height: 75%;
+    text-align: center;
+    text-transform: uppercase;
+    margin-right: -4px;
+    margin-top: -199px;
+    margin-bottom: -8px;
+  }
+  .button {
+    margin-right: 302px;
+  }
+
+  /* info */
+
+  .info {
+    background-image: url(../../assets/images/flower_foto1_tablet.jpg);
+    background-size: 132px 484px;
+    background-position-y: -5px;
+    margin-bottom: 37px;
+    min-height: 470px;
+  }
+  .info-img {
+    display: none;
+  }
+  .info-container {
+    padding-top: 60px;
+  }
+  .info-text {
+    margin-top: 0;
+    width: 482px;
+  }
+  .heading {
+    padding-left: 4px;
+  }
+  .text {
+    margin-bottom: 30px;
+  }
+  .subtitle {
+    padding-left: 4px;
+    margin-bottom: 19px;
+  }
+
+  /* slider-animals */
+
+  .slider-animals {  
+    background-image: url(../../assets/images/palm_foto_tablet.jpg), 
+                      url(../../assets/images/strelitzia_tablet.jpg);
+    background-position-y: 769px, 840px;
+    min-height: 970px;
+  }
+  .wrapper-cards {
+    gap: 92px 28px;
+    margin-bottom: 60px;
+  }
+  .container-card {  
+    width: 284px;
+    height: 330px;
+  }
+  .card {
+    height: 284px;
+  }
+  .card-img {
+    width: 284px;
+  }
+  .animal-name {
+    font-size: 12.4695px;
+  }
+  .animal-where {
+    font-size: 11.6901px;
+  }
+
+  .card-caption img {
+    width: 12%;
+  }
+  .arrow {
+    width: 154px;
+    top: -550px;
+  }
+  .button-center {
+    margin-left: 151px;
+  }
+
+  /* feed-friend  */
+
+  .feed-friend {
+    padding-top: 20px;
+    height: 761px;
+    margin-bottom: 61px;
+  }
+  .wrapper-feed-friend {
+    height: 741px;
+  }
+  .container-feed-friend {
+    width: 600px;
+    padding-top: 10px;
+  }
+  .feed-friend-header {
+    font-size: 42px;
+    margin-bottom: 21px;
+  }
+  .subtitle-feed-friend {
+    font-size: 22px;
+    padding-left: 0;
+    margin-bottom: 19px;
+  }
+  .feed-friend-text {
+    width: 600px;
+  }
+  .feed-friend-text-info {
+    width: 600px;
+    margin-bottom: -4px;
+  }
+  .line {
+    margin-left: 356px;
+    margin-bottom: 31px;
+  }
+  .heading-medium {
+    margin-bottom: 19px;
+  }
+  .arrow-icon {
+    display: none;
+  }
+  .feed-friend-icon {
+    gap: 42px;
+  }
+  .arrow-icon-tablet {
+    display: flex;
+  }
+
+  /* testimonials */
+
+  .testimonials {
+    background-image: url(../../assets/images/leav_foto_tablet.jpg);
+    background-position-y: 472px;
+    background-size: 116.15px 203.88px;
+    min-height: 607px;
+  }
+  .testimonials-header {
+    margin-bottom: 29px;
+  }
+  .reviews {
+    grid-template-columns: repeat(1, 1fr);
+    gap: 0;
+    width: 600px;
+    min-height: 391px;
+    margin-bottom: 6px;
+  }
+  .review {
+    width: 600px;
+    height: 109px;
+    overflow: hidden;
+  }
+  .review:not(.review:first-child) {
+    margin-top: -18px;
+  }
+  .user {
+    margin: 0;
+    margin-bottom: 10px;
+    padding-left: 12px;
+  }
+  .rewiew-text {
+    width: 556px;
+    margin: 0;
+    padding-left: 17px;
+  }
+  .input {
+    display: none;
+  }
+  .button-testimonials {
+    width: 240px;
+    margin-left: 180px;
+  }
+
+  /* footer  */
+
+  /* .footer-header {
+    padding-top: 10px;
+    margin-bottom: 28px;
+  }
+  .subscribe, .social-network, .contacts {
+    display: none;
+  }
+  .button-footer-big {
+    margin-bottom: 44px;
+    margin-left: 0;
+    width: 298px;
+  }
+  .contacts-tablet {
+    display: flex;
+    gap: 20px;
+  } */
+
+
+
+
 }
