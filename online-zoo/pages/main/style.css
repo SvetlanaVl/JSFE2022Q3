@@ -437,6 +437,17 @@ button:active {
   left: -15px;
   margin-bottom: -59px;
 }
+.arrow-icon-mobile {
+  display: none;
+  justify-content: center;
+  flex-direction: column;
+  align-items: end;
+  gap: 160px;
+  position: relative;
+  top: -645px;
+  left: -35px;
+  margin-bottom: -390px;
+}
 
 /* testimonials */
 
@@ -584,6 +595,32 @@ input[type=range]::-moz-range-thumb {
   padding-top: 36px;
   margin-bottom: 36px;
 }
+.logo-text-footer {
+  display: none;
+  width: 300px;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 19.0145px;
+  line-height: 120%;
+  text-align: center;
+  color: #FFFFFF;
+  margin: 0;
+  margin-top: 11px;
+  margin-left: 7px;
+}
+.bamboo {
+  display: none;
+  background-image: url(../../assets/icons/bamboo_mobile.svg);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: 7.03px 20.98px;
+  width: 7.03px;
+  height: 20.98px;
+  position: relative;
+  right: 133px;
+  top: 4px;
+}
 .subscribe {
   width: 367px;
 }
@@ -630,13 +667,6 @@ input[type=email]:focus {
 }
 .button-footer-big {
   margin-bottom: 44px;
-}
-.contacts-and-nav {
-  display: flex;
-  justify-content: space-between;
-  align-items: flex-end;
-  margin-bottom: 49px;
-  margin-top: -64px;
 }
 .contacts {
   display: flex;
@@ -697,12 +727,17 @@ input[type=email]:focus {
 .nav-footer {
   margin-right: 0;
   margin-left: 399px;
+  width: 362px;
+  margin-top: -40px;
 }
 .nav-list-footer {
   margin-bottom: 0;
 }
 .footer-designed {
   width: 228px;
+  margin-left: 933px;
+  margin-top: -63px;
+  margin-bottom: 50px;
 }
 .designed-by {
   margin: 0;
@@ -895,16 +930,18 @@ input[type=email]:focus {
   .subscribe {
     margin-right: 32px;
   }
-  .contacts-and-nav {
-    margin-bottom: 48px;
-    margin-top: -58px;
-  }
   .contacts {
     gap: 9px;
   }
   .nav-footer {
     margin-right: 0;
     margin-left: 291px;
+    width: 333px;
+    margin-top: -37px;
+  }
+  .footer-designed {
+    margin-left: 711px;
+    margin-top: -60px;
   }
   .designed-by {
     padding-top: 9px;
@@ -1144,10 +1181,6 @@ input[type=email]:focus {
     margin-left: 0;
     width: 298px;
   }
-  .contacts-and-nav {
-    margin-bottom: 12px;
-    margin-top: 35px;
-  }
   .contacts {
     gap: 20px;
     margin-top: -183px;
@@ -1158,6 +1191,13 @@ input[type=email]:focus {
   .nav-footer {
     display: block;
     margin-left: 1px;
+    width: 299px;
+    margin-top: 72px;
+  }
+  .footer-designed {
+    margin-left: 372px;
+    margin-top: -61px;
+    margin-bottom: 13px;
   }
   .nav-list {
     gap: 37px;
@@ -1211,8 +1251,199 @@ input[type=email]:focus {
   .info {
     background-image: url(../../assets/images/flower_foto1_mobile.jpg);
     background-size: 35px 225px;
+    margin-bottom: 19px;
+  }
+  .info-container {
+    padding-top: 63px;
+  }
+  .heading {
+    font-size: 24px;
+    padding-left: 0;
+    margin-bottom: 9px;
+  }
+  .text {
+    padding-left: 2px;
+    margin-bottom: 21px;
+    line-height: 131%;
+  }
+  .subtitle {
+    padding-left: 2px;
+    margin-bottom: 9px;
+    
+  }
+  .info-text-goal {
+    font-size: 16px;
+    line-height: 137%;
   }
 
+  /* slider-animals */
 
+  .slider-animals {  
+    background-image: url(../../assets/images/palm_foto_mobile.jpg), 
+                      url(../../assets/images/strelitzia_mobile.jpg);
+    background-position-y: 1450px, 1455px;
+    min-height: 1523px;
+  }
+  .wrapper-cards {
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
+    gap: 20px 27px;
+    margin-bottom: 20px;
+  }
+  .container-card {
+    width: 283px;
+    height: 330px;
+    margin-left: 7px;
+  }
+  .container-card:nth-child(5),
+  .container-card:nth-child(6),
+  .arrow  {
+    display: none;
+  }
+  .card-caption {
+    padding-top: 7px;
+  }
+  .card-caption-text {
+    padding-left: 3px;
+  }
+  .card-caption img {
+    width: 10%;
+  }
+  .button-center {
+    margin-left: 0px;
+  }
+
+  /* feed-friend  */
+
+  .feed-friend {
+    padding-top: 18px;
+    height: 1063px;
+    margin-bottom: 31px;
+  }
+  .wrapper-feed-friend {
+    height: 1042px;
+  }
+  .container-feed-friend {
+    width: 300px;
+    padding-top: 21px;
+    min-height: 173px;
+  }
+  .subtitle-feed-friend {
+    font-size: 18px;
+    text-align: center;
+    padding-left: 0;
+    margin-bottom: 21px;
+  }
+  .feed-friend-header {
+    margin-bottom: 10px;
+  }
+  .feed-friend-text, .feed-friend-text-info, .line {
+    display: none;
+  }
+  .heading-medium {
+    font-size: 24px;
+    line-height: 120%;
+    margin-bottom: 39px;
+  }
+  .feed-friend-icon {
+    width: 231px;
+    gap: 0;
+    flex-direction: column;
+    align-items: center;
+  }
+  .icon {
+    margin-bottom: 10px;
+  }
+  .container-icon:nth-child(3) {
+    margin-top: -2px;
+  }
+  .container-icon:last-child {
+    margin-top: 7px;
+  }
+  .arrow-icon-tablet {
+    display: none;
+  }
+  .arrow-icon-mobile {
+    display: flex;
+  }
+
+  /* testimonials */
+
+  .testimonials {
+    background-image: url(../../assets/images/leav_foto_mobile.jpg);
+    background-position-y: 485px;
+    background-size: 50.81px 94.21px;
+    min-height: 549px;
+  }
+  .testimonials-header {
+    margin-bottom: 19px;
+  }
+  .reviews {
+    width: 300px;
+    min-height: 387px;
+    margin-bottom: 0px;
+  }
+  .review {
+    width: 299px;
+  }
+  .user {
+    gap: 8px;
+  }
+  .about-user {
+    padding-top: 2px;
+  }
+  .about-user-text {
+    gap: 6px;
+  }
+  .rewiew-text {
+    width: 252px;
+    padding-left: 18px;
+  }
+  .button-testimonials {
+    margin-left: 30px;
+  }
+
+  /* footer  */
+
+  .logo-footer {
+    display: none;
+  }
+  .logo-text-footer {
+    display: block;
+  }
+  .bamboo {
+    display: block;
+  }
+  .footer-header {
+    margin-bottom: 85px;
+  }
+  .button-footer-big {
+    margin-left: -1px;
+  }
+  .contacts {
+    flex-direction: row;
+    gap: 30px;
+    margin-top: -154px;
+    margin-left: 53px;
+  }
+  .nav-footer {
+    display: block;
+    margin-left: 11px;
+    width: 278px;
+    margin-top: 192px;
+  }
+  .nav-list-footer {
+    gap: 15px;
+  }
+  .footer-designed {
+    margin-left: 86px;
+    margin-top: -109px;
+    margin-bottom: 75px;
+  }
+  .designed-by {
+    font-size: 15px;
+    line-height: 120%;
+    padding-top: 10px;
+  }
 
 }
