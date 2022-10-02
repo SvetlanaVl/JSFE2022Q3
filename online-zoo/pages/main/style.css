@@ -1064,6 +1064,94 @@ input[type=email]:focus {
 
 }
 
+@media screen and (max-width: 990px) {
+  
+  /* header */
+
+  .nav {
+    margin-left: calc(3% - 10px);
+    margin-right: calc(15% - 10px);
+  }
+
+  /* info */
+
+  .info-img img {
+    width: 100%;
+  }
+  .info-text {
+    max-width: 50%;
+  }
+
+  /* slider-animals */
+
+  .container-card {
+    width: 99%;
+    height: 100%;
+  }
+  .card {
+    height: 85%;
+  }
+  
+  .card-img {
+    width: 100%;
+  }
+  .card-caption {
+    width: 93%;
+  }
+  .animal-name {
+    font-size: 15px;
+  }
+  .animal-where {
+    font-size: 14px;
+  }
+  .button-center {
+    margin-left: calc(34% - 10px);
+  }
+
+}
+
+@media screen and (max-width: 920px) {
+  .arrow {
+    top: -541px;
+  }
+}
+
+@media screen and (max-width: 845px) {
+  .arrow {
+    top: -517px;
+  }
+  .slider-animals {
+    background-position-y: 796px, 818px;
+  }
+}
+
+
+@media screen and (max-width: 780px) {
+  
+  /* header */
+
+  .nav-list {
+    gap: 19px;
+  }
+
+  /* slider-animals */
+
+  .card {
+    height: 77%;
+  }
+
+}
+
+@media screen and (max-width: 725px) {
+  .arrow {
+    top: -488px;
+  }
+
+  .slider-animals {
+    background-position-y: 743px, 766px;
+  }
+}
+
 @media screen and (max-width: 640px) {
   .wrapper {
     max-width: 600px;
@@ -1130,6 +1218,7 @@ input[type=email]:focus {
     background-position-y: -5px;
     margin-bottom: 37px;
     min-height: 470px;
+    background-blend-mode: normal;
   }
   .info-img {
     display: none;
