@@ -14,7 +14,13 @@
       <div class="wrapper">
         <div class="header-wrapper">
           <div class="logo">
-            <a href="../main/index.html"><img src="../../assets/icons/logo.svg" alt="logo"></a>
+            <a href="#">
+              <picture class="logo-img">
+                <!-- <source media="(min-width: 400px)" srcset="assets/img/slider3.jpg"> -->
+                <source media="(max-width: 640px)" srcset="../../assets/icons/logo_footer_tablet.svg">
+                <img src="../../assets/icons/logo.svg" alt="logo">
+              </picture>
+            </a>
           </div>
           <nav class="nav">
             <ul class="nav-list">
@@ -25,6 +31,11 @@
               <li><a class="nav-link" href="#">Contact us</a></li>
             </ul>
           </nav>
+          <div class="hamburger">
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+            <span class="hamburger-line"></span>
+          </div>
           <h1 class="title">PetStory Online</h1>
           <a href="https://www.figma.com/file/jfEFwkXVj1WRq7sUHDr8os/PetStory-online" class="link-designed" target="_blank">Designed by &copy</a>
         </div>
@@ -114,9 +125,11 @@
     <footer class="footer">
       <div class="wrapper">
         <div class="footer-header">
-          <div class="logo">
+          <div class="logo logo-footer">
             <a href="../main/index.html"><img src="../../assets/icons/logo.svg" alt="logo"></a>
           </div>
+          <p class="logo-text-footer">PetStory online</p>
+          <div class="bamboo"></div>
           <div class="subscribe">
             <p class="subtitle subtitle-footer">Subscribe to our news</p>
             <form action="">
@@ -128,45 +141,43 @@
         <form action="#">
           <button class="button button-testimonials button-footer-big">donate for volunteers</button>
         </form>
-        <div class="contacts-and-nav">
-          <ul class="contacts">
-            <li class="contact">
-              <a class="link background-icon" href="https://www.facebook.com" target="_blank">
-                <img class="footer-img" src="../../assets/icons/facebook.svg" alt="facebook">
-              </a>
-              <a href="https://www.facebook.com" class="social-network" target="_blank">Facebook</a>
-            </li>
-            <li class="contact">
-              <a class="link background-icon" href="https://www.twitter.com" target="_blank">
-                <img class="footer-img" src="../../assets/icons/twitter.svg" alt="twitter">
-              </a>
-              <a href="https://www.twitter.com" class="social-network" target="_blank">Twitter</a>
-            </li>
-            <li class="contact">
-              <a class="link background-icon" href="https://www.instagram.com" target="_blank">
-                <img class="footer-img" src="../../assets/icons/instagram.svg" alt="instagram">
-              </a>
-              <a href="https://www.instagram.com" class="social-network" target="_blank">Instagram</a>
-            </li>
-            <li class="contact">
-              <a class="link background-icon" href="https://www.youtube.com" target="_blank">
-                <img class="footer-img" src="../../assets/icons/youtube.svg" alt="you tube">
-              </a>
-              <a href="https://www.youtube.com" class="social-network" target="_blank">YouTube</a>
-            </li>
+        <ul class="contacts">
+          <li class="contact">
+            <a class="link background-icon" href="https://www.facebook.com" target="_blank">
+              <img class="footer-img" src="../../assets/icons/facebook.svg" alt="facebook">
+            </a>
+            <a href="https://www.facebook.com" class="social-network" target="_blank">Facebook</a>
+          </li>
+          <li class="contact">
+            <a class="link background-icon" href="https://www.twitter.com" target="_blank">
+              <img class="footer-img" src="../../assets/icons/twitter.svg" alt="twitter">
+            </a>
+            <a href="https://www.twitter.com" class="social-network" target="_blank">Twitter</a>
+          </li>
+          <li class="contact">
+            <a class="link background-icon" href="https://www.instagram.com" target="_blank">
+              <img class="footer-img" src="../../assets/icons/instagram.svg" alt="instagram">
+            </a>
+            <a href="https://www.instagram.com" class="social-network" target="_blank">Instagram</a>
+          </li>
+          <li class="contact">
+            <a class="link background-icon" href="https://www.youtube.com" target="_blank">
+              <img class="footer-img" src="../../assets/icons/youtube.svg" alt="you tube">
+            </a>
+            <a href="https://www.youtube.com" class="social-network" target="_blank">YouTube</a>
+          </li>
+        </ul>
+        <nav class="nav nav-footer">
+          <ul class="nav-list nav-list-footer">
+            <li><a class="nav-link" href="../main/index.html">About</a></li>
+            <li><a class="nav-link" href="#">Map</a></li>
+            <li><a class="nav-link" href="#">Zoos</a></li>
+            <li><a class="nav-link" href="#">Contact us</a></li>
           </ul>
-          <nav class="nav nav-footer">
-            <ul class="nav-list nav-list-footer">
-              <li><a class="nav-link" href="../main/index.html">About</a></li>
-              <li><a class="nav-link" href="#">Map</a></li>
-              <li><a class="nav-link" href="#">Zoos</a></li>
-              <li><a class="nav-link" href="#">Contact us</a></li>
-            </ul>
-          </nav>
-          <div class="footer-designed">
-            <p class="designed-by">Designed by Alisa Samborskaya</p>
-            <p class="designed-by">©RSSchool & ©Yem Digital 2021</p>
-          </div>
+        </nav>
+        <div class="footer-designed">
+          <p class="designed-by">Designed by Alisa Samborskaya</p>
+          <p class="designed-by">©RSSchool & ©Yem Digital 2021</p>
         </div>
       </div>
     </footer>
