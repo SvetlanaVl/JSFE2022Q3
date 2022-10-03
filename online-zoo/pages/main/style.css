@@ -364,19 +364,12 @@ button:active {
 
 .feed-friend-text-info{
   max-width: 863px;
-  margin-bottom: -2px;
+  margin-bottom: 58px;
 }
 .feed-friend-link {
   color: #333B41;
-
-}
-.line {
-  max-width: 178px;
-  max-height: 1px;
-  border-bottom: 1px solid #FE9013;
-  margin-left: 87px;
-  margin-bottom: 20px;
-  margin-bottom: 59px;
+  text-decoration: underline;
+  text-decoration-color: #FE9013;
 }
 .heading-medium {
   font-family: 'Roboto';
@@ -447,9 +440,9 @@ button:active {
   align-items: end;
   gap: 160px;
   position: relative;
-  top: -645px;
+  top: -623px;
   left: -35px;
-  margin-bottom: -390px;
+  margin-bottom: -369px;
 }
 
 /* testimonials */
@@ -523,6 +516,7 @@ button:active {
 }
 .about-user-text {
   display: flex;
+  flex-wrap: wrap;
   gap: 8px;
 }
 .about-user-local, .about-user-day {
@@ -972,7 +966,7 @@ input[type=email]:focus {
     margin-bottom: 101px;
   }
   .container-feed-friend {
-    width: 843px;
+    max-width: 843px;
     padding-top: 30px;
     margin: 0 auto;
   }
@@ -984,21 +978,30 @@ input[type=email]:focus {
     margin-bottom: 21px;
   }
   .feed-friend-text {
-    width: 813px;
+    max-width: 813px;
   }
   .feed-friend-text-info {
-    width: 823px;
-    margin-bottom: -4px;
-  }
-  .line {
-    margin-left: 151px;
-    margin-bottom: 41px;
+    max-width: 823px;
+    margin-bottom: 39px;
   }
   .heading-medium {
     margin-left: 0;
   }
   .feed-friend-icon {
     margin-bottom: 70px;
+    max-width: 81%;
+  }
+  .container-icon {
+    max-width: 22%;
+  }
+  .icon {
+    max-width: 100%;
+  }
+  .icon img {
+    max-width: 100%;
+  }
+  .arrow-icon img {
+    max-width: 100%;
   }
 
   /* testimonials */
@@ -1091,7 +1094,6 @@ input[type=email]:focus {
   .card {
     height: 85%;
   }
-  
   .card-img {
     width: 100%;
   }
@@ -1108,11 +1110,43 @@ input[type=email]:focus {
     margin-left: calc(34% - 10px);
   }
 
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(64% - 10px);
+  }
+  .nav-footer {
+    margin-left: calc(18% - 10px);
+    margin-right: 0;
+    max-width: 244px;
+  }
+  .social-network,
+  .nav-link,
+  .link-designed {
+    font-size: 14px;
+  }
+  .nav-list-footer {
+    gap: 9px;
+  }
+
+}
+
+@media screen and (max-width: 999px) {
+  .review {
+    max-width: 75%;
+  }
+  .reviews {
+    grid-template-columns: repeat(4, 35%);
+    gap: 2.8px;
+  }
 }
 
 @media screen and (max-width: 920px) {
   .arrow {
     top: -541px;
+  }
+  .review {
+    max-width: 75%;
   }
 }
 
@@ -1219,6 +1253,7 @@ input[type=email]:focus {
     margin-bottom: 37px;
     min-height: 470px;
     background-blend-mode: normal;
+    padding-bottom: 0px;
   }
   .info-img {
     display: none;
@@ -1228,7 +1263,7 @@ input[type=email]:focus {
   }
   .info-text {
     margin-top: 0;
-    width: 482px;
+    max-width: 482px;
   }
   .heading {
     padding-left: 4px;
@@ -1248,6 +1283,7 @@ input[type=email]:focus {
                       url(../../assets/images/strelitzia_tablet.jpg);
     background-position-y: 769px, 840px;
     min-height: 970px;
+    padding-bottom: 0px;
   }
   .wrapper-cards {
     gap: 92px 28px;
@@ -1285,14 +1321,14 @@ input[type=email]:focus {
 
   .feed-friend {
     padding-top: 20px;
-    height: 761px;
     margin-bottom: 61px;
+    padding-bottom: 20px;
   }
   .wrapper-feed-friend {
-    height: 741px;
+    padding-bottom: 61px;
   }
   .container-feed-friend {
-    width: 600px;
+    max-width: 600px;
     padding-top: 10px;
   }
   .feed-friend-header {
@@ -1305,15 +1341,11 @@ input[type=email]:focus {
     margin-bottom: 19px;
   }
   .feed-friend-text {
-    width: 600px;
+    max-width: 600px;
   }
   .feed-friend-text-info {
-    width: 600px;
-    margin-bottom: -4px;
-  }
-  .line {
-    margin-left: 356px;
-    margin-bottom: 31px;
+    max-width: 600px;
+    margin-bottom: 29px;
   }
   .heading-medium {
     margin-bottom: 19px;
@@ -1323,6 +1355,10 @@ input[type=email]:focus {
   }
   .feed-friend-icon {
     gap: 42px;
+    max-width: 100%;
+  }
+  .container-icon {
+    max-width: 30%;
   }
   .arrow-icon-tablet {
     display: flex;
@@ -1335,12 +1371,13 @@ input[type=email]:focus {
     background-position-y: 472px;
     background-size: 116.15px 203.88px;
     min-height: 607px;
+    padding-bottom: 0px;
   }
   .testimonials-header {
     margin-bottom: 29px;
   }
   .reviews {
-    grid-template-columns: repeat(1, 1fr);
+    grid-template-columns: repeat(1, 100%);
     gap: 0;
     width: 600px;
     min-height: 391px;
@@ -1348,6 +1385,7 @@ input[type=email]:focus {
   }
   .review {
     width: 600px;
+    max-width: 100%;
     height: 109px;
     overflow: hidden;
   }
@@ -1357,12 +1395,12 @@ input[type=email]:focus {
   .user {
     margin: 0;
     margin-bottom: 10px;
-    padding-left: 12px;
+    padding-left: 2px;
   }
   .rewiew-text {
     width: 556px;
     margin: 0;
-    padding-left: 17px;
+    padding-left: 8px;
   }
   .input {
     display: none;
@@ -1396,7 +1434,7 @@ input[type=email]:focus {
   .nav-footer {
     display: block;
     margin-left: 1px;
-    width: 299px;
+    max-width: 299px;
     margin-top: 72px;
   }
   .footer-designed {
@@ -1407,7 +1445,172 @@ input[type=email]:focus {
   .nav-list {
     gap: 37px;
   }
+  .nav-link, .link-designed {
+    font-size: 16px;
+  }
 }
+
+@media screen and (max-width: 639px) {
+
+
+  .button {
+    margin-right: 203px;
+  }
+
+  /* slider-animals */
+
+  .wrapper-cards {
+    width: 150%;
+  }
+  .container-card {
+    width: 99%;
+    height: 100%;
+  }
+  .card {
+    height: 85%;
+  }
+  .card-img {
+    width: 100%;
+  }
+  .card-caption {
+    width: 93%;
+  }
+  .button-center {
+    margin-left: calc(34% - 10px);
+  }
+  .arrow {
+    top: -516px;
+  }
+  
+  /* feed friend */
+
+  .feed-friend-icon {
+    gap: 11px;
+  }
+
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(60% - 10px);
+  }
+
+}
+
+@media screen and (max-width: 580px) {
+
+  /* info*/
+
+  .info {
+    background-blend-mode: lighten;
+  }
+
+  .button {
+    margin-right: 0;
+  }
+  .text-first-section {
+    margin-bottom: 10px;
+  }
+  .watch-online-background {
+    padding-bottom: 23px;
+  }
+
+  /* slider-animals */
+
+  .arrow {
+    top: -484px;
+  }
+
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(40% - 10px);
+    margin-top: -103px;
+    margin-bottom: 51px;
+  }
+}
+@media screen and (max-width: 520px) {
+
+  /* slider-animals */
+
+  .arrow {
+    top: -454px;
+  }
+
+  .button-testimonials {
+    margin-left: 86px;
+  }
+
+  .button-footer-big {
+    margin-left: 0;
+  }
+}
+@media screen and (max-width: 470px) {
+
+  /* slider-animals */
+
+  .arrow {
+    top: -428px;
+  }
+}
+
+@media screen and (max-width: 450px) {
+
+  /* slider-animals */
+
+  .animal-name {
+    font-size: 8.4695px;
+  }
+  .animal-where {
+    font-size: 7.6901px;
+  }
+  .container-card {
+    height: 93%;
+  }
+  .card-caption {
+    padding-top: 3px;
+  }
+  .button-center {
+    margin-left: calc(15% - 10px);
+  }
+
+
+  /* feed-friend */
+
+  .arrow-icon-tablet {
+    gap: 67px;
+    left: -4px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  /* slider-animals */
+
+  .arrow {
+    top: -381px;
+  }
+  .button-center {
+    margin-left: calc(2% - 10px);
+  }
+
+  .button-testimonials {
+    margin-left: 13px;
+  }
+
+  .button-footer-big {
+    margin-left: 0;
+  }
+
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(20% - 10px);
+  }
+  .button-footer-big {
+    width: 250px;
+  }
+}
+
 
 @media screen and (max-width: 320px) {
   .wrapper {
@@ -1456,6 +1659,7 @@ input[type=email]:focus {
     background-size: 35px 225px;
     margin-top: -31px;
     margin-bottom: 19px;
+    background-blend-mode: normal;
   }
   .info-container {
     padding-top: 63px;
@@ -1505,13 +1709,19 @@ input[type=email]:focus {
     display: none;
   }
   .card-caption {
-    padding-top: 7px;
+    padding-top: 11px;
   }
   .card-caption-text {
     padding-left: 3px;
   }
   .card-caption img {
     width: 10%;
+  }
+  .animal-name {
+    font-size: 12.4695px;
+  }
+  .animal-where {
+    font-size: 11.6901px;
   }
   .button-center {
     margin-left: 0px;
@@ -1521,11 +1731,10 @@ input[type=email]:focus {
 
   .feed-friend {
     padding-top: 18px;
-    height: 1063px;
     margin-bottom: 31px;
   }
   .wrapper-feed-friend {
-    height: 1042px;
+    padding-bottom: 40px;
   }
   .container-feed-friend {
     width: 300px;
@@ -1539,9 +1748,10 @@ input[type=email]:focus {
     margin-bottom: 21px;
   }
   .feed-friend-header {
-    margin-bottom: 10px;
+    margin-bottom: 13px;
   }
-  .feed-friend-text, .feed-friend-text-info, .line {
+  .feed-friend-text,
+  .feed-friend-text-info {
     display: none;
   }
   .heading-medium {
@@ -1558,11 +1768,14 @@ input[type=email]:focus {
   .icon {
     margin-bottom: 10px;
   }
+  .container-icon {
+    max-width: 72%;
+  }
   .container-icon:nth-child(3) {
-    margin-top: -2px;
+    margin-top: 44px;
   }
   .container-icon:last-child {
-    margin-top: 7px;
+    margin-top: 29px;
   }
   .arrow-icon-tablet {
     display: none;
@@ -1623,6 +1836,7 @@ input[type=email]:focus {
   }
   .button-footer-big {
     margin-left: -1px;
+    width: 298px;
   }
   .contacts {
     flex-direction: row;
@@ -1651,3 +1865,4 @@ input[type=email]:focus {
   }
 
 }
+
