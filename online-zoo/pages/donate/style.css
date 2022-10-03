@@ -14,17 +14,17 @@ html {
 .header {
   background: #000000;
   backdrop-filter: blur(2px);
-  height: 80px;
 }
 .header-wrapper {
   display: flex;
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  height: 80px;
+  padding-top: 2px;
+  padding-bottom: 10px;
 }
 .logo {
-  margin-top: 5px;
+  margin-top: 4px;
 }
 .nav {
   margin-left: 55px;
@@ -61,9 +61,8 @@ html {
 }
 .hamburger {
   width: 18px;
-  height: 10px;
   display: none;
-  margin-top: -8px;
+  margin-top: -5px;
 }
 .hamburger-line {
   width: 18px;
@@ -84,13 +83,12 @@ html {
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: cover;
-  height: 386px;
+  padding-bottom: 386px;
 }
 
 /* donate */
 
 .donate {
-  height: 1442px;
   background: linear-gradient(
       315.75deg,
       rgba(254, 210, 144, 0.7) 30.06%,
@@ -115,6 +113,7 @@ html {
     );
   opacity: 0.9;
   padding-top: 41px;
+  padding-bottom: 179px;
 }
 .heading-medium {
   font-family: 'Roboto';
@@ -141,13 +140,13 @@ html {
   margin-bottom: 46px;
 }
 .wrapper-donate {
-  height: 964px;
   background: rgba(253, 253, 255, 0.52);
   backdrop-filter: blur(2px);
   border-radius: 20px;
+  padding-bottom: 43px;
 }
 .wrapper-donate-content {
-  width: 976px;
+  max-width: 976px;
   margin: 0 auto;
   padding-top: 41px;
 }
@@ -176,7 +175,7 @@ html {
 .diets-panda {
   display: flex;
   align-items: center;
-  width: 551px;
+  max-width: 551px;
   margin: 0 auto;
   margin-bottom: 48px;
 }
@@ -213,6 +212,7 @@ html {
 }
 .panda {
   padding-left: 65px;
+  width: 52%;
 }
 .amount {
   font-family: "Roboto";
@@ -230,13 +230,13 @@ html {
   margin-bottom: 50px;
 }
 .rectangle {
-  width: 976px;
+  width: 100%;
   height: 27px;
   background: #404950;
   border-radius: 2px;
 }
 .rectangle-line {
-  width: 915px;
+  width: 93%;
   height: 2px;
   background: #72828e;
   margin-top: -16px;
@@ -292,14 +292,11 @@ html {
 }
 .container-dollar {
   display: flex;
-  width: 100%;
+  max-width: 100%;
   gap: 73px;
+  margin-left: -21px;
 }
 .dollar {
-  /* background-image: url(../../assets/icons/dollar.svg);
-  background-repeat: no-repeat;
-  background-position: left;
-  background-size: 10px 20px; */
   font-family: "Roboto";
   font-style: normal;
   font-weight: 500;
@@ -608,6 +605,32 @@ input[type="email"]:focus {
 
 /* media  */
 
+@media screen and (max-width: 1220px) {
+
+  /* header */
+
+  .nav {
+    margin-left: calc(3% - 10px);
+    margin-right: calc(27% - 10px);
+  }
+
+  /* donate */
+
+  .container-dollar {
+    margin-left: 0;
+  }
+
+  /* footer  */
+
+  .nav-footer {
+    margin-right: 0;
+    margin-left: 291px;
+  }
+  .footer-designed {
+    margin-left: calc(78% - 10px);
+  }
+}
+
 @media screen and (max-width: 1000px) {
   .wrapper {
     max-width: 940px;
@@ -623,6 +646,7 @@ input[type="email"]:focus {
   }
   .nav {
     margin-right: 26.5%;
+    margin-left: 55px;
   }
   .nav-list {
     gap: 48px;
@@ -632,13 +656,13 @@ input[type="email"]:focus {
 
   .watch-online-background {
     background: url(../../assets/images/panda_bg_small.jpg);
-    height: 390px;
+    padding-bottom: 390px;
   }
 
   /* donate */
 
   .donate {
-    height: 1292px;
+    padding-bottom: 30px;
   }
   .heading-medium {
     max-width: 778px;
@@ -648,10 +672,10 @@ input[type="email"]:focus {
     margin-bottom: 39px;
   }
   .wrapper-donate {
-    height: 918px;
+    padding-bottom: 27px;
   }
   .wrapper-donate-content {
-    width: 843px;
+    max-width: 843px;
     padding-top: 20px;
   }
   .heading {
@@ -665,11 +689,11 @@ input[type="email"]:focus {
     padding-left: 17px;
   }
   .rectangle {
-    width: 810px;
+    width: 96%;
     margin-top: 1px;
   }
   .rectangle-line {
-    width: 770px;
+    width: 91%;
     margin-top: -15px;
   }
   .container-circle {
@@ -695,6 +719,9 @@ input[type="email"]:focus {
   .dollar:nth-child(4) {
     margin-left: -11px;
   }
+  .container-dollar {
+    margin-left: -6px;
+  }
 
   /* footer */
 
@@ -717,8 +744,54 @@ input[type="email"]:focus {
   .designed-by {
     padding-top: 9px;
   }
+}
 
+@media screen and (max-width: 990px) {
+  
+  /* header */
 
+  .nav {
+    margin-left: calc(3% - 10px);
+    margin-right: calc(15% - 10px);
+  }
+
+  /* donate */
+
+  .container-dollar {
+    display: flex;
+    width: 98%;
+    justify-content: space-between;
+    margin-left: -24px;
+    gap: 0;
+  }
+
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(64% - 10px);
+  }
+  .nav-footer {
+    margin-left: calc(18% - 10px);
+    margin-right: 0;
+    max-width: 244px;
+  }
+  .social-network,
+  .nav-link,
+  .link-designed {
+    font-size: 14px;
+  }
+  .nav-list-footer {
+    gap: 9px;
+  }
+}
+
+@media screen and (max-width: 780px) {
+  
+  /* header */
+
+  .nav-list {
+    gap: 19px;
+  }
 }
 
 @media screen and (max-width: 640px) {
@@ -736,10 +809,11 @@ input[type="email"]:focus {
   }
   .header-wrapper {
     justify-content: space-between;
-    height: 34px;
+    padding-top: 0px;
+    padding-bottom: 0px;
   }
   .logo {
-    margin-top: 3px;
+    margin-top: 2px;
   }
   .nav, .link-designed {
     display: none;
@@ -755,19 +829,22 @@ input[type="email"]:focus {
     background-repeat: no-repeat;
     background-position-y: 26px;
     background-position-x: -8px;
-    height: 361px;
+    padding-bottom: 361px;
   }
 
   /* donate */
 
   .donate {
     padding-top: 31px;
-    height: 1302px;
+    padding-bottom: 46px;
   }
   .heading-medium {
     font-size: 24px;
     line-height: 120%;
     margin-bottom: 19px;
+  }
+  .wrapper-donate {
+    padding-bottom: 13px;
   }
   .text-info {
     margin-bottom: 27px;
@@ -778,7 +855,7 @@ input[type="email"]:focus {
     margin-bottom: 27px;
   }
   .wrapper-donate-content {
-    width: 600px;
+    max-width: 600px;
     padding-top: 30px;
   }
   .heading {
@@ -802,10 +879,10 @@ input[type="email"]:focus {
     margin-bottom: 49px;
   }
   .rectangle {
-    width: 600px;
+    width: 100%;
   }
   .rectangle-line {
-    width: 520px;
+    width: 86%;
   }
   .container-circle {
     width: 95%;
@@ -826,6 +903,9 @@ input[type="email"]:focus {
   }
   .dollar:nth-child(4) {
     margin-left: 17px;
+  }
+  .container-dollar {
+    width: 96%;
   }
   .input {
     margin-bottom: 27px;
@@ -868,7 +948,7 @@ input[type="email"]:focus {
   .nav-footer {
     display: block;
     margin-left: 1px;
-    width: 296px;
+    max-width: 296px;
     margin-top: 72px;
   }
   .footer-designed {
@@ -878,6 +958,65 @@ input[type="email"]:focus {
   }
   .nav-list {
     gap: 35px;
+  }
+  .nav-link, .link-designed {
+    font-size: 16px;
+  }
+}
+
+@media screen and (max-width: 639px) {
+
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(60% - 10px);
+  }
+}
+
+@media screen and (max-width: 580px) {
+
+  /* donate */
+
+  .rectangle-line {
+    width: 84%;
+  }
+
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(40% - 10px);
+    margin-top: -103px;
+    margin-bottom: 51px;
+  }
+}
+
+@media screen and (max-width: 400px) {
+
+  /* donate */
+
+  .rectangle-line {
+    width: 80%;
+  }
+  .dollar {
+    font-size: 24px;
+  }
+
+  /* footer */
+
+  .footer-designed {
+    margin-left: calc(20% - 10px);
+  }
+  .button-footer-big {
+    width: 250px;
+  }
+}
+
+@media screen and (max-width: 330px) {
+  
+  /* donate */
+
+  .button {
+    margin-left: -8px;
   }
 }
 
@@ -893,7 +1032,7 @@ input[type="email"]:focus {
     margin-top: 2px;
   }
   .hamburger {
-    margin-top: -7px;
+    margin-top: -3px;
   }
 
   /* watch online */
@@ -903,11 +1042,14 @@ input[type="email"]:focus {
     background-repeat: no-repeat;
     background-position-y: 26px;
     background-position-x: -8px;
-    height: 213px;
+    padding-bottom: 213px;
   }
 
   /* donate */
 
+  .donate {
+    padding-bottom: 21px;
+  }
   .heading-medium {
     font-size: 24px;
     line-height: 118%;
@@ -925,12 +1067,12 @@ input[type="email"]:focus {
     margin-bottom: 31px;
   }
   .wrapper-donate {
-    height: 591px;
     width: 300px;
     margin-left: -8px;
+    padding-bottom: 5px;
   }
   .wrapper-donate-content {
-    width: 300px;
+    max-width: 300px;
     padding-top: 21px;
   }
   .heading {
@@ -944,7 +1086,7 @@ input[type="email"]:focus {
   }
   
   .diets-panda {
-    width: 300px;
+    max-width: 300px;
     margin-bottom: 4px;
   }
   .number {
@@ -963,8 +1105,7 @@ input[type="email"]:focus {
   }
   .panda {
     padding-left: 36px;
-    width: 160.15px;
-    height: 138.72px;
+    width: 53%;
     margin-top: -21px;
   }
   .days {
@@ -978,11 +1119,11 @@ input[type="email"]:focus {
     margin-bottom: 7px;
   }
   .rectangle {
-    width: 300px;
+    width: 100%;
     height: 13.5px;
   }
   .rectangle-line {
-    width: 262px;
+    width: 86%;
     margin-top: -8px;
   }
   .circle {
@@ -1009,7 +1150,7 @@ input[type="email"]:focus {
     top: 286px;
   }
   .container-dollar {
-    gap: 32px;
+    margin-left: -11px;
   }
   .dollar {
     font-size: 13px;
@@ -1048,8 +1189,8 @@ input[type="email"]:focus {
     text-align: left;
     margin-left: -1px;
   }
-  .donate {
-    height: 1115px;
+  .button {
+    margin-left: 0px;
   }
 
   /* footer  */
@@ -1068,6 +1209,7 @@ input[type="email"]:focus {
   }
   .button-footer-big {
     margin-left: -9px;
+    width: 298px;
   }
   .contacts {
     flex-direction: row;
