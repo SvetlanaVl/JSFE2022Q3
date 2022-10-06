@@ -20,7 +20,7 @@ html {
   flex-wrap: wrap;
   align-items: center;
   gap: 8px;
-  padding-top: 2px;
+  padding-top: 10px;
   padding-bottom: 10px;
 }
 .logo {
@@ -461,7 +461,7 @@ button:active {
   width: 7.03px;
   height: 20.98px;
   position: relative;
-  right: 126px;
+  right: 134px;
   top: 4px;
 }
 .subscribe {
@@ -827,16 +827,15 @@ input[type="email"]:focus {
   .watch-online-background {
     background: url(../../assets/images/panda_bg_tablet.jpg);
     background-repeat: no-repeat;
-    background-position-y: 26px;
-    background-position-x: -8px;
-    padding-bottom: 361px;
+    background-position-y: 34px;
+    padding-bottom: 369px;
   }
 
   /* donate */
 
   .donate {
     padding-top: 31px;
-    padding-bottom: 46px;
+    padding-bottom: 45px;
   }
   .heading-medium {
     font-size: 24px;
@@ -1040,26 +1039,23 @@ input[type="email"]:focus {
   .watch-online-background {
     background: url(../../assets/images/panda_bg_mobile.jpg);
     background-repeat: no-repeat;
-    background-position-y: 26px;
-    background-position-x: -8px;
-    padding-bottom: 213px;
+    background-position-y: 34px;
+    padding-bottom: 221px;
   }
 
   /* donate */
 
   .donate {
-    padding-bottom: 21px;
+    padding-bottom: 20px;
   }
   .heading-medium {
     font-size: 24px;
     line-height: 118%;
     margin-bottom: 20px;
-    margin-left: -8px;
   }
 
   .text-info {
     margin-bottom: 27px;
-    margin-left: -8px;
     width: 300px;
     line-height: 139%;
   }
@@ -1068,7 +1064,6 @@ input[type="email"]:focus {
   }
   .wrapper-donate {
     width: 300px;
-    margin-left: -8px;
     padding-bottom: 5px;
   }
   .wrapper-donate-content {
@@ -1208,18 +1203,18 @@ input[type="email"]:focus {
     margin-bottom: 85px;
   }
   .button-footer-big {
-    margin-left: -9px;
+    margin-left: -1px;
     width: 298px;
   }
   .contacts {
     flex-direction: row;
     gap: 30px;
     margin-top: -154px;
-    margin-left: 45px;
+    margin-left: 53px;
   }
   .nav-footer {
     display: block;
-    margin-left: 3px;
+    margin-left: 11px;
     width: 278px;
     margin-top: 193px;
   }
@@ -1227,7 +1222,7 @@ input[type="email"]:focus {
     gap: 15px;
   }
   .footer-designed {
-    margin-left: 78px;
+    margin-left: 86px;
     margin-top: -110px;
     margin-bottom: 74px;
   }
