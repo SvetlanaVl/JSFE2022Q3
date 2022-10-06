@@ -1323,6 +1323,10 @@ input[type=email]:focus {
     margin-bottom: 61px;
     padding-bottom: 20px;
   }
+  .wrapper-feed-friend-tablet {
+    padding: 0;
+    max-width: 640px;
+  }
   .wrapper-feed-friend {
     padding-bottom: 61px;
   }
@@ -1354,13 +1358,16 @@ input[type=email]:focus {
   }
   .feed-friend-icon {
     gap: 42px;
-    max-width: 100%;
+    max-width: 94%;
   }
   .container-icon {
     max-width: 30%;
   }
   .arrow-icon-tablet {
     display: flex;
+  }
+  .button-center-tablet {
+    margin-left: 171px;
   }
 
   /* testimonials */
