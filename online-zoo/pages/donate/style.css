@@ -354,6 +354,12 @@ html {
   align-items: center;
   z-index: 4;
 }
+.hover-circle:nth-child(1):hover::after {
+  color: rgba(254, 144, 19, 1);
+}
+.hover-circle:nth-child(1):active::after {
+  color: rgba(254, 144, 19, 1);
+}
 .hover-circle:hover > .circle {
   background: rgba(254, 144, 19, 1);
 }
@@ -367,25 +373,32 @@ html {
 .circle-active {
   background: rgba(249, 128, 75, 1);
 }
-.big-circle {
+.roller-icon {
+  width: 960px;
   position: absolute;
-  left: 364px;
-  top: 531px;
+  z-index: 2;
+}
+.big-circle {
+  position: relative;
+  --pos: 2;
+  left: calc((100% - 50px) * (var(--pos) / 7) + (50px - 40px - 2 * 1px) / 2);
   width: 40px;
   height: 40px;
   border-radius: 50%;
   border: 1px solid #fe9013;
-  z-index: 2;
+  margin-top: 5px;
+  margin-left: -1px;
 }
 .medium-circle {
-  position: absolute;
-  left: 373px;
-  top: 540px;
+  position: relative;
+  --pos: 2;
+  left: calc((100% - 50px) * (var(--pos) / 7) + (50px - 40px - 2 * 1px) / 2);
   width: 22.95px;
   height: 22.95px;
   border-radius: 50%;
   border: 1px solid #fe9013;
-  z-index: 2;
+  margin-top: -34px;
+  margin-left: 7px;
 }
 .container-dollar {
   display: flex;
@@ -796,16 +809,19 @@ input[type="email"]:focus {
   .container-circle {
     margin-top: -26px;
   }
-  .hover-circle:first-child, .dollar:first-child {
+  .hover-circle:nth-child(8), .dollar:first-child {
     display: none;
   }
+  .roller-icon {
+    width: 829px;
+  }
   .big-circle {
-    left: 190px;
-    top: 503px;
+    --pos: 1;
+    left: calc((100% - 50px) * (var(--pos) / 6) + (50px - 40px - 2 * 1px) / 2);
   }
   .medium-circle {
-    left: 199px;
-    top: 511px;
+    --pos: 1;
+    left: calc((100% - 50px) * (var(--pos) / 6) + (50px - 40px - 2 * 1px) / 2);
   }
   .dollar:nth-child(2) {
     margin-left: 19px;
@@ -879,6 +895,12 @@ input[type="email"]:focus {
   }
   .nav-list-footer {
     gap: 9px;
+  }
+}
+
+@media screen and (max-width: 890px) {
+  .roller-icon {
+    width: 98%;
   }
 }
 
@@ -984,13 +1006,16 @@ input[type="email"]:focus {
   .container-circle {
     width: 95%;
   }
+  .roller-icon {
+    width: 95%;
+  }
   .big-circle {
-    left: 279px;
-    top: 524px;
+    --pos: 1;
+    left: calc((100% - 50px) * (var(--pos) / 4) + (50px - 40px - 2 * 1px) / 2);
   }
   .medium-circle {
-    left: 287px;
-    top: 532px;
+    --pos: 1;
+    left: calc((100% - 50px) * (var(--pos) / 4) + (50px - 40px - 2 * 1px) / 2);
   }
   .hover-circle:nth-child(7),
   .hover-circle:nth-child(6),
@@ -1240,17 +1265,22 @@ input[type="email"]:focus {
     width: 25px;
     height: 25px;
   }
+  .roller-icon {
+    width: 103%;
+  }
   .big-circle {
     width: 20px;
     height: 20px;
-    left: 139px;
-    top: 282px;
+    margin-top: 2px;
+    margin-left: -2px;
+    --pos: 2;
   }
   .medium-circle {
     width: 11.48px;
     height: 11.48px;
-    left: 143px;
-    top: 286px;
+    margin-top: -18px;
+    margin-left: 3px;
+    --pos: 2;
   }
   .container-dollar {
     margin-left: -11px;
