@@ -34,6 +34,7 @@ const popUpReview = document.querySelector('.pop-up-review');
 const close = document.querySelector('.pop-up-review-img');
 const popupReviewScreenDimming = document.querySelector('.pop-up-review-screen-dimming');
 const containerPopup = document.querySelector('.container-popup-background');
+const containerRewiewText = document.querySelector('.container-rewiew-text');
 
 
 
@@ -44,6 +45,15 @@ reviews.forEach((element, index) => {
     popupReviewScreenDimming.classList.add('pop-up-review-screen-dimming-active');
     document.body.style.overflow = 'hidden';
     containerPopup.innerHTML = element.innerHTML;
+    if(window.matchMedia("(max-width: 786px)").matches) {
+      containerPopup.style.height = '196%';
+      containerPopup.style.width = '90%';
+      containerPopup.style.paddingLeft = '3%';
+      popUpReview.style.left = '20%';
+    } else {
+      containerPopup.style.height = '93%';
+      containerPopup.style.width = '100%';
+    }
   });
 });
 
