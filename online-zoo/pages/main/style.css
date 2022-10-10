@@ -315,12 +315,28 @@ button:active {
   padding-bottom: 39px;
   position: relative;
 }
+.container-cards {
+  display: flex;
+  gap: 18px;
+  width: 305%;
+  transform: translateX(0);
+  transition-duration: 0.7s;
+}
 .wrapper-cards {
   display: grid;
-  grid-template-columns: repeat(6, 1fr);
+  grid-template-columns: repeat(3, 1fr);
   gap: 17px 27px;
   margin-bottom: 79px;
+  animation: 0.5s ease-in-out;
+  /* transform: translateX(0);
+  transition-duration: 1s; */
 }
+/* .wrapper-cards-active-left {
+  transform: translateX(102%);
+}
+.wrapper-cards-active-right {
+  transform: translateX(-102%);
+} */
 .container-card {
   width: 366px;
   height: 426px;
@@ -990,9 +1006,7 @@ input[type=email]:focus {
   }
 
   /* slider-animals */
-  .wrapper-cards {
-    grid-template-columns: repeat(6, 32%);
-  }
+  
   .container-card {
     width: 100%;
     height: 100%;
@@ -1014,8 +1028,6 @@ input[type=email]:focus {
     gap: 26.8px;
     max-width: 3182px;
   }
-
-  
   .review {
     width: 293px;
     max-width: 100%;
@@ -1112,7 +1124,7 @@ input[type=email]:focus {
     padding-bottom: 139px;
   }
   .wrapper-cards {  
-    gap: 91px 22px;
+    gap: 91px 28px;
     margin-bottom: 83px;
   }
   .container-card {  
@@ -1384,7 +1396,7 @@ input[type=email]:focus {
   .wrapper-cards {
     gap: 92px 28px;
     margin-bottom: 60px;
-    grid-template-columns: repeat(6, 49%);
+    grid-template-columns: repeat(3, 48%);
   }
   .container-card {
     width: 99%;
@@ -1722,6 +1734,10 @@ input[type=email]:focus {
     background-position-y: 1450px, 1455px;
     min-height: 1523px;
   }
+  .container-cards {
+    width: 100%;
+    justify-content: center;
+  }
   .wrapper-cards {
     display: grid;
     grid-template-columns: repeat(1, 1fr);
@@ -1729,22 +1745,17 @@ input[type=email]:focus {
     margin-bottom: 20px;
     justify-items: center;
   }
+  .wrapper-cards:nth-child(n + 2) {
+    display: none;
+  }
   .container-card {
     width: 283px;
     height: 330px;
-    margin-left: 7px;
   }
   .card-caption {
     padding-top: 11px;
   }
-  .container-card:nth-child(4),
-  .container-card:nth-child(5),
-  .container-card:nth-child(6),
-  .container-card:nth-child(8),
-  .container-card:nth-child(9),
-  .container-card:nth-child(10),
-  .container-card:nth-child(11),
-  .container-card:nth-child(12),
+  .container-card:nth-child(n + 5),
   .arrow  {
     display: none;
   }
@@ -1914,7 +1925,6 @@ input[type=email]:focus {
   .container-card {
     width: 283px;
     height: 330px;
-    margin-left: 7px;
   }
   
   .card-caption {

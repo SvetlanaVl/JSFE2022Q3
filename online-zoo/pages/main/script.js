@@ -79,3 +79,77 @@ popupReviewScreenDimming.addEventListener('click', closeReviews);
 
 // slider Pets
 
+const containerCards = document.querySelector('.container-cards');
+const containersCard = document.querySelectorAll('.container-card');
+
+const wrappersCards = document.querySelectorAll('.wrapper-cards');
+const arrowLeft = document.querySelector('.arrow-left');
+const arrowRight = document.querySelector('.arrow-right');
+
+let valueTranslate = 0;
+
+arrowLeft.addEventListener("click", e => {
+  if (valueTranslate == 0) {
+    valueTranslate = -66.4
+    containerCards.style.transform = `translateX(${valueTranslate}%)`;
+    arrowLeft.style.pointerEvents = 'none';
+    arrowLeft.style.backgroundColor = 'grey';
+    containerCards.addEventListener("transitionend", function() {
+      arrowLeft.style.pointerEvents = '';
+      arrowLeft.style.backgroundColor = '#F9804B';
+    });
+  } else {
+    valueTranslate += + 33.2
+    containerCards.style.transform = `translateX(${valueTranslate}%)`;
+    arrowLeft.style.pointerEvents = 'none';
+    arrowLeft.style.backgroundColor = 'grey';
+    containerCards.addEventListener("transitionend", function() {
+      arrowLeft.style.pointerEvents = '';
+      arrowLeft.style.backgroundColor = '#F9804B';
+    });
+  }
+  
+});
+
+
+arrowRight.addEventListener("click", e => {
+  if (valueTranslate > -65) {
+    valueTranslate += - 33.2
+    containerCards.style.transform = `translateX(${valueTranslate}%)`;
+    arrowRight.style.pointerEvents = 'none';
+    arrowRight.style.backgroundColor = 'grey';
+    containerCards.addEventListener("transitionend", function() {
+      arrowRight.style.pointerEvents = '';
+      arrowRight.style.backgroundColor = '#F9804B';
+    });
+    
+  } else {
+    valueTranslate = 0
+    containerCards.style.transform = `translateX(${valueTranslate}%)`;
+    arrowRight.style.pointerEvents = 'none';
+    arrowRight.style.backgroundColor = 'grey';
+    containerCards.addEventListener("transitionend", function() {
+      arrowRight.style.pointerEvents = '';
+      arrowRight.style.backgroundColor = '#F9804B';
+    });
+  }
+  
+});
+
+
+
+// let arrCards = [];
+// containersCard.forEach(function(element){
+//   arrCards.push(element)
+// })
+// arrCards = arrCards.slice(0, 6);
+// // console.log(shuffle(Array.from(arrCards)))
+  
+// let sortArrCards = arrCards.sort(() => Math.round(Math.random() * 100) - 50);
+
+// let sdf = sortArrCards.reduce(function(target, key, index) {
+//   target[index] = key;
+//   return target;
+// })
+
+// console.log(sdf)
