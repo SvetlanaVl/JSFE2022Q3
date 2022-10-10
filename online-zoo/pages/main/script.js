@@ -31,18 +31,14 @@ const input = document.querySelector('input[type=range]');
 const reviews = document.querySelector('.reviews');
 
 input.addEventListener("input", e => {
-  let sum
+  let valueTranslate
   if(window.matchMedia("(max-width: 1220px)").matches) {
-    sum = input.value * (- 34.9);
+    valueTranslate = input.value * (- 34.4);
   } else {
-    sum = input.value * (- 25.8);
+    valueTranslate = input.value * (- 25.8);
   }
   reviews.classList.add('reviews-active');
-  reviews.style.transform = `translateX(${sum}%)`;
-
-  if(window.matchMedia("(max-width: 1220px)").matches) {
-    let sum = input.value * (- 25.8);
-  }
+  reviews.style.transform = `translateX(${valueTranslate}%)`;
 });
 
 // Testimonials pop up
@@ -79,3 +75,7 @@ const closeReviews = () => {
 close.addEventListener('click', closeReviews);
 
 popupReviewScreenDimming.addEventListener('click', closeReviews);
+
+
+// slider Pets
+
