@@ -563,6 +563,11 @@ button:active {
   max-width: 3182px;
   margin: 0 auto;
   margin-bottom: 15px;
+  transform: translateX(0);
+  transition-duration: 0.5s;
+}
+.reviews-active {
+  transform: translateX(-25%);
 }
 .review {
   box-sizing: border-box;
@@ -654,8 +659,8 @@ button:active {
 }
 .pop-up-review {
   position: fixed;
-    left: 40%;
-    top: 14%;
+  left: 50%;
+  top: 50%;
   width: 320px;
   height: 414px;
   background-color: #ffffff;
@@ -665,11 +670,11 @@ button:active {
   align-items: flex-start;
   padding-top: 13px;
   z-index: 3;
-  transform: translateY(-130%);
+  transform: translateY(-300%);
   transition: all 0.5s linear 0.2s;
 }
 .pop-up-review-active {
-  transform: translateY(0);
+  transform: translate(-50%, -50%);
 }
 .pop-up-review-screen-dimming-active {
   transform: translateY(0);
@@ -682,7 +687,8 @@ button:active {
 }
 .container-popup-background {
   width: 263px;
-  height: 371px;
+  height: 375px;
+  overflow: hidden;
 }
 .container-popup-background::before {
   content: "";
@@ -735,6 +741,7 @@ input[type=range]::-webkit-slider-thumb {
   height: 7px;
   -webkit-appearance: none;
   margin-top: 0;
+  transition: 0.5s ease-in-out;
 }
 input[type=range]::-moz-range-track {
   border-radius: 10px/100%;
@@ -989,6 +996,8 @@ input[type=email]:focus {
     gap: 26.8px;
     max-width: 3182px;
   }
+
+  
   .review {
     width: 293px;
     max-width: 100%;
@@ -1369,6 +1378,9 @@ input[type=email]:focus {
     margin: 0;
     padding-left: 8px;
   }
+  .input {
+    display: none;
+  }
 
 }
 
@@ -1600,9 +1612,7 @@ input[type=email]:focus {
   .review:not(.review:first-child) {
     margin-top: -18px;
   }
-  .input {
-    display: none;
-  }
+  
   .button-testimonials {
     width: 240px;
     margin-left: 180px;
