@@ -121,9 +121,7 @@ arrowRight.addEventListener("click", e => {
 
 function sortCard() {
 
-  
-
-  let arrContainersCard = [];
+ let arrContainersCard = [];
 
   containersCard.forEach(function(element){
     arrContainersCard.push(element)
