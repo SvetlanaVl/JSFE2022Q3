@@ -319,7 +319,7 @@ button:active {
   display: flex;
   gap: 18px;
   width: 305%;
-  transform: translateX(0);
+  transform: translateX(0%);
   transition-duration: 0.7s;
 }
 .wrapper-cards {
