@@ -89,16 +89,7 @@ const arrowRight = document.querySelector('.arrow-right');
 let valueTranslate = 0;
 
 arrowLeft.addEventListener("click", e => {
-  if (valueTranslate == 0) {
-    valueTranslate = -66.4
-    containerCards.style.transform = `translateX(${valueTranslate}%)`;
-    arrowLeft.style.pointerEvents = 'none';
-    arrowLeft.style.backgroundColor = 'grey';
-    containerCards.addEventListener("transitionend", function() {
-      arrowLeft.style.pointerEvents = '';
-      arrowLeft.style.backgroundColor = '#F9804B';
-    });
-  } else {
+  
     valueTranslate += + 33.2
     containerCards.style.transform = `translateX(${valueTranslate}%)`;
     arrowLeft.style.pointerEvents = 'none';
@@ -107,49 +98,61 @@ arrowLeft.addEventListener("click", e => {
       arrowLeft.style.pointerEvents = '';
       arrowLeft.style.backgroundColor = '#F9804B';
     });
-  }
   
+  sortCard();
 });
 
 
 arrowRight.addEventListener("click", e => {
-  if (valueTranslate > -65) {
-    valueTranslate += - 33.2
-    containerCards.style.transform = `translateX(${valueTranslate}%)`;
-    arrowRight.style.pointerEvents = 'none';
-    arrowRight.style.backgroundColor = 'grey';
-    containerCards.addEventListener("transitionend", function() {
-      arrowRight.style.pointerEvents = '';
-      arrowRight.style.backgroundColor = '#F9804B';
-    });
-    
-  } else {
-    valueTranslate = 0
-    containerCards.style.transform = `translateX(${valueTranslate}%)`;
-    arrowRight.style.pointerEvents = 'none';
-    arrowRight.style.backgroundColor = 'grey';
-    containerCards.addEventListener("transitionend", function() {
-      arrowRight.style.pointerEvents = '';
-      arrowRight.style.backgroundColor = '#F9804B';
-    });
-  }
   
+    valueTranslate += -33.2
+    containerCards.style.transform = `translateX(${valueTranslate}%)`;
+    arrowRight.style.pointerEvents = 'none';
+    arrowRight.style.backgroundColor = 'grey';
+    containerCards.addEventListener("transitionend", function() {
+      arrowRight.style.pointerEvents = '';
+      arrowRight.style.backgroundColor = '#F9804B';
+    });
+  
+  sortCard();
 });
 
 
 
-// let arrCards = [];
-// containersCard.forEach(function(element){
-//   arrCards.push(element)
-// })
-// arrCards = arrCards.slice(0, 6);
-// // console.log(shuffle(Array.from(arrCards)))
+function sortCard() {
+
   
-// let sortArrCards = arrCards.sort(() => Math.round(Math.random() * 100) - 50);
 
-// let sdf = sortArrCards.reduce(function(target, key, index) {
-//   target[index] = key;
-//   return target;
-// })
+  let arrContainersCard = [];
 
-// console.log(sdf)
+  containersCard.forEach(function(element){
+    arrContainersCard.push(element)
+  })
+
+  arrContainersCard = arrContainersCard.slice(0, 6);
+  
+
+  let sortArrCards = arrContainersCard.sort(function() {
+    return Math.random() - 0.5;
+  });
+
+  containersCard.forEach(function(element, index){
+      containersCard[6].innerHTML = sortArrCards[0].innerHTML;
+      containersCard[7].innerHTML = sortArrCards[1].innerHTML;
+      containersCard[8].innerHTML = sortArrCards[2].innerHTML;
+      containersCard[9].innerHTML = sortArrCards[3].innerHTML;
+      containersCard[10].innerHTML = sortArrCards[4].innerHTML;
+      containersCard[11].innerHTML = sortArrCards[5].innerHTML;
+      containersCard[12].innerHTML = sortArrCards[0].innerHTML;
+      containersCard[13].innerHTML = sortArrCards[1].innerHTML;
+      containersCard[14].innerHTML = sortArrCards[2].innerHTML;
+      containersCard[15].innerHTML = sortArrCards[3].innerHTML;
+      containersCard[16].innerHTML = sortArrCards[4].innerHTML;
+      containersCard[17].innerHTML = sortArrCards[5].innerHTML;
+})
+let clone = wrappersCards[1].cloneNode(true);
+containerCards.appendChild(clone)
+console.log(containerCards)
+}
+
+
