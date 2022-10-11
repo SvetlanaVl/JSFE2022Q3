@@ -80,58 +80,92 @@ popupReviewScreenDimming.addEventListener('click', closeReviews);
 
 // slider Pets
 
-const containerCards = document.querySelector('.container-cards');
-const containersCard = document.querySelectorAll('.container-card');
-
 const wrappersCards = document.querySelectorAll('.wrapper-cards');
 const arrowLeft = document.querySelector('.arrow-left');
 const arrowRight = document.querySelector('.arrow-right');
 
-let valueTranslate = 0;
+let currentWrappersCards = 0;
 
-arrowLeft.addEventListener("click", e => {
+
+
+function changeWrappersCards(n) {
+  currentWrappersCards = (n + wrappersCards.length) % wrappersCards.length;
+}
+
+function hideWrappersCards(direction) {
   
-    valueTranslate += + 33.2
-    containerCards.style.transform = `translateX(${valueTranslate}%)`;
-    arrowLeft.style.pointerEvents = 'none';
-    arrowLeft.style.backgroundColor = 'grey';
-    containerCards.addEventListener("transitionend", function() {
-      arrowLeft.style.pointerEvents = '';
-      arrowLeft.style.backgroundColor = '#F9804B';
-    });
+  wrappersCards[currentWrappersCards].classList.add(direction);
+  arrowLeft.style.pointerEvents = 'none';
+  arrowLeft.style.backgroundColor = 'grey';
+
+  wrappersCards[currentWrappersCards].addEventListener('animationend', function() {
+    this.classList.remove('active', direction);
+    arrowLeft.style.pointerEvents = '';
+    arrowLeft.style.backgroundColor = '#F9804B';
+
+  })
+}
+function showWrappersCards(direction) {
+  wrappersCards[currentWrappersCards].classList.add('next', direction);
+  arrowRight.style.pointerEvents = 'none';
+  arrowRight.style.backgroundColor = 'grey';
+  wrappersCards[currentWrappersCards].addEventListener('animationend', function() {
+    this.classList.remove('next', direction);
+    this.classList.add('active');
+    arrowRight.style.pointerEvents = '';
+    arrowRight.style.backgroundColor = '#F9804B';
+    
+
+  })
+}
+
+function previousWrappersCards(n) {
+  hideWrappersCards('to-right');
+  changeWrappersCards(n - 1);
+  showWrappersCards('from-left');
+}
+function nextWrappersCards(n) {
+  hideWrappersCards('to-left');
+  changeWrappersCards(n + 1);
+  showWrappersCards('from-right');
+}
+
+arrowLeft.addEventListener('click', function() {
   
-  sortCard();
-});
+    previousWrappersCards(currentWrappersCards);
+    sortCard()
 
-
-arrowRight.addEventListener("click", e => {
   
-    valueTranslate += -33.2
-    containerCards.style.transform = `translateX(${valueTranslate}%)`;
-    arrowRight.style.pointerEvents = 'none';
-    arrowRight.style.backgroundColor = 'grey';
-    containerCards.addEventListener("transitionend", function() {
-      arrowRight.style.pointerEvents = '';
-      arrowRight.style.backgroundColor = '#F9804B';
-    });
+})
+arrowRight.addEventListener('click', function() {
   
-  sortCard();
-});
+    nextWrappersCards(currentWrappersCards);
+    sortCard()
+})
+
+// const containerCards = document.querySelector('.container-cards');
+const containersCard = document.querySelectorAll('.container-card');
+
+// const wrappersCards = document.querySelectorAll('.wrapper-cards');
+// const arrowLeft = document.querySelector('.arrow-left');
+// const arrowRight = document.querySelector('.arrow-right');
 
 
 
-function sortCard() {
-
- let arrContainersCard = [];
+let arrContainersCard = [];
 
   containersCard.forEach(function(element){
     arrContainersCard.push(element)
   })
 
-  arrContainersCard = arrContainersCard.slice(0, 6);
+  let arrCard = arrContainersCard.slice(0, 6);
+
+function sortCard() {
+
+  
   
 
-  let sortArrCards = arrContainersCard.sort(function() {
+  let sortArrCards = arrCard.sort(function() {
     return Math.random() - 0.5;
   });
 
@@ -149,9 +183,7 @@ function sortCard() {
       containersCard[16].innerHTML = sortArrCards[4].innerHTML;
       containersCard[17].innerHTML = sortArrCards[5].innerHTML;
 })
-let clone = wrappersCards[1].cloneNode(true);
-containerCards.appendChild(clone)
-console.log(containerCards)
+
 }
 
 
