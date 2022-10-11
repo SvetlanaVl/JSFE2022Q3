@@ -380,7 +380,7 @@ html {
 }
 .big-circle {
   position: relative;
-  --pos: 2;
+  --pos: 5;
   left: calc((100% - 50px) * (var(--pos) / 7) + (50px - 40px - 2 * 1px) / 2);
   width: 40px;
   height: 40px;
@@ -391,7 +391,7 @@ html {
 }
 .medium-circle {
   position: relative;
-  --pos: 2;
+  --pos: 5;
   left: calc((100% - 50px) * (var(--pos) / 7) + (50px - 40px - 2 * 1px) / 2);
   width: 22.95px;
   height: 22.95px;
@@ -420,7 +420,6 @@ html {
 }
 .dollar:nth-child(3) {
   margin-left: -11px;
-  color: #FE9013;
 }
 .dollar:nth-child(4) {
   margin-left: -12px;
@@ -430,6 +429,7 @@ html {
 }
 .dollar:nth-child(6) {
   margin-left: 3px;
+  color: #FE9013;
 }
 .dollar:nth-child(7) {
   margin-left: 3px;
@@ -440,7 +440,7 @@ html {
 .dollar::before {
   content: url(../../assets/icons/dollar.svg);
 }
-.dollar:nth-child(3)::before {
+.dollar:nth-child(6)::before {
   content: url(../../assets/icons/dollar-orange.svg);
 }
 .circle:hover {
@@ -816,11 +816,11 @@ input[type="email"]:focus {
     width: 829px;
   }
   .big-circle {
-    --pos: 1;
+    --pos: 4;
     left: calc((100% - 50px) * (var(--pos) / 6) + (50px - 40px - 2 * 1px) / 2);
   }
   .medium-circle {
-    --pos: 1;
+    --pos: 4;
     left: calc((100% - 50px) * (var(--pos) / 6) + (50px - 40px - 2 * 1px) / 2);
   }
   .dollar:nth-child(2) {
@@ -1010,11 +1010,11 @@ input[type="email"]:focus {
     width: 95%;
   }
   .big-circle {
-    --pos: 1;
+    --pos: 2;
     left: calc((100% - 50px) * (var(--pos) / 4) + (50px - 40px - 2 * 1px) / 2);
   }
   .medium-circle {
-    --pos: 1;
+    --pos: 2;
     left: calc((100% - 50px) * (var(--pos) / 4) + (50px - 40px - 2 * 1px) / 2);
   }
   .hover-circle:nth-child(7),
