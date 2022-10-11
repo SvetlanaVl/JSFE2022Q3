@@ -32,15 +32,30 @@ const hoverCircles = document.querySelectorAll('.hover-circle');
 const bigCircle = document.querySelector('.big-circle')
 const mediumCircle = document.querySelector('.medium-circle')
 const dollars = document.querySelectorAll('.dollar')
+const input = document.querySelector('input[type="number"]')
+
+
 
 console.log(dollars)
-
+circles.forEach((element) => {
+  console.log(circles[5])
+  if(window.matchMedia("(max-width: 640px)").matches) {
+    circles[2].classList.add('circle-active');
+  } else if(window.matchMedia("(max-width: 1000px)").matches) {
+    circles[4].classList.add('circle-active');
+    circles[5].classList.remove('circle-active');
+  } else {
+    circles[5].classList.add('circle-active');
+    circles[4].classList.remove('circle-active');
+  }
+});
 
 hoverCircles.forEach((element, index) => {
   element.addEventListener('click', () => {
     circles.forEach((elem) => {
       elem.classList.remove('circle-active');
       element.children[0].classList.add('circle-active');
+      
     });
     bigCircle.style.setProperty('--pos', index);
     mediumCircle.style.setProperty('--pos', index);
@@ -49,9 +64,29 @@ hoverCircles.forEach((element, index) => {
 
 dollars.forEach((element, index) => {
   element.addEventListener('click', () => {
-    console.log(element)
-    console.log(element.innerHTML)
-    console.log(index)
+    input.placeholder = element.innerHTML
   });
 });
 
+hoverCircles.forEach((element, index) => {
+  dollars.forEach((el, ind) => {
+    element.addEventListener('click', () => {
+      el.style.color = '#333b41';
+      if(window.matchMedia("(max-width: 640px)").matches) {
+        input.placeholder = dollars[index + 3].innerHTML
+        dollars[index + 3].style.color = '#FE9013';
+
+      } else if(window.matchMedia("(max-width: 1000px)").matches) {
+        input.placeholder = dollars[index + 1].innerHTML
+        
+        dollars[index + 1].style.color = '#FE9013';
+      } else {
+        input.placeholder = dollars[index].innerHTML
+        dollars[index].style.color = '#FE9013';
+
+      }
+    });
+    
+  });
+  
+});
