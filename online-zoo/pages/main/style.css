@@ -319,6 +319,7 @@ button:active {
   display: flex;
   gap: 18px;
   width: 305%;
+  /* margin-left: -101.5%; */
   transform: translateX(0%);
   transition-duration: 0.7s;
 }
@@ -328,8 +329,50 @@ button:active {
   gap: 17px 27px;
   margin-bottom: 79px;
   animation: 0.5s ease-in-out;
+  display: none;
   /* transform: translateX(0);
   transition-duration: 1s; */
+}
+.active, .next {
+  display: grid;
+}
+.next {
+  position: absolute;
+  top: 0;
+  width: 100%;
+
+}
+
+.to-left {
+  animation-name: left;
+}
+.to-right {
+  animation-name: right;
+  animation-direction: reverse;
+}
+.from-left {
+  animation-name: left;
+  animation-direction: reverse;
+}
+.from-right {
+  animation-name: right;
+}
+
+@keyframes left {
+  from {
+    left: 0;
+  }
+  to {
+    left: 50%;
+  }
+}
+@keyframes right {
+  from {
+    left: -50%;
+  }
+  to {
+    left: 0;
+  }
 }
 /* .wrapper-cards-active-left {
   transform: translateX(102%);
