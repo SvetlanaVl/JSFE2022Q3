@@ -1,6 +1,6 @@
 html {
   box-sizing: border-box;
-  scroll-behavior: smooth; /*Плавная прокрутка по якорям*/
+  scroll-behavior: smooth;
 }
 .wrapper {
   max-width: 1160px;
