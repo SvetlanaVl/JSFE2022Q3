@@ -318,7 +318,7 @@ button:active {
 .container-cards {
   display: flex;
   gap: 18px;
-  width: 305%;
+  max-width: 305%;
   /* margin-left: -101.5%; */
   transform: translateX(0%);
   transition-duration: 0.7s;
@@ -1439,15 +1439,23 @@ input[type=email]:focus {
   .wrapper-cards {
     gap: 92px 28px;
     margin-bottom: 60px;
-    grid-template-columns: repeat(3, 48%);
+    grid-template-columns: repeat(3, 31%);
   }
   .container-card {
     width: 99%;
     height: 100%;
   }
-  
+  .animal-name {
+    font-size: 13px;
+  }
+  .animal-where {
+    font-size: 12px;
+  }
+  .card-caption img {
+    width: 13%;
+  }
   .arrow {
-    top: 43%;
+    top: 40%;
   }
 
 }
@@ -1563,6 +1571,7 @@ input[type=email]:focus {
   .wrapper-cards {
     gap: 92px 22px;
     margin-bottom: 60px;
+    grid-template-columns: repeat(3, 32.3%);
   }
   .container-card {  
     width: 284px;
@@ -1725,6 +1734,9 @@ input[type=email]:focus {
   .container-card {
     width: 96%;
     height: 96%;
+  }
+  .wrapper-cards {
+    grid-template-columns: repeat(3, 48.3%);
   }
   .card {
     height: 85%;
