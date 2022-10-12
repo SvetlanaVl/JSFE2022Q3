@@ -129,7 +129,9 @@
                 </div>
               </div>
               <div class="input">
-                <input type="number" placeholder="100">
+                <form id="input">
+                  <input type="number" value="100" min="0" max="9999" required>
+                </form>
               </div>
               <form class="form">
                   <input type="radio" id="monthly" name="amount" value="email">
@@ -137,8 +139,8 @@
                   <input type="radio" id="once" name="amount" value="email" checked>
                   <label for="once">Once</label>
               </form>
-              <form class="form-button" action="../donate/index.html">
-                <button class="button button-slider-animals">Feed a friend now</button>
+              <form class="form-button" >
+                <button class="button button-slider-animals" form="input">Feed a friend now</button>
               </form>
                 <p class="share">Share with your friends on social networks</p>
             </div>
