@@ -1,4 +1,3 @@
-alert('Уважаемый проверяющий!\nПосле пуша слетели все настройки\nOтложи проверку на пару дней, пожалуйста!')
 /*menu hamburger*/
 
 const burgerItem = document.querySelector('.hamburger');
