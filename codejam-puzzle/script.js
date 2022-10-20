@@ -56,9 +56,9 @@ function startGame() {
   // если всё сложено выводится сообщение
 
 		if (square.win()) { 
-			ctx.fillStyle = "#FFFFFF";
-			ctx.fillRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
-			square.draw(ctx, sizeSquare);
+			// ctx.fillStyle = "#FFFFFF";
+			// ctx.fillRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
+			// square.draw(ctx, sizeSquare);
 
       alert("Ура! Вы решили головоломку за "+ " " + " и " + square.getMoves() + " ходов!");
 

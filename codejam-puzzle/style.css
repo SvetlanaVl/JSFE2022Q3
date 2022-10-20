@@ -1,6 +1,31 @@
 body {
   text-align: center;
+  /* transform: translate(0%, 50%); */
 }
 canvas {
   border: 1px solid rgba(34, 153, 125, 0.8);
+  position: relative;
+  top: 60px;
+}
+button {
+  position: absolute;
+  top: 18px;
+  left: 38%;
+  background-color: #FFFFFF;
+  box-shadow: inset 2px 2px 1em rgba(34, 153, 125, 0.7);
+  border: rgba(34, 153, 125, 0.7);
+  border-radius: 2px;
+  padding: 7px;
+  color: #131414;
+  font-size: 16px;
+}
+button:nth-child(2) {
+  left: 50%;
+}
+button:nth-child(3) {
+  left: 56%;
+}
+div {
+  position: relative;
+  top: 70px;
 }
