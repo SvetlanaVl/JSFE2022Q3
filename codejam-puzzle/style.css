@@ -2,5 +2,5 @@ body {
   text-align: center;
 }
 canvas {
-  border: 1px solid black;
+  border: 1px solid rgba(34, 153, 125, 0.8);
 }

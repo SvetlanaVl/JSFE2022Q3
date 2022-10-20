@@ -3,38 +3,60 @@
 function startGame() {
   myGameArea.start(); // создали элемент canvas
 
-  var cellSize = myGameArea.canvas.width / 4; // игра 4*4
+  let cellSize = myGameArea.canvas.width / 4; // игра 4*4
 
-  var square = new component(); // создали объект пятнашек
+  let square = new component(); // создали объект пятнашек 
 
-  // пятнашеки
+  // пятнашки
 
 	square.setCellView(function(x, y) { 
+		ctx.shadowBlur = 7;
+    ctx.shadowColor = 'rgba(34, 153, 125, 0.7)';
     ctx.fillStyle = "#FFFFFF";
-    ctx.fillRect(x + 1, y + 1, cellSize - 2, cellSize - 2);
+    ctx.fillRect(x + 2, y + 2, cellSize - 4, cellSize - 4);
+		
   });
 
   // цифры
 
 	square.setNumView(function() { 
-    ctx.font = "bold "+ (cellSize / 2.5) + "px serif";
+		ctx.font = "bold "+ (cellSize / 2.5) + "px serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
-    ctx.fillStyle = "#000000";
+    ctx.fillStyle = "#131414";
   });
-
-  ctx.fillStyle = "#000000"; // цвет линий и пустой ячейки
-  ctx.fillRect(0, 0,  myGameArea.canvas.width,  myGameArea.canvas.height); // линии и пустая ячейка
+	
+	// ctx.fillStyle = "rgba(250, 245, 245, 0.3)"; // цвет линий и пустой ячейки
+  // ctx.fillRect(0, 0,  myGameArea.canvas.width,  myGameArea.canvas.height); // линии и пустая ячейка
 	
   square.draw(ctx, cellSize); // добавили пятнашки
 
-	
+  // при клике закрашиваем пустой квадрат 
+  
+  function event(x, y) {
+		square.move(x, y);
+		ctx.fillStyle = "#FFFFFF";
+		ctx.fillRect(0, 0,  myGameArea.canvas.width,  myGameArea.canvas.height);
+		square.draw(ctx, cellSize);
+
+  
+	}
+
+  // клик мышью
+
+  myGameArea.canvas.onclick = function(e) { 
+		let x = (e.pageX - myGameArea.canvas.offsetLeft) / cellSize | 0;
+		let y = (e.pageY - myGameArea.canvas.offsetTop)  / cellSize | 0;
+		event(x, y); // выход функции действия
+	};
+
+
   
 }
 
 // canvas
 
-var myGameArea = {
+const myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
         this.canvas.width = 320;
@@ -49,13 +71,13 @@ var myGameArea = {
 
 function component() {
   ctx = myGameArea.context;
-  var cellView = null;
-  var numView = null;
-  var arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]];
+  let cellView = null;
+  let numView = null;
+  let arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]];
 
   this.draw = function(ctx, size) {
-    for (var i = 0; i < 4; i++) {
-      for (var j = 0; j < 4; j++) {
+    for (let i = 0; i < 4; i++) {
+      for (let j = 0; j < 4; j++) {
         if (arr[i][j] > 0) {
           if (cellView !== null) {
             cellView(j * size, i * size);
@@ -80,8 +102,32 @@ function component() {
   this.setNumView = function(func) {
     numView = func;
   };
+	let clicks = 0;
 
-  
+  // координата пустой клетки
+
+	function getNull() { 
+		for (let i = 0; i < 4; i++) {
+			for (let j = 0; j < 4; j++) {
+				if (arr[j][i] === 0) {
+					return {"x":i, "y":j};
+				}
+			}
+		}
+	};
+
+	// перемещаем пятнашку в пустую клетку
+
+	this.move = function(x, y) {
+		let nullX = getNull().x;
+		let nullY = getNull().y;
+		if (((x - 1 == nullX || x + 1 == nullX) && y == nullY) || ((y - 1 == nullY || y + 1 == nullY) && x == nullX)) {
+			arr[nullY][nullX] = arr[y][x];
+			arr[y][x] = 0;
+			clicks++;
+		}
+	};
+
 
 }
 
