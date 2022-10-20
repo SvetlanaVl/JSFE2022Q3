@@ -1,8 +1,17 @@
 // пятнашки
 
-function startGame() {
-  myGameArea.start(); // создали элемент canvas
 
+
+function startGame() {
+
+	myButton.start();
+
+	myButtonSave.start();
+	myButtonResult.start();
+
+	myGameArea.start();
+
+	myMoves.start()
 
   let sizeSquare = myGameArea.canvas.width / 4; // игра 4*4
 
@@ -55,16 +64,24 @@ function startGame() {
 
 			
 		}
+
 	}
 
   // клик мышью
 
-  myGameArea.canvas.onclick = function(e) { 
+	myGameArea.canvas.onclick = function(e) { 
 		let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
 		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
 		emptySquare(x, y); // вывод функции пустой квадрат
 	};
 
+	myButton.button.onclick = function(e) { 
+
+		startGame();
+		
+	};
+
+  
   // касание пальцем
 
 	myGameArea.canvas.ontouchend = function(e) { 
@@ -81,11 +98,55 @@ function startGame() {
 const myGameArea = {
     canvas : document.createElement("canvas"),
     start : function() {
-        this.canvas.width = 320;
-        this.canvas.height = 320;
-        this.context = this.canvas.getContext("2d");
-        document.body.insertBefore(this.canvas, document.body.childNodes[2]);
+      this.canvas.width = 320;
+      this.canvas.height = 320;
+      this.context = this.canvas.getContext("2d");
+      document.body.insertBefore(this.canvas, document.body.childNodes[3]);
     }
+}
+
+// buttons
+
+const myButton = {
+	button : document.createElement("button"),
+	start : function() {
+		this.button.width = 50;
+		this.button.height = 50;
+		this.button.textContent = 'Shuffle and start';
+		document.body.insertBefore(this.button, document.body.childNodes[0]);
+	}
+}
+
+const myButtonSave = {
+	button : document.createElement("button"),
+	start : function() {
+		this.button.width = 50;
+		this.button.height = 50;
+		this.button.textContent = 'Save';
+		document.body.insertBefore(this.button, document.body.childNodes[1]);
+	}
+}
+
+const myButtonResult = {
+	button : document.createElement("button"),
+	start : function() {
+		this.button.width = 50;
+		this.button.height = 50;
+		this.button.textContent = 'Results';
+		document.body.insertBefore(this.button, document.body.childNodes[2]);
+	}
+}
+
+// moves
+
+const myMoves = {
+	moves : document.createElement("div"),
+	start : function() {
+		this.moves.width = 50;
+		this.moves.height = 50;
+		this.moves.textContent = '';
+		document.body.insertBefore(this.moves, document.body.childNodes[4]);
+	}
 }
 
 // конструктор компонентов
@@ -151,6 +212,7 @@ function component() {
 	// число касаний
 
 	this.getMoves = function() {
+		
 		return moves;
 	};
 
@@ -163,7 +225,9 @@ function component() {
 			arr[moveY][moveEmptySquareX] = arr[y][x];
 			arr[y][x] = 0;
 			moves++;
+			
 		}
+		myMoves.moves.textContent = `Moves: ${moves}`;
 	};
 
 	// условие когда всё собрано
@@ -203,7 +267,10 @@ function component() {
 		}
 
 		moves = 0;
+
+		myMoves.moves.textContent = `Moves: ${moves}`;
 	};
+
 
 }
 
