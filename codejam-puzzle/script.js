@@ -1,21 +1,22 @@
 // пятнашки
-
-
-
+let moves = 0;
 function startGame() {
 
 	myButton.start();
-
 	myButtonSave.start();
-	myButtonResult.start();
-
+  myButtonResult.start();
+  myButtonLoad.start();
 	myGameArea.start();
+  myNameMoves.start();
+	myMoves.start();
 
-	myMoves.start()
+  // игра 4*4
 
-  let sizeSquare = myGameArea.canvas.width / 4; // игра 4*4
+  let sizeSquare = myGameArea.canvas.width / 4;
 
-  let square = new component(); // создали объект пятнашек
+  // создали объект пятнашек
+
+  let square = new component();
 
   // перемешиваем пятнашки
 
@@ -28,7 +29,6 @@ function startGame() {
     ctx.shadowColor = 'rgba(34, 153, 125, 0.7)';
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(x + 2, y + 2, sizeSquare - 4, sizeSquare - 4);
-		
   });
 
   // цифры
@@ -40,10 +40,9 @@ function startGame() {
     ctx.fillStyle = "#131414";
   });
 	
-	// ctx.fillStyle = "rgba(250, 245, 245, 0.3)"; // цвет линий и пустой ячейки
-  // ctx.fillRect(0, 0,  myGameArea.canvas.width,  myGameArea.canvas.height); // линии и пустая ячейка
-	
-  square.draw(ctx, sizeSquare); // нарисовали пятнашки
+	// нарисовали пятнашки
+
+  square.draw(ctx, sizeSquare);
 
   // при клике закрашиваем пустой квадрат 
   
@@ -53,35 +52,76 @@ function startGame() {
 		ctx.fillRect(0, 0,  myGameArea.canvas.width,  myGameArea.canvas.height);
 		square.draw(ctx, sizeSquare);
 
-  // если всё сложено выводится сообщение
+    // если всё сложено выводится сообщение
 
 		if (square.win()) { 
-			// ctx.fillStyle = "#FFFFFF";
-			// ctx.fillRect(0, 0, myGameArea.canvas.width, myGameArea.canvas.height);
-			// square.draw(ctx, sizeSquare);
-
-      alert("Ура! Вы решили головоломку за "+ " " + " и " + square.getMoves() + " ходов!");
-
-			
+			alert("Ура! Вы решили головоломку за "+ " " + " и " + square.getMoves() + " ходов!");
 		}
-
 	}
-
+  
   // клик мышью
 
 	myGameArea.canvas.onclick = function(e) { 
 		let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
 		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
-		emptySquare(x, y); // вывод функции пустой квадрат
+    // вывод функции пустой квадрат
+		emptySquare(x, y);
+    
 	};
+
+  // при клике на нопку начинаем новую игру
 
 	myButton.button.onclick = function(e) { 
-
 		startGame();
-		
+    
 	};
 
+
+  // Local Storage
+
+  function setLocalStorage() {
+    localStorage.setItem("moves", myMoves.moves.innerText);
+  }
+
+  function getLocalStorage() {
+
+    const localMoves = localStorage.getItem('moves')
+
+    if (localStorage.getItem("moves")) {
+      myMoves.moves.textContent = +localMoves;
+    }
+
+
+  }
+
+  // при клике на нопку сохраняем в Local Storage
+
+  myButtonSave.button.onclick = function(e) { 
+    setLocalStorage();
+    getLocalStorage();
+
+    console.log(myButtonLoad)
+
+    
+    // myButtonLoad.button.style.pointerEvents = 'visible';
   
+  };
+
+  if (localStorage.getItem("moves")) {
+    myButtonLoad.button.style.pointerEvents = 'visible';
+  }
+
+
+  myButtonLoad.button.onclick = function(e) { 
+    if (localStorage.getItem("moves")) {
+      moves = +localStorage.getItem('moves');
+    }
+    getLocalStorage();
+    
+
+  
+  };
+
   // касание пальцем
 
 	myGameArea.canvas.ontouchend = function(e) { 
@@ -101,7 +141,7 @@ const myGameArea = {
       this.canvas.width = 320;
       this.canvas.height = 320;
       this.context = this.canvas.getContext("2d");
-      document.body.insertBefore(this.canvas, document.body.childNodes[3]);
+      document.body.insertBefore(this.canvas, document.body.childNodes[4]);
     }
 }
 
@@ -110,8 +150,6 @@ const myGameArea = {
 const myButton = {
 	button : document.createElement("button"),
 	start : function() {
-		this.button.width = 50;
-		this.button.height = 50;
 		this.button.textContent = 'Shuffle and start';
 		document.body.insertBefore(this.button, document.body.childNodes[0]);
 	}
@@ -120,8 +158,6 @@ const myButton = {
 const myButtonSave = {
 	button : document.createElement("button"),
 	start : function() {
-		this.button.width = 50;
-		this.button.height = 50;
 		this.button.textContent = 'Save';
 		document.body.insertBefore(this.button, document.body.childNodes[1]);
 	}
@@ -130,10 +166,28 @@ const myButtonSave = {
 const myButtonResult = {
 	button : document.createElement("button"),
 	start : function() {
-		this.button.width = 50;
-		this.button.height = 50;
 		this.button.textContent = 'Results';
 		document.body.insertBefore(this.button, document.body.childNodes[2]);
+	}
+}
+
+const myButtonLoad = {
+	button : document.createElement("button"),
+	start : function() {
+		this.button.textContent = 'Load';
+    this.button.style.pointerEvents = 'none';
+		document.body.insertBefore(this.button, document.body.childNodes[3]);
+	}
+}
+
+// name moves
+
+const myNameMoves = {
+	nameMoves : document.createElement("div"),
+	start : function() {
+    this.nameMoves.className = 'moves-name'
+		this.nameMoves.textContent = 'Moves: ';
+		document.body.insertBefore(this.nameMoves, document.body.childNodes[5]);
 	}
 }
 
@@ -142,10 +196,9 @@ const myButtonResult = {
 const myMoves = {
 	moves : document.createElement("div"),
 	start : function() {
-		this.moves.width = 50;
-		this.moves.height = 50;
+
 		this.moves.textContent = '';
-		document.body.insertBefore(this.moves, document.body.childNodes[4]);
+		document.body.insertBefore(this.moves, document.body.childNodes[6]);
 	}
 }
 
@@ -187,8 +240,6 @@ function component() {
     viewNumber = func;
   };
 
-  let moves = 0;
-
   // координата пустой клетки
 
 	function getEmptySquare() { 
@@ -209,10 +260,11 @@ function component() {
 		}
 	};
 
-	// число касаний
+	// число кликов
+
+  // let moves = 0;
 
 	this.getMoves = function() {
-		
 		return moves;
 	};
 
@@ -221,13 +273,15 @@ function component() {
 	this.move = function(x, y) {
 		let moveEmptySquareX = getEmptySquare().x;
 		let moveY = getEmptySquare().y;
+    
 		if (((x - 1 == moveEmptySquareX || x + 1 == moveEmptySquareX) && y == moveY) || ((y - 1 == moveY || y + 1 == moveY) && x == moveEmptySquareX)) {
 			arr[moveY][moveEmptySquareX] = arr[y][x];
 			arr[y][x] = 0;
+      
 			moves++;
-			
 		}
-		myMoves.moves.textContent = `Moves: ${moves}`;
+		myMoves.moves.textContent = moves;
+
 	};
 
 	// условие когда всё собрано
@@ -268,9 +322,14 @@ function component() {
 
 		moves = 0;
 
-		myMoves.moves.textContent = `Moves: ${moves}`;
+		myMoves.moves.textContent = moves;
+
 	};
 
 
+  
+
 }
+
+
 
