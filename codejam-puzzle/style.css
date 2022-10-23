@@ -30,6 +30,13 @@ button:nth-child(3) {
 button:nth-child(4) {
   top: 70px;
   left: 52%;
+  background-color: #888888;
+}
+button:hover {
+  box-shadow: inset 3px 3px 1em rgba(34, 153, 104, 0.9);
+}
+button:active {
+  background-color: rgba(34, 153, 125, 0.7);
 }
 .moves-name {
   position: relative;

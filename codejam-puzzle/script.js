@@ -24,23 +24,31 @@ function startGame() {
 
   // пятнашки
 
-	square.setViewSquare(function(x, y) { 
+	square.setViewSquare(function(x, y) {
+    ctx.beginPath();
 		ctx.shadowBlur = 7;
     ctx.shadowColor = 'rgba(34, 153, 125, 0.7)';
     ctx.fillStyle = "#FFFFFF";
     ctx.fillRect(x + 2, y + 2, sizeSquare - 4, sizeSquare - 4);
+    ctx.closePath();
   });
 
   // цифры
 
 	square.setViewNumber(function() { 
+    ctx.beginPath();
+    ctx.shadowOffsetX = 2;
+    ctx.shadowOffsetY = 2
+    ctx.shadowBlur = 2;
+    ctx.shadowColor = 'rgba(34, 153, 125, 0.7)';
 		ctx.font = "bold "+ (sizeSquare / 2.5) + "px serif";
     ctx.textAlign = "center";
     ctx.textBaseline = "middle";
     ctx.fillStyle = "#131414";
+    ctx.closePath();
   });
-	
-	// нарисовали пятнашки
+
+  // нарисовали пятнашки
 
   square.draw(ctx, sizeSquare);
 
@@ -58,40 +66,34 @@ function startGame() {
 			alert("Ура! Вы решили головоломку за "+ " " + " и " + square.getMoves() + " ходов!");
 		}
 	}
-  
+
   // клик мышью
 
 	myGameArea.canvas.onclick = function(e) { 
-		let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
+    let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
 		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
     // вывод функции пустой квадрат
 		emptySquare(x, y);
-    
 	};
 
   // при клике на нопку начинаем новую игру
 
 	myButton.button.onclick = function(e) { 
 		startGame();
-    
 	};
-
 
   // Local Storage
 
   function setLocalStorage() {
     localStorage.setItem("moves", myMoves.moves.innerText);
+		localStorage.setItem('square', arrLocal.join())
   }
 
   function getLocalStorage() {
-
     const localMoves = localStorage.getItem('moves')
-
     if (localStorage.getItem("moves")) {
       myMoves.moves.textContent = +localMoves;
     }
-
-
   }
 
   // при клике на нопку сохраняем в Local Storage
@@ -99,27 +101,27 @@ function startGame() {
   myButtonSave.button.onclick = function(e) { 
     setLocalStorage();
     getLocalStorage();
-
-    console.log(myButtonLoad)
-
-    
-    // myButtonLoad.button.style.pointerEvents = 'visible';
-  
+    myButtonLoad.buttonLoad.style.pointerEvents = 'visible';
+    myButtonLoad.buttonLoad.style.backgroundColor = '#FFFFFF';
   };
 
   if (localStorage.getItem("moves")) {
-    myButtonLoad.button.style.pointerEvents = 'visible';
+    myButtonLoad.buttonLoad.style.pointerEvents = 'visible';
+    myButtonLoad.buttonLoad.style.backgroundColor = '#FFFFFF';
   }
 
+  // при клике на нопку возвращаем из Local Storage
 
-  myButtonLoad.button.onclick = function(e) { 
+  myButtonLoad.buttonLoad.onclick = function(e) { 
     if (localStorage.getItem("moves")) {
       moves = +localStorage.getItem('moves');
     }
-    getLocalStorage();
     
+    square.draw(ctx, sizeSquare);
+    let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
+		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
+    emptySquare(x, y);
 
-  
   };
 
   // касание пальцем
@@ -130,7 +132,6 @@ function startGame() {
 		emptySquare(x, y);
 	};
 
-  
 }
 
 // canvas
@@ -172,11 +173,11 @@ const myButtonResult = {
 }
 
 const myButtonLoad = {
-	button : document.createElement("button"),
+	buttonLoad : document.createElement("button"),
 	start : function() {
-		this.button.textContent = 'Load';
-    this.button.style.pointerEvents = 'none';
-		document.body.insertBefore(this.button, document.body.childNodes[3]);
+		this.buttonLoad.textContent = 'Load';
+    this.buttonLoad.style.pointerEvents = 'none';
+		document.body.insertBefore(this.buttonLoad, document.body.childNodes[3]);
 	}
 }
 
@@ -185,7 +186,7 @@ const myButtonLoad = {
 const myNameMoves = {
 	nameMoves : document.createElement("div"),
 	start : function() {
-    this.nameMoves.className = 'moves-name'
+    this.nameMoves.className = 'moves-name';
 		this.nameMoves.textContent = 'Moves: ';
 		document.body.insertBefore(this.nameMoves, document.body.childNodes[5]);
 	}
@@ -196,7 +197,6 @@ const myNameMoves = {
 const myMoves = {
 	moves : document.createElement("div"),
 	start : function() {
-
 		this.moves.textContent = '';
 		document.body.insertBefore(this.moves, document.body.childNodes[6]);
 	}
@@ -204,15 +204,37 @@ const myMoves = {
 
 // конструктор компонентов
 
+let arrLocal = [];
+
 function component() {
   ctx = myGameArea.context;
   let viewSquare = null;
   let viewNumber = null;
   let arr = [[1, 2, 3, 4], [5, 6, 7, 8], [9, 10, 11, 12], [13, 14, 15, 0]];
-
+  
 	// рисуем квадраты
 
   this.draw = function(ctx, size) {
+    
+    myButtonLoad.buttonLoad.addEventListener("click", e => {
+
+      let arrStr = JSON.parse("[" + localStorage.getItem('square') + "]");
+  
+      let matrix = [], i, k;
+    
+      for (i = 0, k = -1; i < arrStr.length; i++) {
+        if (i % 4 === 0) {
+          k++;
+          matrix[k] = [];
+        }
+        matrix[k].push(arrStr[i]);
+      }
+  
+      arr = matrix;
+    });
+
+    arrLocal = [];
+
     for (let i = 0; i < 4; i++) {
       for (let j = 0; j < 4; j++) {
         if (arr[i][j] > 0) {
@@ -224,10 +246,12 @@ function component() {
             ctx.fillText(arr[i][j], j * size + size / 2, i * size + size / 2);
           }
         }
+        arrLocal.push(arr[i][j]);
       }
     }
-  };
 
+  };
+  
   // пятнашки
 
   this.setViewSquare = function(func) {
@@ -277,11 +301,9 @@ function component() {
 		if (((x - 1 == moveEmptySquareX || x + 1 == moveEmptySquareX) && y == moveY) || ((y - 1 == moveY || y + 1 == moveY) && x == moveEmptySquareX)) {
 			arr[moveY][moveEmptySquareX] = arr[y][x];
 			arr[y][x] = 0;
-      
 			moves++;
 		}
 		myMoves.moves.textContent = moves;
-
 	};
 
 	// условие когда всё собрано
@@ -326,8 +348,6 @@ function component() {
 
 	};
 
-
-  
 
 }
 
