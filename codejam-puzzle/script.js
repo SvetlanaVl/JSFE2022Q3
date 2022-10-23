@@ -1,5 +1,9 @@
 // пятнашки
 let moves = 0;
+let sec = 0;
+let min = 0;
+let stopwatch;
+
 function startGame() {
 
 	myButton.start();
@@ -9,6 +13,8 @@ function startGame() {
 	myGameArea.start();
   myNameMoves.start();
 	myMoves.start();
+  myTimeName.start();
+  myTime.start();
 
   // игра 4*4
 
@@ -28,7 +34,7 @@ function startGame() {
     ctx.beginPath();
 		ctx.shadowBlur = 7;
     ctx.shadowColor = 'rgba(34, 153, 125, 0.7)';
-    ctx.fillStyle = "#FFFFFF";
+    ctx.fillStyle = '#FFFFFF';
     ctx.fillRect(x + 2, y + 2, sizeSquare - 4, sizeSquare - 4);
     ctx.closePath();
   });
@@ -41,10 +47,10 @@ function startGame() {
     ctx.shadowOffsetY = 2
     ctx.shadowBlur = 2;
     ctx.shadowColor = 'rgba(34, 153, 125, 0.7)';
-		ctx.font = "bold "+ (sizeSquare / 2.5) + "px serif";
-    ctx.textAlign = "center";
-    ctx.textBaseline = "middle";
-    ctx.fillStyle = "#131414";
+		ctx.font = 'bold '+ (sizeSquare / 2.5) + 'px serif';
+    ctx.textAlign = 'center';
+    ctx.textBaseline = 'middle';
+    ctx.fillStyle = '#131414';
     ctx.closePath();
   });
 
@@ -56,14 +62,15 @@ function startGame() {
   
   function emptySquare(x, y) {
 		square.move(x, y);
-		ctx.fillStyle = "#FFFFFF";
+		ctx.fillStyle = '#FFFFFF';
 		ctx.fillRect(0, 0,  myGameArea.canvas.width,  myGameArea.canvas.height);
 		square.draw(ctx, sizeSquare);
 
     // если всё сложено выводится сообщение
 
-		if (square.win()) { 
-			alert("Ура! Вы решили головоломку за "+ " " + " и " + square.getMoves() + " ходов!");
+		if (square.win()) {
+      clearInterval(stopwatch);
+			alert('Ура! Вы решили головоломку за ' + myTime.time.innerHTML + ' и ' + square.getMoves() + ' ходов!');
 		}
 	}
 
@@ -85,14 +92,20 @@ function startGame() {
   // Local Storage
 
   function setLocalStorage() {
-    localStorage.setItem("moves", myMoves.moves.innerText);
-		localStorage.setItem('square', arrLocal.join())
+    localStorage.setItem('moves', myMoves.moves.innerText);
+		localStorage.setItem('square', arrLocal.join());
+		localStorage.setItem('minute', min);
+		localStorage.setItem('second', sec);
   }
 
   function getLocalStorage() {
     const localMoves = localStorage.getItem('moves')
-    if (localStorage.getItem("moves")) {
+    if (localStorage.getItem('moves')) {
       myMoves.moves.textContent = +localMoves;
+    }
+    if (localStorage.getItem('minute') && localStorage.getItem('second')) {
+      sec = +localStorage.getItem('second');
+      min = +localStorage.getItem('minute');
     }
   }
 
@@ -105,7 +118,7 @@ function startGame() {
     myButtonLoad.buttonLoad.style.backgroundColor = '#FFFFFF';
   };
 
-  if (localStorage.getItem("moves")) {
+  if (localStorage.getItem('moves')) {
     myButtonLoad.buttonLoad.style.pointerEvents = 'visible';
     myButtonLoad.buttonLoad.style.backgroundColor = '#FFFFFF';
   }
@@ -113,15 +126,18 @@ function startGame() {
   // при клике на нопку возвращаем из Local Storage
 
   myButtonLoad.buttonLoad.onclick = function(e) { 
-    if (localStorage.getItem("moves")) {
+    if (localStorage.getItem('moves')) {
       moves = +localStorage.getItem('moves');
+    }
+    if (localStorage.getItem('minute') && localStorage.getItem('second')) {
+      sec = +localStorage.getItem('second');
+      min = +localStorage.getItem('minute');
     }
     
     square.draw(ctx, sizeSquare);
     let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
 		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
     emptySquare(x, y);
-
   };
 
   // касание пальцем
@@ -132,24 +148,25 @@ function startGame() {
 		emptySquare(x, y);
 	};
 
+  
 }
 
 // canvas
 
 const myGameArea = {
-    canvas : document.createElement("canvas"),
-    start : function() {
-      this.canvas.width = 320;
-      this.canvas.height = 320;
-      this.context = this.canvas.getContext("2d");
-      document.body.insertBefore(this.canvas, document.body.childNodes[4]);
-    }
+  canvas : document.createElement('canvas'),
+  start : function() {
+    this.canvas.width = 320;
+    this.canvas.height = 320;
+    this.context = this.canvas.getContext('2d');
+    document.body.insertBefore(this.canvas, document.body.childNodes[4]);
+  }
 }
 
 // buttons
 
 const myButton = {
-	button : document.createElement("button"),
+	button : document.createElement('button'),
 	start : function() {
 		this.button.textContent = 'Shuffle and start';
 		document.body.insertBefore(this.button, document.body.childNodes[0]);
@@ -157,7 +174,7 @@ const myButton = {
 }
 
 const myButtonSave = {
-	button : document.createElement("button"),
+	button : document.createElement('button'),
 	start : function() {
 		this.button.textContent = 'Save';
 		document.body.insertBefore(this.button, document.body.childNodes[1]);
@@ -165,7 +182,7 @@ const myButtonSave = {
 }
 
 const myButtonResult = {
-	button : document.createElement("button"),
+	button : document.createElement('button'),
 	start : function() {
 		this.button.textContent = 'Results';
 		document.body.insertBefore(this.button, document.body.childNodes[2]);
@@ -173,7 +190,7 @@ const myButtonResult = {
 }
 
 const myButtonLoad = {
-	buttonLoad : document.createElement("button"),
+	buttonLoad : document.createElement('button'),
 	start : function() {
 		this.buttonLoad.textContent = 'Load';
     this.buttonLoad.style.pointerEvents = 'none';
@@ -184,7 +201,7 @@ const myButtonLoad = {
 // name moves
 
 const myNameMoves = {
-	nameMoves : document.createElement("div"),
+	nameMoves : document.createElement('div'),
 	start : function() {
     this.nameMoves.className = 'moves-name';
 		this.nameMoves.textContent = 'Moves: ';
@@ -195,10 +212,30 @@ const myNameMoves = {
 // moves
 
 const myMoves = {
-	moves : document.createElement("div"),
+	moves : document.createElement('div'),
 	start : function() {
 		this.moves.textContent = '';
 		document.body.insertBefore(this.moves, document.body.childNodes[6]);
+	}
+}
+
+// time name
+
+const myTimeName = {
+	timeName : document.createElement('div'),
+	start : function() {
+		this.timeName.textContent = 'Time: ';
+		document.body.insertBefore(this.timeName, document.body.childNodes[7]);
+	}
+}
+
+// time
+
+const myTime = {
+	time : document.createElement('div'),
+	start : function() {
+		this.time.textContent = '';
+		document.body.insertBefore(this.time, document.body.childNodes[8]);
 	}
 }
 
@@ -216,7 +253,7 @@ function component() {
 
   this.draw = function(ctx, size) {
     
-    myButtonLoad.buttonLoad.addEventListener("click", e => {
+    myButtonLoad.buttonLoad.addEventListener('click', e => {
 
       let arrStr = JSON.parse("[" + localStorage.getItem('square') + "]");
   
@@ -270,7 +307,7 @@ function component() {
 		for (let i = 0; i < 4; i++) {
 			for (let j = 0; j < 4; j++) {
 				if (arr[j][i] === 0) {
-					return {"x":i, "y":j};
+					return {'x':i, 'y':j};
 				}
 			}
 		}
@@ -347,6 +384,25 @@ function component() {
 		myMoves.moves.textContent = moves;
 
 	};
+
+  function formatTime() {
+    stopwatch = setInterval(function() {
+      if (sec === 60) {
+        sec = 0;
+        min++;
+      }
+      if (sec < 10) {
+        sec = `0${sec}`;
+      }
+
+      myTime.time.textContent = `${min}:${sec}`;
+
+      sec++;
+      
+    }, 1000)
+  }
+
+  formatTime();
 
 
 }
