@@ -1,6 +1,115 @@
 body {
-  text-align: center;
+  margin: 0;
+  padding: 10px;
 }
 canvas {
-  border: 1px solid black;
+  display: block;
+  border: 1px solid rgba(34, 153, 125, 0.8);
+  position: relative;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.container-button {
+  width: 320px;
+  height: 100px;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
+button {
+  position: relative;
+  width: 50%;
+  background-color: #FFFFFF;
+  box-shadow: inset 2px 2px 1em rgba(34, 153, 125, 0.7);
+  border: rgba(34, 153, 125, 0.7);
+  border-radius: 2px;
+  padding: 7px;
+  color: #131414;
+  font-size: 16px;
+  cursor: pointer;
+}
+button:nth-child(2), button:nth-child(3), button:nth-child(4)  {
+  width: 80px;
+}
+button:nth-child(4) {
+  background-color: #888888;
+}
+button:hover {
+  box-shadow: inset 3px 3px 1em rgba(34, 153, 104, 0.9);
+}
+button:active {
+  background-color: rgba(34, 153, 125, 0.7);
+}
+.container-moves-time {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
+}
+.result {
+  width: 263px;
+  height: 273px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: relative;
+  margin: 0 auto;
+  top: -365px;
+  left: 0;
+  background-color: rgb(34, 153, 125);
+  font-family: sans-serif;
+  font-size: 18px;
+
+}
+.result-close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.line {
+  width: 20px;
+  height: 2px;
+  background-color: #000000;
+  display: block;
+  margin: 4px auto;
+  border-radius: 3px;
+}
+.line:first-child {
+  transform: translateY(13px) rotate(45deg);
+}
+.line:last-child {
+  transform: translateY(-13px) rotate(-45deg);
+  margin-top: 24px;
+}
+.results {
+  width: 240px;
+  height: 228px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  top: 35px;
+  font-family: sans-serif;
+  font-size: 16px;
+
 }
