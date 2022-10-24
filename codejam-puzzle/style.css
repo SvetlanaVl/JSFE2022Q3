@@ -1,16 +1,33 @@
 body {
-  text-align: center;
-  /* transform: translate(0%, 50%); */
+  margin: 0;
+  padding: 10px;
 }
 canvas {
+  display: block;
   border: 1px solid rgba(34, 153, 125, 0.8);
   position: relative;
-  top: 115px;
+  margin: 0 auto;
+  margin-bottom: 20px;
+  cursor: pointer;
+}
+.container-button {
+  width: 320px;
+  height: 100px;
+  padding-top: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  position: relative;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
 }
 button {
-  position: absolute;
-  top: 18px;
-  left: 40%;
+  position: relative;
+  width: 50%;
   background-color: #FFFFFF;
   box-shadow: inset 2px 2px 1em rgba(34, 153, 125, 0.7);
   border: rgba(34, 153, 125, 0.7);
@@ -20,16 +37,10 @@ button {
   font-size: 16px;
   cursor: pointer;
 }
-button:nth-child(2) {
-  top: 70px;
-  left: 44.5%;
-}
-button:nth-child(3) {
-  left: 53%;
+button:nth-child(2), button:nth-child(3), button:nth-child(4)  {
+  width: 80px;
 }
 button:nth-child(4) {
-  top: 70px;
-  left: 52%;
   background-color: #888888;
 }
 button:hover {
@@ -38,12 +49,67 @@ button:hover {
 button:active {
   background-color: rgba(34, 153, 125, 0.7);
 }
-.moves-name {
+.container-moves-time {
+  width: 320px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   position: relative;
-  top: 125px;
-  left: -3%;
+  margin: 0 auto;
+  top: 0;
+  left: 0;
+  margin-bottom: 20px;
 }
-div {
+.result {
+  width: 263px;
+  height: 273px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
   position: relative;
-  top: 108px;
+  margin: 0 auto;
+  top: -365px;
+  left: 0;
+  background-color: rgb(34, 153, 125);
+  font-family: sans-serif;
+  font-size: 18px;
+
+}
+.result-close {
+  display: block;
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: 30px;
+  height: 30px;
+  cursor: pointer;
+}
+.line {
+  width: 20px;
+  height: 2px;
+  background-color: #000000;
+  display: block;
+  margin: 4px auto;
+  border-radius: 3px;
+}
+.line:first-child {
+  transform: translateY(13px) rotate(45deg);
+}
+.line:last-child {
+  transform: translateY(-13px) rotate(-45deg);
+  margin-top: 24px;
+}
+.results {
+  width: 240px;
+  height: 228px;
+  padding: 10px;
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+  position: absolute;
+  top: 35px;
+  font-family: sans-serif;
+  font-size: 16px;
+
 }

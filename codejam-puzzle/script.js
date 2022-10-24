@@ -3,18 +3,27 @@ let moves = 0;
 let sec = 0;
 let min = 0;
 let stopwatch;
+let arrResult = [];
 
 function startGame() {
 
+  myContainerButton.start();
 	myButton.start();
 	myButtonSave.start();
   myButtonResult.start();
   myButtonLoad.start();
 	myGameArea.start();
+  myContainerMovesAndTime.start();
   myNameMoves.start();
 	myMoves.start();
   myTimeName.start();
   myTime.start();
+  myResult.start();
+  myResultClose.start();
+  myResultCloseLine.start();
+  myResultCloseLineTwo.start();
+  myResults.start();
+
 
   // игра 4*4
 
@@ -26,7 +35,7 @@ function startGame() {
 
   // перемешиваем пятнашки
 
-	square.mix(200); 
+	square.mix(10); 
 
   // пятнашки
 
@@ -71,7 +80,25 @@ function startGame() {
 		if (square.win()) {
       clearInterval(stopwatch);
 			alert('Ура! Вы решили головоломку за ' + myTime.time.innerHTML + ' и ' + square.getMoves() + ' ходов!');
+
+      
+      arrResult.push(square.getMoves());
+
+      arrResult.sort(function(a, b) {
+        return a - b;
+      });
+
+      
+
+      localStorage.setItem('movesResult', arrResult.slice(0, 10));
+
+      myResults.result.textContent = localStorage.getItem('movesResult');
+
 		}
+    // arrRes.push(square.getMoves())
+    console.log(localStorage.getItem('movesResult'))
+    // myResults.result.textContent = arrRes;
+    
 	}
 
   // клик мышью
@@ -83,10 +110,14 @@ function startGame() {
 		emptySquare(x, y);
 	};
 
-  // при клике на нопку начинаем новую игру
+  // при клике на кнопку начинаем новую игру
 
-	myButton.button.onclick = function(e) { 
-		startGame();
+	myButton.button.onclick = function(e) {
+    sec = 0;
+    min = 0;
+  // formatTime();
+
+    startGame();
 	};
 
   // Local Storage
@@ -96,6 +127,10 @@ function startGame() {
 		localStorage.setItem('square', arrLocal.join());
 		localStorage.setItem('minute', min);
 		localStorage.setItem('second', sec);
+    localStorage.setItem('movesResult', arrResult.slice(0, 10));
+
+  
+
   }
 
   function getLocalStorage() {
@@ -107,9 +142,11 @@ function startGame() {
       sec = +localStorage.getItem('second');
       min = +localStorage.getItem('minute');
     }
+
+    myResults.result.textContent = localStorage.getItem('movesResult');
   }
 
-  // при клике на нопку сохраняем в Local Storage
+  // при клике на кнопку сохраняем в Local Storage
 
   myButtonSave.button.onclick = function(e) { 
     setLocalStorage();
@@ -123,7 +160,7 @@ function startGame() {
     myButtonLoad.buttonLoad.style.backgroundColor = '#FFFFFF';
   }
 
-  // при клике на нопку возвращаем из Local Storage
+  // при клике на кнопку возвращаем из Local Storage
 
   myButtonLoad.buttonLoad.onclick = function(e) { 
     if (localStorage.getItem('moves')) {
@@ -138,6 +175,24 @@ function startGame() {
     let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
 		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
     emptySquare(x, y);
+  };
+
+  // при клике на кнопку появляется топ-10
+
+  myButtonResult.button.onclick = function(e) {
+    clearInterval(stopwatch);
+    myResult.result.style.display = 'flex';
+    
+  };
+
+  // при клике закрывается топ-10
+
+  myResultClose.resultClose.onclick = function(e) {
+    myResult.result.style.display = 'none';
+    if (!square.win()) {
+      formatTime();
+    }
+    
   };
 
   // касание пальцем
@@ -159,25 +214,27 @@ const myGameArea = {
     this.canvas.width = 320;
     this.canvas.height = 320;
     this.context = this.canvas.getContext('2d');
-    document.body.insertBefore(this.canvas, document.body.childNodes[4]);
+    document.body.insertBefore(this.canvas, document.body.childNodes[1]);
   }
 }
 
 // buttons
 
+const myContainerButton = {
+	containerButton : document.createElement('div'),
+	start : function() {
+    this.containerButton.width = 320;
+    this.containerButton.height = 320;
+    this.containerButton.className = 'container-button';
+		document.body.insertBefore(this.containerButton, document.body.childNodes[0]);
+	}
+}
+
 const myButton = {
 	button : document.createElement('button'),
 	start : function() {
 		this.button.textContent = 'Shuffle and start';
-		document.body.insertBefore(this.button, document.body.childNodes[0]);
-	}
-}
-
-const myButtonSave = {
-	button : document.createElement('button'),
-	start : function() {
-		this.button.textContent = 'Save';
-		document.body.insertBefore(this.button, document.body.childNodes[1]);
+		myContainerButton.containerButton.insertBefore(this.button, myContainerButton.containerButton.childNodes[0]);
 	}
 }
 
@@ -185,7 +242,15 @@ const myButtonResult = {
 	button : document.createElement('button'),
 	start : function() {
 		this.button.textContent = 'Results';
-		document.body.insertBefore(this.button, document.body.childNodes[2]);
+		myContainerButton.containerButton.insertBefore(this.button, myContainerButton.containerButton.childNodes[1]);
+	}
+}
+
+const myButtonSave = {
+	button : document.createElement('button'),
+	start : function() {
+		this.button.textContent = 'Save';
+		myContainerButton.containerButton.insertBefore(this.button, myContainerButton.containerButton.childNodes[2]);
 	}
 }
 
@@ -194,7 +259,17 @@ const myButtonLoad = {
 	start : function() {
 		this.buttonLoad.textContent = 'Load';
     this.buttonLoad.style.pointerEvents = 'none';
-		document.body.insertBefore(this.buttonLoad, document.body.childNodes[3]);
+		myContainerButton.containerButton.insertBefore(this.buttonLoad, myContainerButton.containerButton.childNodes[3]);
+	}
+}
+
+// moves and time
+
+const myContainerMovesAndTime = {
+	containerMovesAndTime : document.createElement('div'),
+	start : function() {
+    this.containerMovesAndTime.className = 'container-moves-time';
+		document.body.insertBefore(this.containerMovesAndTime, document.body.childNodes[2]);
 	}
 }
 
@@ -203,9 +278,8 @@ const myButtonLoad = {
 const myNameMoves = {
 	nameMoves : document.createElement('div'),
 	start : function() {
-    this.nameMoves.className = 'moves-name';
 		this.nameMoves.textContent = 'Moves: ';
-		document.body.insertBefore(this.nameMoves, document.body.childNodes[5]);
+		myContainerMovesAndTime.containerMovesAndTime.insertBefore(this.nameMoves, myContainerMovesAndTime.containerMovesAndTime.childNodes[0]);
 	}
 }
 
@@ -215,7 +289,7 @@ const myMoves = {
 	moves : document.createElement('div'),
 	start : function() {
 		this.moves.textContent = '';
-		document.body.insertBefore(this.moves, document.body.childNodes[6]);
+		myContainerMovesAndTime.containerMovesAndTime.insertBefore(this.moves, myContainerMovesAndTime.containerMovesAndTime.childNodes[1]);
 	}
 }
 
@@ -225,7 +299,7 @@ const myTimeName = {
 	timeName : document.createElement('div'),
 	start : function() {
 		this.timeName.textContent = 'Time: ';
-		document.body.insertBefore(this.timeName, document.body.childNodes[7]);
+		myContainerMovesAndTime.containerMovesAndTime.insertBefore(this.timeName, myContainerMovesAndTime.containerMovesAndTime.childNodes[2]);
 	}
 }
 
@@ -235,7 +309,52 @@ const myTime = {
 	time : document.createElement('div'),
 	start : function() {
 		this.time.textContent = '';
-		document.body.insertBefore(this.time, document.body.childNodes[8]);
+		myContainerMovesAndTime.containerMovesAndTime.insertBefore(this.time, myContainerMovesAndTime.containerMovesAndTime.childNodes[3]);
+	}
+}
+
+// results top-10
+
+const myResult = {
+	result : document.createElement('div'),
+	start : function() {
+    this.result.className = 'result';
+    this.result.style.display = 'none';
+		this.result.textContent = 'Results Top-10';
+		document.body.insertBefore(this.result, document.body.childNodes[3]);
+	}
+}
+
+const myResultClose = {
+	resultClose : document.createElement('div'),
+	start : function() {
+    this.resultClose.className = 'result-close';
+		myResult.result.insertBefore(this.resultClose, myResult.result.childNodes[0]);
+	}
+}
+
+const myResultCloseLine = {
+	resultCloseLine : document.createElement('span'),
+	start : function() {
+    this.resultCloseLine.className = 'line';
+		myResultClose.resultClose.insertBefore(this.resultCloseLine, myResultClose.resultClose.childNodes[0]);
+	}
+}
+const myResultCloseLineTwo = {
+	resultCloseLine : document.createElement('span'),
+	start : function() {
+    this.resultCloseLine.className = 'line';
+		myResultClose.resultClose.insertBefore(this.resultCloseLine, myResultClose.resultClose.childNodes[0]);
+	}
+}
+
+const myResults = {
+	result : document.createElement('div'),
+	start : function() {
+    this.result.width = 230;
+    this.result.className = 'results';
+		this.result.textContent = '';
+		myResult.result.insertBefore(this.result, myResult.result.childNodes[1]);
 	}
 }
 
@@ -385,27 +504,27 @@ function component() {
 
 	};
 
-  function formatTime() {
-    stopwatch = setInterval(function() {
-      if (sec === 60) {
-        sec = 0;
-        min++;
-      }
-      if (sec < 10) {
-        sec = `0${sec}`;
-      }
-
-      myTime.time.textContent = `${min}:${sec}`;
-
-      sec++;
-      
-    }, 1000)
-  }
+  
 
   formatTime();
 
 
 }
 
+function formatTime() {
+  stopwatch = setInterval(function() {
+    if (sec === 60) {
+      sec = 0;
+      min++;
+    }
+    if (sec < 10) {
+      sec = `0${sec}`;
+    }
 
+    myTime.time.textContent = `${min}:${sec}`;
+
+    sec++;
+    
+  }, 1000)
+}
 
