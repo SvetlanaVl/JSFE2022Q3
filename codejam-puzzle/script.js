@@ -4,6 +4,7 @@ let sec = 0;
 let min = 0;
 let stopwatch;
 let arrResult = [];
+let mySound;
 
 function startGame() {
 
@@ -24,6 +25,9 @@ function startGame() {
   myResultCloseLineTwo.start();
   myResults.start();
 
+  // добавляем звук
+
+  mySound = new Audio("./sound/movement_01.mp3")
 
   // игра 4*4
 
@@ -35,7 +39,7 @@ function startGame() {
 
   // перемешиваем пятнашки
 
-	square.mix(10); 
+	square.mix(200); 
 
   // пятнашки
 
@@ -88,16 +92,12 @@ function startGame() {
         return a - b;
       });
 
-      
-
       localStorage.setItem('movesResult', arrResult.slice(0, 10));
 
       myResults.result.textContent = localStorage.getItem('movesResult');
 
 		}
-    // arrRes.push(square.getMoves())
-    console.log(localStorage.getItem('movesResult'))
-    // myResults.result.textContent = arrRes;
+    // console.log(localStorage.getItem('movesResult'))
     
 	}
 
@@ -108,6 +108,7 @@ function startGame() {
 		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
     // вывод функции пустой квадрат
 		emptySquare(x, y);
+    mySound.play();
 	};
 
   // при клике на кнопку начинаем новую игру
@@ -128,8 +129,6 @@ function startGame() {
 		localStorage.setItem('minute', min);
 		localStorage.setItem('second', sec);
     localStorage.setItem('movesResult', arrResult.slice(0, 10));
-
-  
 
   }
 
@@ -163,13 +162,7 @@ function startGame() {
   // при клике на кнопку возвращаем из Local Storage
 
   myButtonLoad.buttonLoad.onclick = function(e) { 
-    if (localStorage.getItem('moves')) {
-      moves = +localStorage.getItem('moves');
-    }
-    if (localStorage.getItem('minute') && localStorage.getItem('second')) {
-      sec = +localStorage.getItem('second');
-      min = +localStorage.getItem('minute');
-    }
+    getLocalStorage();
     
     square.draw(ctx, sizeSquare);
     let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
@@ -182,7 +175,6 @@ function startGame() {
   myButtonResult.button.onclick = function(e) {
     clearInterval(stopwatch);
     myResult.result.style.display = 'flex';
-    
   };
 
   // при клике закрывается топ-10
@@ -192,7 +184,6 @@ function startGame() {
     if (!square.win()) {
       formatTime();
     }
-    
   };
 
   // касание пальцем
@@ -202,8 +193,6 @@ function startGame() {
 		let y = (e.touches[0].pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
 		emptySquare(x, y);
 	};
-
-  
 }
 
 // canvas
@@ -442,8 +431,6 @@ function component() {
 
 	// число кликов
 
-  // let moves = 0;
-
 	this.getMoves = function() {
 		return moves;
 	};
@@ -504,10 +491,7 @@ function component() {
 
 	};
 
-  
-
   formatTime();
-
 
 }
 
