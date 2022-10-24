@@ -13,6 +13,8 @@ function startGame() {
 	myButtonSave.start();
   myButtonResult.start();
   myButtonLoad.start();
+  myButtonSound.start();
+  myButtonSoundOff.start();
 	myGameArea.start();
   myContainerMovesAndTime.start();
   myNameMoves.start();
@@ -119,6 +121,8 @@ function startGame() {
   // formatTime();
 
     startGame();
+    myButtonSoundOff.button.style.display = 'inline-block';
+
 	};
 
   // Local Storage
@@ -186,12 +190,29 @@ function startGame() {
     }
   };
 
+  // при клике выключаем звук
+
+  myButtonSoundOff.button.onclick = function(e) {
+    myButtonSoundOff.button.style.display = 'none';
+    myButtonSound.button.style.display = 'inline-block';
+    mySound.volume = 0;
+  };
+
+  // при клике включаем звук
+
+  myButtonSound.button.onclick = function(e) {
+    myButtonSound.button.style.display = 'none';
+    myButtonSoundOff.button.style.display = 'inline-block';
+    mySound.volume = 1;
+  };
+
   // касание пальцем
 
 	myGameArea.canvas.ontouchend = function(e) { 
 		let x = (e.touches[0].pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
 		let y = (e.touches[0].pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
 		emptySquare(x, y);
+    mySound.play();
 	};
 }
 
@@ -249,6 +270,21 @@ const myButtonLoad = {
 		this.buttonLoad.textContent = 'Load';
     this.buttonLoad.style.pointerEvents = 'none';
 		myContainerButton.containerButton.insertBefore(this.buttonLoad, myContainerButton.containerButton.childNodes[3]);
+	}
+}
+const myButtonSound = {
+	button : document.createElement('button'),
+	start : function() {
+		this.button.textContent = 'On sound';
+    this.button.style.display = 'none';
+		myContainerButton.containerButton.insertBefore(this.button, myContainerButton.containerButton.childNodes[4]);
+	}
+}
+const myButtonSoundOff = {
+	button : document.createElement('button'),
+	start : function() {
+		this.button.textContent = 'Off sound';
+		myContainerButton.containerButton.insertBefore(this.button, myContainerButton.containerButton.childNodes[5]);
 	}
 }
 
