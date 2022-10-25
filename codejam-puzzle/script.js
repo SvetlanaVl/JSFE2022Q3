@@ -41,7 +41,7 @@ function startGame() {
 
   // перемешиваем пятнашки
 
-	square.mix(10); 
+	square.mix(200); 
 
   // пятнашки
 
