@@ -41,7 +41,7 @@ function startGame() {
 
   // перемешиваем пятнашки
 
-	square.mix(200); 
+	square.mix(10); 
 
   // пятнашки
 
@@ -87,6 +87,7 @@ function startGame() {
       clearInterval(stopwatch);
 			alert('Ура! Вы решили головоломку за ' + myTime.time.innerHTML + ' и ' + square.getMoves() + ' ходов!');
 
+      myGameArea.canvas.style.pointerEvents = 'none';
       
       arrResult.push(square.getMoves());
 
@@ -96,13 +97,14 @@ function startGame() {
 
       localStorage.setItem('movesResult', arrResult.slice(0, 10));
 
-      myResults.result.textContent = localStorage.getItem('movesResult');
 
+
+      myResults.result.textContent = arrResult.slice(0, 10);
 		}
     // console.log(localStorage.getItem('movesResult'))
     
 	}
-
+  
   // клик мышью
 
 	myGameArea.canvas.onclick = function(e) { 
@@ -224,6 +226,7 @@ const myGameArea = {
     this.canvas.width = 320;
     this.canvas.height = 320;
     this.context = this.canvas.getContext('2d');
+    this.canvas.style.pointerEvents = 'visible';
     document.body.insertBefore(this.canvas, document.body.childNodes[1]);
   }
 }
@@ -379,6 +382,7 @@ const myResults = {
     this.result.width = 230;
     this.result.className = 'results';
 		this.result.textContent = '';
+    // this.context = this.result.getContext('2d');
 		myResult.result.insertBefore(this.result, myResult.result.childNodes[1]);
 	}
 }
@@ -530,6 +534,8 @@ function component() {
   formatTime();
 
 }
+
+
 
 function formatTime() {
   stopwatch = setInterval(function() {
