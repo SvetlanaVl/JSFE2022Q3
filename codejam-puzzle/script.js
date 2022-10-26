@@ -97,9 +97,12 @@ function startGame() {
 
       localStorage.setItem('movesResult', arrResult.slice(0, 10));
 
+      let num = "* ";
+      for (var i = 0; i < arrResult.length; i++) {
+        num += `${arrResult[i]} \n`;
+      }
 
-
-      myResults.result.textContent = arrResult.slice(0, 10);
+      myResults.result.textContent = num;
 		}
     // console.log(localStorage.getItem('movesResult'))
     
@@ -134,7 +137,7 @@ function startGame() {
 		localStorage.setItem('square', arrLocal.join());
 		localStorage.setItem('minute', min);
 		localStorage.setItem('second', sec);
-    localStorage.setItem('movesResult', arrResult.slice(0, 10));
+    // localStorage.setItem('movesResult', arrResult.slice(0, 10));
 
   }
 
@@ -148,7 +151,7 @@ function startGame() {
       min = +localStorage.getItem('minute');
     }
 
-    myResults.result.textContent = localStorage.getItem('movesResult');
+    // myResults.result.textContent = localStorage.getItem('movesResult');
   }
 
   // при клике на кнопку сохраняем в Local Storage
@@ -170,10 +173,9 @@ function startGame() {
   myButtonLoad.buttonLoad.onclick = function(e) { 
     getLocalStorage();
     
+    myGameArea.start();
     square.draw(ctx, sizeSquare);
-    let x = (e.pageX - myGameArea.canvas.offsetLeft) / sizeSquare | 0;
-		let y = (e.pageY - myGameArea.canvas.offsetTop)  / sizeSquare | 0;
-    emptySquare(x, y);
+
   };
 
   // при клике на кнопку появляется топ-10
@@ -531,7 +533,7 @@ function component() {
 
 	};
 
-  formatTime();
+  // formatTime();
 
 }
 
@@ -554,3 +556,4 @@ function formatTime() {
   }, 1000)
 }
 
+formatTime();
