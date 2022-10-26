@@ -5,6 +5,9 @@ let min = 0;
 let stopwatch;
 let arrResult = [];
 let mySound;
+let li
+
+
 
 function startGame() {
 
@@ -41,7 +44,7 @@ function startGame() {
 
   // перемешиваем пятнашки
 
-	square.mix(200); 
+	square.mix(10); 
 
   // пятнашки
 
@@ -97,21 +100,17 @@ function startGame() {
 
       localStorage.setItem('movesResult', arrResult.slice(0, 10));
 
-      // let num = "* ";
-      // for (var i = 0; i < arrResult.length; i++) {
-      //   num += `${arrResult[i]} \n`;
-      // }
+      for (let i = 0; i < arrResult.length; i++) {
 
-      for(let key in localStorage) {
-        if (!localStorage.hasOwnProperty(key)) {
-          continue; // пропустит такие ключи, как "setItem", "getItem" и так далее
-        }
-        myResults.result.textContent = `${key}: ${localStorage.getItem(key)}`;
+          const li = document.createElement("li");
+  
+          li.classList.add("play-item");
+          
+          li.textContent = `Moves: ${arrResult[i]}`;
+          
+          myResults.result.append(li);
       }
-
-      // myResults.result.textContent = num;
 		}
-    // console.log(localStorage.getItem('movesResult'))
     
 	}
   
@@ -131,7 +130,7 @@ function startGame() {
     sec = 0;
     min = 0;
     myGameArea.start();
-    square.mix(200);
+    square.mix(10);
     square.draw(ctx, sizeSquare);
   
     myButtonSoundOff.button.style.display = 'inline-block';
@@ -186,7 +185,7 @@ function startGame() {
     myGameArea.start();
     
     square.draw(ctx, sizeSquare);
-    
+
     if (localStorage.getItem('moves')) {
       moves = +localMoves;
     }
@@ -393,12 +392,11 @@ const myResultCloseLineTwo = {
 }
 
 const myResults = {
-	result : document.createElement('div'),
+	result : document.createElement('ol'),
 	start : function() {
     this.result.width = 230;
     this.result.className = 'results';
 		this.result.textContent = '';
-    // this.context = this.result.getContext('2d');
 		myResult.result.insertBefore(this.result, myResult.result.childNodes[1]);
 	}
 }
