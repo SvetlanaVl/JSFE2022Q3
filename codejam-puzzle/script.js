@@ -123,9 +123,10 @@ function startGame() {
 	myButton.button.onclick = function(e) {
     sec = 0;
     min = 0;
-  // formatTime();
-
-    startGame();
+    myGameArea.start();
+    square.mix(200);
+    square.draw(ctx, sizeSquare);
+  
     myButtonSoundOff.button.style.display = 'inline-block';
 
 	};
