@@ -104,11 +104,11 @@ button:active {
   margin-top: 24px;
 }
 .results {
-  width: 240px;
+  width: 180px;
   height: 228px;
   padding: 10px;
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 10px;
   position: absolute;
   top: 35px;
