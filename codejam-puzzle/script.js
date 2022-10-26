@@ -97,12 +97,19 @@ function startGame() {
 
       localStorage.setItem('movesResult', arrResult.slice(0, 10));
 
-      let num = "* ";
-      for (var i = 0; i < arrResult.length; i++) {
-        num += `${arrResult[i]} \n`;
+      // let num = "* ";
+      // for (var i = 0; i < arrResult.length; i++) {
+      //   num += `${arrResult[i]} \n`;
+      // }
+
+      for(let key in localStorage) {
+        if (!localStorage.hasOwnProperty(key)) {
+          continue; // пропустит такие ключи, как "setItem", "getItem" и так далее
+        }
+        myResults.result.textContent = `${key}: ${localStorage.getItem(key)}`;
       }
 
-      myResults.result.textContent = num;
+      // myResults.result.textContent = num;
 		}
     // console.log(localStorage.getItem('movesResult'))
     
@@ -172,11 +179,17 @@ function startGame() {
   // при клике на кнопку возвращаем из Local Storage
 
   myButtonLoad.buttonLoad.onclick = function(e) { 
+    const localMoves = localStorage.getItem('moves');
+
     getLocalStorage();
     
     myGameArea.start();
+    
     square.draw(ctx, sizeSquare);
-
+    
+    if (localStorage.getItem('moves')) {
+      moves = +localMoves;
+    }
   };
 
   // при клике на кнопку появляется топ-10
