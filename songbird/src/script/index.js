@@ -1,64 +1,34 @@
-// // const header = document.createElement("header");
-// const header = document.querySelector(".header");
-// const wrapper = document.createElement("div");
-// const logoContainer = document.createElement("div");
-// const logoImg = document.createElement("img");
-// const navigation = document.createElement("nav");
-// const list = document.createElement("ul");
-
-
-// function createElementHtml (nameElement, nameClass, elementContainer, index) {
-//   // const nameElement = document.createElement(`"${element}"`);
-
-//   nameElement.classList.add(`"${nameClass}"`);
-
-//   elementContainer.insertBefore(nameElement, document.body.childNodes[index]);
-// }
-
-// // createElementHtml (header, header, document.body, 0);
-
-// createElementHtml (wrapper, wrapper, header, 0);
-
-// createElementHtml (logoContainer, logo, wrapper, 0);
-
-// createElementHtml (logoImg, logo-img, logoContainer, 0);
-
-// createElementHtml (navigation, nav, logoContainer, 1);
-
-// createElementHtml (list, list, navigation, 0);
-
 import mainImage from '../assets/logo.svg';
 
 const header = document.createElement("header");
-header.classList.add("header");
-document.body.insertBefore(header, document.body.childNodes[0]);
-
-
 const wrapper = document.createElement("div");
-wrapper.classList.add("wrapper");
-header.insertBefore(wrapper, header.childNodes[0]);
-
-
 const logoContainer = document.createElement("div");
-logoContainer.classList.add("logo");
-wrapper.insertBefore(logoContainer, wrapper.childNodes[0]);
-
-
 const logoImg = document.createElement("img");
+const navigation = document.createElement("nav");
+const list = document.createElement("ul");
+
+
+function createElementHtml (nameElement, nameClass, elementContainer) {
+
+  nameElement.classList.add(nameClass);
+
+  elementContainer.append(nameElement);
+}
+
+createElementHtml (header, "header", document.body);
+
+createElementHtml (wrapper, "wrapper", header);
+
+createElementHtml (logoContainer, "logo", wrapper);
+
+createElementHtml (logoImg, "logo-img", logoContainer);
+
 logoImg.src = mainImage;
 logoImg.alt = "Logo, name of the quiz - Song Bird";
-logoImg.classList.add("logo-img");
-logoContainer.insertBefore(logoImg, logoContainer.childNodes[0]);
 
+createElementHtml (navigation, "nav", wrapper);
 
-const navigation = document.createElement("nav");
-navigation.classList.add("nav");
-wrapper.insertBefore(navigation, wrapper.childNodes[1]);
-
-
-const list = document.createElement("ul");
-list.classList.add("list");
-navigation.insertBefore(list, navigation.childNodes[0]);
+createElementHtml (list, "list", navigation);
 
 const menu = {
   "About" : "#",
@@ -69,15 +39,13 @@ for(let key in menu) {
 
   const li = document.createElement("li");
 
-  list.append(li);
+  createElementHtml (li, "li", list);
 
   const link = document.createElement("a");
   
   link.textContent = key;
-  
-  link.classList.add("link");
-  
-  li.append(link);
+
+  createElementHtml (link, "link", li);
 
   if(link.textContent = key) {
     link.href = menu[key];
@@ -86,70 +54,53 @@ for(let key in menu) {
 
 
 const hamburger = document.createElement("div");
-hamburger.classList.add("hamburger");
-wrapper.insertBefore(hamburger, wrapper.childNodes[2]);
+createElementHtml (hamburger, "hamburger", wrapper);
 
 for(let i = 0; i < 3; i++) {
   const hamburgerLine = document.createElement("span");
-
-  hamburgerLine.classList.add("hamburger-line");
-
-  hamburger.append(hamburgerLine);
+  createElementHtml (hamburgerLine, "hamburger-line", hamburger);
 }
 
-const hamburgerScreenDimming = document.createElement("div");
-hamburgerScreenDimming.classList.add("hamburger-screen-dimming");
-wrapper.insertBefore(hamburgerScreenDimming, wrapper.childNodes[3]);
 
+const hamburgerScreenDimming = document.createElement("div");
+createElementHtml (hamburgerScreenDimming, "hamburger-screen-dimming", wrapper);
 
 const burgerMenu = document.createElement("div");
-burgerMenu.classList.add("burger-menu");
-wrapper.insertBefore(burgerMenu, wrapper.childNodes[4]);
+createElementHtml (burgerMenu, "burger-menu", wrapper);
 
 const burgerMenuHeader = document.createElement("div");
-burgerMenuHeader.classList.add("burger-menu-header");
-burgerMenu.insertBefore(burgerMenuHeader, burgerMenu.childNodes[0]);
+createElementHtml (burgerMenuHeader, "burger-menu-header", burgerMenu);
 
 const logoImage = document.createElement("img");
 logoImage.src = mainImage;
 logoImage.alt = "Logo, name of the quiz - Song Bird";
-logoImage.classList.add("logo-img");
-burgerMenuHeader.insertBefore(logoImage, burgerMenuHeader.childNodes[0]);
+createElementHtml (logoImage, "logo-img", burgerMenuHeader);
 
 const hamburgerClose = document.createElement("div");
-hamburgerClose.classList.add("hamburger-close");
-burgerMenuHeader.insertBefore(hamburgerClose, burgerMenuHeader.childNodes[1]);
+createElementHtml (hamburgerClose, "hamburger-close", burgerMenuHeader);
 
 for(let i = 0; i < 2; i++) {
   const lineBurger = document.createElement("span");
-
-  lineBurger.classList.add("line-burger");
-
-  hamburgerClose.append(lineBurger);
+  createElementHtml (lineBurger, "line-burger", hamburgerClose);
 }
 
 const burgerNav = document.createElement("nav");
-burgerNav.classList.add("burger-nav");
-burgerMenu.insertBefore(burgerNav, burgerMenu.childNodes[1]);
-
+createElementHtml (burgerNav, "burger-nav", burgerMenu);
 
 const burgerNavList = document.createElement("ul");
-burgerNavList.classList.add("burger-nav-list");
-burgerNav.insertBefore(burgerNavList, burgerNav.childNodes[0]);
+createElementHtml (burgerNavList, "burger-nav-list", burgerNav);
 
 for(let key in menu) {
 
   const li = document.createElement("li");
 
-  burgerNavList.append(li);
+  createElementHtml (li, "li", burgerNavList);
 
   const link = document.createElement("a");
   
   link.textContent = key;
-  
-  link.classList.add("burger-nav-link");
-  
-  li.append(link);
+
+  createElementHtml (link, "burger-nav-link", li);
 
   if(link.textContent = key) {
     link.href = menu[key];
@@ -161,6 +112,7 @@ hamburger.addEventListener('click', () => {
   hamburgerScreenDimming.classList.add('hamburger-screen-dimming-active');
   document.body.style.overflow = 'hidden';
 });
+
 const closeMenu = () => {
   burgerMenu.classList.remove('burger-menu-active');
   hamburgerScreenDimming.classList.remove('hamburger-screen-dimming-active');
