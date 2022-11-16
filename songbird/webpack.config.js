@@ -5,11 +5,18 @@ const { CleanWebpackPlugin } = require('clean-webpack-plugin');
 const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
-  
-  entry: './src/index.js',
+  entry: {
+    main: './src/index.js',
+    result: './src/script/results/result.js',
+    startQuiz: './src/script/startQuiz/startQuiz.js',
+  },
   output: {
-    path: path.resolve(__dirname, 'dist'),
-    filename: '[name].[contenthash].js',
+    path: path.resolve(__dirname + '/dist'),
+    filename: 'js/[name].[contenthash].js',
+    clean: {
+      dry: false,
+      keep: /\.git/,
+    },
     assetModuleFilename: 'assets/[hash][ext][query]',
   },
   module: {
@@ -51,12 +58,21 @@ module.exports = {
   },
   plugins: [
     new HtmlWebpackPlugin({
-      // title: 'Demo webpack'
-      template: './src/index.html',
-      filename: './index.html'
+      template: './src/script/main/index.html',
+      filename: './index.html',
+      chunks: ['main']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/script/startQuiz/index.html',
+      filename: './startQuiz.html',
+      chunks: ['startQuiz']
+    }),
+    new HtmlWebpackPlugin({
+      template: './src/script/results/index.html',
+      filename: './results.html',
+      chunks: ['result']
     }),
     new MiniCssExtractPlugin({
-      // filename: 'style.css',
       filename: '[name].[contenthash].css',
     }),
     // new CopyPlugin({
@@ -68,6 +84,10 @@ module.exports = {
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}),
   ],
   devServer: {
+    static: {
+      directory: path.resolve(__dirname + '/dist'),
+    },
+    hot: false,
     compress: true,
     port: 3000,
   }

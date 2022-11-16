@@ -1,7 +1,7 @@
 .header {
-  background: #000000;
+  background: #2c2a2a;
 
-  .wrapper{
+  .wrapper {
     display: flex;
     justify-content: space-around;
     align-items: center;
@@ -15,12 +15,13 @@
 }
 
 .logo-img {
+  width: 300px;
   @media screen and (max-width: 900px) {
     width: 200px;
   }
 }
 .nav {
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 800px) {
     display: none;
   }
 }
@@ -60,7 +61,7 @@
   display: none;
   margin-top: -5px;
 
-  @media screen and (max-width: 700px) {
+  @media screen and (max-width: 800px) {
     display: block;
   }
 }
@@ -86,7 +87,7 @@
 .burger-menu {
   width: 97%;
   padding: 10px;
-  background: #000000;
+  background: #2c2a2a;
   position: fixed;
   top: 0;
   right: 0;
@@ -111,6 +112,7 @@
 .hamburger-close {
   width: 30px;
   height: 30px;
+  cursor: pointer;
 }
 .line-burger {
   width: 25px;
@@ -145,4 +147,31 @@
   line-height: 140%;
   color: #ffffff;
   transition: all 0.5s ease-out;
+}
+.footer {
+  background-color: #2c2a2a;
+
+  .wrapper {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+  }
+}
+.footer-text {
+  color: #fff;
+  font-family: 'Roboto';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 20px;
+  line-height: 140%;
+}
+.img-rsschool {
+  width: 150px;
+}
+.main {
+  background: url(../assets/bg.jpg);
+  background-repeat: no-repeat;
+  background-position: center 0;
+  background-size: cover;
+  height: 780px;
 }

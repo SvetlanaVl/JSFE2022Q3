@@ -1,4 +1,4 @@
-import mainImage from '../assets/logo.svg';
+import mainImage from '../../assets/logo.svg';
 
 const header = document.createElement("header");
 const wrapper = document.createElement("div");
@@ -31,27 +31,31 @@ createElementHtml (navigation, "nav", wrapper);
 createElementHtml (list, "list", navigation);
 
 const menu = {
-  "About" : "#",
-  "Start" : "#Start",
+  "About" : "index.html",
+  "Start" : "startQuiz.html",
+  "Results" : "results.html",
 };
 
-for(let key in menu) {
+function createListHtml (elementContainer, nameClass) {
+  for(let key in menu) {
 
-  const li = document.createElement("li");
-
-  createElementHtml (li, "li", list);
-
-  const link = document.createElement("a");
+    const li = document.createElement("li");
   
-  link.textContent = key;
-
-  createElementHtml (link, "link", li);
-
-  if(link.textContent = key) {
-    link.href = menu[key];
+    createElementHtml (li, "li", elementContainer);
+  
+    const link = document.createElement("a");
+    
+    link.textContent = key;
+  
+    createElementHtml (link, nameClass, li);
+  
+    if(link.textContent = key) {
+      link.href = menu[key];
+    }
   }
 }
 
+createListHtml(list, "link");
 
 const hamburger = document.createElement("div");
 createElementHtml (hamburger, "hamburger", wrapper);
@@ -90,22 +94,7 @@ createElementHtml (burgerNav, "burger-nav", burgerMenu);
 const burgerNavList = document.createElement("ul");
 createElementHtml (burgerNavList, "burger-nav-list", burgerNav);
 
-for(let key in menu) {
-
-  const li = document.createElement("li");
-
-  createElementHtml (li, "li", burgerNavList);
-
-  const link = document.createElement("a");
-  
-  link.textContent = key;
-
-  createElementHtml (link, "burger-nav-link", li);
-
-  if(link.textContent = key) {
-    link.href = menu[key];
-  }
-}
+createListHtml(burgerNavList, "burger-nav-link");
 
 hamburger.addEventListener('click', () => {
   burgerMenu.classList.add('burger-menu-active');
