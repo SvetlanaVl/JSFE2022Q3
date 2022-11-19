@@ -1,2 +1,3 @@
-// import mainImage from '../assets/logo.svg';
-// import './index.js';
+import './header.js';
+import './main.js';
+import '../main/footer.js';

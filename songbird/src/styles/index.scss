@@ -5,6 +5,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
+    padding-bottom: 15px;
   }
 }
 .wrapper {
@@ -16,6 +17,7 @@
 
 .logo-img {
   width: 300px;
+  padding-top: 10px;
   @media screen and (max-width: 900px) {
     width: 200px;
   }
@@ -168,10 +170,303 @@
 .img-rsschool {
   width: 150px;
 }
+.container-moves {
+  display: flex;
+  gap: 10px;
+  
+  @media screen and (max-width: 430px) {
+    flex-direction: column;
+    gap: 0;
+  }
+}
 .main {
   background: url(../assets/bg.jpg);
   background-repeat: no-repeat;
   background-position: center 0;
   background-size: cover;
   height: 780px;
+}
+.name-moves, .score {
+  color: #fff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 140%;
+
+  @media screen and (max-width: 700px) {
+    font-size: 30px;
+  }
+}
+.mainQuiz {
+  background-color: #2c2a2a;
+}
+.list-questions {
+  display: grid;
+  grid-template-columns: 16% 16% 16% 16% 16% 16%;
+  justify-content: space-between;
+  background-color: #009A76;
+  border-radius: 5px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 700px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+.item-questions {
+  text-align: center;
+  color: #fff;
+  margin: 0;
+  padding: 10px;
+}
+.item-questions:first-child {
+  border-radius: 5px 0 0 5px;
+}
+.item-questions:last-child {
+  border-radius: 0 5px 5px 0;
+}
+
+.item-questions-active {
+  background-color: #20f0bf;
+}
+.container-question {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 700px) {
+    flex-direction: column;
+  }
+}
+.image-question {
+  width: 45%;
+  border-radius: 10px;
+
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
+}
+.container-question-music {
+  width: 50%;
+
+  @media screen and (max-width: 700px) {
+    width: 100%;
+  }
+}
+.name-guessing-bird,
+.current-time,
+.duration-time,
+.current-time-info,
+.duration-time-info,
+.text-info,
+.name-guessing-bird-info,
+.species-bird-info {
+  color: #fff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 40px;
+  line-height: 140%;
+  margin: 0;
+  margin-bottom: 5px;
+}
+.separator {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 20px;
+}
+.player {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+.play, .play-info {
+  width: 60px;
+  height: 60px;
+  background-size: 60px 60px;
+  background-image: url("../assets/play.svg");
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+}
+.pause {
+  background-image: url("../assets/pause.svg");
+}
+.play:hover, .pause:hover {
+  opacity: 1;
+}
+.play:active, .pause:active {
+  border: 0;
+  outline: 0;  
+  transform: scale(1.1);
+}
+.progress {
+  display: flex;
+  flex-direction: column;
+  width: 85%;
+}
+.progress-bar {
+  margin-top: 5px;
+  margin-bottom: 10px;
+}
+.volume-sound {
+  display: flex;
+  justify-content: left;
+  gap: 7px;
+}
+.volume-image, .volume-image-info {
+  background-image: url("../assets/volume.png");
+  width: 30px;
+  height: 30px;
+  background-size: 30px 30px;
+  margin-top: 5px;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-color: transparent;
+  border: 0;
+  outline: 0;
+  opacity: .8;
+  cursor: pointer;
+  transition: .3s;
+}
+.volume-image-off {
+  background-image: url("../assets/volumeOff.png");
+}
+.sound {
+  margin-top: 5px;
+}
+.time-container {
+  display: flex;
+  justify-content: space-between;
+
+}
+.current-time, .duration-time {
+  font-size: 30px;
+}
+.choice-form {
+  display: grid;
+  grid-template-columns: repeat(1, 15px 1fr);
+  gap: 5px 15px;
+  width: 45%;
+  background-color: #363636;
+  border-radius: 5px;
+  padding-left: 5px;
+
+  @media screen and (max-width: 600px){
+    width: 100%;
+  }
+}
+.choice-input {
+  margin-top: 14px;
+  cursor: pointer;
+  width: 16px;
+  height: 16px;
+  appearance: none;
+  border: 1px solid #009A76;
+  border-radius: 50%;
+}
+.choice-label {
+  color: #fff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 140%;
+  margin-bottom: 10px;
+  cursor: pointer;
+}
+.choice-label:hover {
+  background-color: #444343;
+}
+
+.choice-input:checked {
+  border: 1px solid #48ff00;
+  background: #009A76;
+}
+.choice {
+  margin-bottom: 20px;
+  display: flex;
+  gap: 40px;
+
+  @media screen and (max-width: 600px){
+    flex-direction: column;
+  }
+}
+.choice-info {
+  width: 50%;
+  background-color: #363636;
+  border-radius: 5px;
+  padding: 5px;
+
+  @media screen and (max-width: 600px){
+    width: 100%;
+  }
+}
+.play-info {
+  width: 40px;
+  height: 40px;
+  background-size: 40px 40px;
+}
+.progress-bar-info {
+  margin-top: 14px;
+  margin-bottom: 10px;
+  height: 5px;
+}
+.current-time-info, .duration-time-info {
+  font-size: 20px;
+}
+.volume-image-info {
+  width: 25px;
+  height: 25px;
+  background-size: 25px 25px;
+}
+.name-guessing-bird-info {
+  font-size: 30px;
+}
+.species-bird-info {
+  font-size: 25px;
+}
+.sound-info {
+  margin-top: 15px;
+  height: 5px;
+}
+.sound {
+  margin-top: 5px;
+}
+.separator-info {
+  border-bottom: 1px solid #fff;
+  margin-bottom: 10px;
+}
+.text-info {
+  font-size: 20px;
+}
+.container-question-info {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+  margin-bottom: 20px;
+
+  @media screen and (max-width: 900px) {
+    flex-direction: column;
+  }
+}
+.image-question-info {
+  width: 45%;
+  border-radius: 10px;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
+}
+.container-question-music-info {
+  width: 50%;
+
+  @media screen and (max-width: 900px) {
+    width: 100%;
+  }
 }

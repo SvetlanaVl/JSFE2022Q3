@@ -6,13 +6,28 @@ const MiniCssExtractPlugin = require("mini-css-extract-plugin");
 
 module.exports = {
   entry: {
-    main: './src/index.js',
-    result: './src/script/results/result.js',
-    startQuiz: './src/script/startQuiz/startQuiz.js',
+    main: [
+      './src/index.js',
+      './src/styles/index.scss',
+      './src/styles/normalize.css',
+    ],
+    result: [
+      './src/script/results/result.js',
+      './src/styles/index.scss',
+      './src/styles/normalize.css',
+    ],
+    startQuiz: [
+      './src/script/startQuiz/startQuiz.js',
+      './src/styles/index.scss',
+      './src/styles/normalize.css',
+    ],
+    // birdsData: [
+    //   './src/script/startQuiz/birdsData.js',
+    // ],
   },
   output: {
     path: path.resolve(__dirname + '/dist'),
-    filename: 'js/[name].[contenthash].js',
+    filename: '[name].[contenthash].js',
     clean: {
       dry: false,
       keep: /\.git/,
@@ -53,6 +68,9 @@ module.exports = {
       }, {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
+      },{
+        test: /\.(?:mp3|wav|ogg|mp4)$/i,
+        loader: 'asset/resource',
       },
     ]
   },
@@ -75,12 +93,12 @@ module.exports = {
     new MiniCssExtractPlugin({
       filename: '[name].[contenthash].css',
     }),
-    // new CopyPlugin({
-    //   patterns: [
-    //     // { from: "./public", to: "dist" },
-    //     { from: "./public" },
-    //   ],
-    // }),
+    new CopyPlugin({
+      patterns: [
+        // { from: "./public", to: "dist" },
+        { from: "./public" },
+      ],
+    }),
     new CleanWebpackPlugin({ cleanStaleWebpackAssets: false}),
   ],
   devServer: {
