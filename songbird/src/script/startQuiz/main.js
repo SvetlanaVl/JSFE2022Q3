@@ -1,4 +1,7 @@
 import birdsData from "./birdsData";
+import defaultImage from '../../assets/default-image.png';
+// import audioRight from "../../assets/right.mp3";
+
 
 const main = document.createElement("main");
 const listOfQuestions = document.createElement("div");
@@ -42,6 +45,7 @@ const currentTimeInfo = document.createElement("div");
 const durationTimeInfo = document.createElement("div");
 const textInfo = document.createElement("p");
 
+const buttonNext = document.createElement("button");
 
 function createElementHtml (nameElement, nameClass, elementContainer) {
 
@@ -64,15 +68,17 @@ questions.forEach(element => {
   createElementHtml (itemOfQuestion, "item-questions", listOfQuestions);
 
   itemOfQuestion.textContent = element;
-  
+
 });
+
+
 
 
 createElementHtml (containerQuestion, "container-question", wrapper);
 
 createElementHtml (imageQuestion, "image-question", containerQuestion);
 
-imageQuestion.src = birdsData[0][0].image;
+imageQuestion.src = defaultImage;
 
 createElementHtml (containerQuestionMusic, "container-question-music", containerQuestion);
 
@@ -117,19 +123,34 @@ let isPlay = false;
 
 const audio = new Audio();
 
+let questionNumber = 0;
+
+function getRandomNum(min, max) {
+  min = Math.ceil(min);
+  max = Math.floor(max);
+  return Math.floor(Math.random() * (max - min + 1)) + min;
+}
 
 let playNum = 0;
 
 // Play - Pause
 
-function playAudio() {
+async function playAudio() {
+  
   if (isPlay === false) {
-    audio.src = birdsData[playNum][playNum].audio;
     audio.currentTime = 0;
 
-    isPlay = true;
+    if (isPlayInfo = true) {
+      isPlayInfo = false;
+      myAudio.pause();
+      playerButtonInfo.classList.remove("pause");
+    }
 
-    audio.play();
+    isPlay = true;
+    
+
+    await audio.play();
+  
 
   } else {
     audio.pause();
@@ -142,11 +163,10 @@ function playAudio() {
   showDurationTime();
 
   setInterval(progressCurrentTime, 100);
+  
 }
 
 playerButton.addEventListener("click", playAudio);
-
-// show Duration Time
 
 function showDurationTime() {
   let audioLength = birdsData[playNum][playNum].duration;
@@ -226,15 +246,16 @@ createElementHtml (choice, "choice", wrapper);
 
 createElementHtml (choiceForm, "choice-form", choice);
 
+// let questionNumber = 0;
 
 function seeNameList() {
-  for (let i = 0; i < birdsData[0].length; i++) {
+  for (let i = 0; i < birdsData[questionNumber].length; i++) {
     
     const input = document.createElement("input");
 
     input.type = "radio";
 
-    input.id = birdsData[0][i].name;
+    input.id = birdsData[questionNumber][i].name;
 
     input.classList.add("choice-input");
 
@@ -244,9 +265,9 @@ function seeNameList() {
 
     label.classList.add("choice-label");
 
-    label.setAttribute('for', birdsData[0][i].name);
+    label.setAttribute('for', birdsData[questionNumber][i].name);
 
-    label.textContent = birdsData[0][i].name;
+    label.textContent = birdsData[questionNumber][i].name;
 
     choiceForm.append(label);
 
@@ -254,151 +275,298 @@ function seeNameList() {
 }
 seeNameList();
 
-createElementHtml (choiceInfoBird, "choice-info", choice);
+function fistQuestionAudio(){
+  
+  const res = birdsData[questionNumber];
+  const data = res[getRandomNum(0, res.length)];
+  audio.src = data.audio;
+  questionNumber++;
 
-createElementHtml (containerQuestionInfo, "container-question-info", choiceInfoBird);
-
-createElementHtml (imageQuestionInfo, "image-question-info", containerQuestionInfo);
-
-imageQuestionInfo.src = birdsData[0][0].image;
-
-createElementHtml (containerQuestionMusicInfo, "container-question-music-info", containerQuestionInfo);
-
-createElementHtml (nameGuessingBirdInfo, "name-guessing-bird-info", containerQuestionMusicInfo);
-
-nameGuessingBirdInfo.textContent = birdsData[0][0].name;
-
-createElementHtml (separatorInfo, "separator-info", containerQuestionMusicInfo);
-
-createElementHtml (speciesBirdInfo, "species-bird-info", containerQuestionMusicInfo);
-
-speciesBirdInfo.textContent = birdsData[0][0].species;
-
-createElementHtml (separatorSpeciesInfo, "separator-info", containerQuestionMusicInfo);
-
-createElementHtml (playerInfo, "player", containerQuestionMusicInfo);
-
-createElementHtml (playerButtonInfo, "play-info", playerInfo);
-
-createElementHtml (progressInfo, "progress", playerInfo);
-
-createElementHtml (progressBarInfo, "progress-bar-info", progressInfo);
-progressBarInfo.type = "range";
-progressBarInfo.min = '0';
-progressBarInfo.max = '40';
-progressBarInfo.value = '0';
-
-createElementHtml (timeContainerInfo, "time-container", progressInfo);
-
-createElementHtml (currentTimeInfo, "current-time-info", timeContainerInfo);
-currentTimeInfo.textContent = "00:00";
-
-createElementHtml (durationTimeInfo, "duration-time-info", timeContainerInfo);
-durationTimeInfo.textContent = "00:00";
-
-
-createElementHtml (volumeSoundInfo, "volume-sound", containerQuestionMusicInfo);
-
-createElementHtml (volumeImageInfo, "volume-image-info", volumeSoundInfo);
-
-createElementHtml (soundInfo, "sound-info", volumeSoundInfo);
-soundInfo.type = "range";
-soundInfo.min = '0';
-soundInfo.max = '100';
-soundInfo.value = '40';
-
-// Play - Pause
-
-function playAudioInfo() {
-  if (isPlay === false) {
-    audio.src = birdsData[playNum][playNum].audio;
-    audio.currentTime = 0;
-
-    isPlay = true;
-
-    audio.play();
-
-  } else {
-    audio.pause();
-
-    isPlay = false;
-  }
-
-  playerButtonInfo.classList.toggle("pause");
-
-  showDurationTimeInfo();
-
-  setInterval(progressCurrentTimeInfo, 100);
+  compareNameBird(data);
+  itemOfQuestionStyle();
 }
+fistQuestionAudio();
 
-playerButtonInfo.addEventListener("click", playAudioInfo);
+function itemOfQuestionStyle() {
+  const itemQuestions = document.querySelectorAll(".item-questions");
+
+  itemQuestions.forEach( (item, index) => {
+
+    item.classList.remove("item-questions-active");
+
+    if(questionNumber - 1 === index) {
+      item.classList.add("item-questions-active");
+    }
+    
+    // console.log(index)
+  })
+}
 
 // show Duration Time
 
-function showDurationTimeInfo() {
-  let audioLength = birdsData[playNum][playNum].duration;
-  let audioTime = Math.round(audio.currentTime);
+createElementHtml (choiceInfoBird, "choice-info", choice);
+choiceInfoBird.textContent = 'Послушайте плеер. Выберите птицу из списка';
 
-  progressBarInfo.style.width = (audioTime * 100) / audioLength + "%";
+createElementHtml (buttonNext, "button-next", wrapper);
 
-  durationTimeInfo.textContent = audioLength;
+buttonNext.textContent = "Next";
+buttonNext.style.pointerEvents = 'none';
+
+function getQuestion() {
+  const res = birdsData[questionNumber];
+  const data = res[getRandomNum(0, res.length)];
+  const questionAudio = data.audio;
+  audio.src = questionAudio;
+
+  imageQuestion.src = defaultImage;
+  nameGuessingBird.textContent = "*****";
+  buttonNext.classList.remove("button-next-active");
+  buttonNext.style.pointerEvents = 'none';
+  choiceInfoBird.textContent = 'Послушайте плеер. Выберите птицу из списка';
+  audio.pause();
+  isPlay = false;
+  playerButton.classList.remove("pause");
+  myAudio.pause();
+  isPlayInfo = false;
+
+  choiceForm.textContent = '';
+  seeNameList();
+  
+  nextQuestion();
+  compareNameBird(data);
+  itemOfQuestionStyle();
 }
+
+// const audioRightI = new Audio(audioRight);
+
+
+
+const myAudio = new Audio();
+let isPlayInfo = false;
+
+const audioNew = new Audio();
+
+function compareNameBird(data){
+  
+  const labels = document.querySelectorAll(".choice-input");
+  labels.forEach( element => {
+    element.addEventListener("click", () => {
+      audioNew.src = './right.mp3';
+      audioNew.play();
+      myAudio.pause();
+      isPlayInfo = false;
+      playerButtonInfo.classList.remove("pause");
+      choiceInfoBird.textContent = '';
+      showInfoBird(element, data);
+      if(data.name === element.id) {
+        audioNew.src = './wrong.mp3';
+        audioNew.play();
+        element.classList.add('choice-input-active');
+        imageQuestion.src = data.image;
+        nameGuessingBird.textContent = data.name;
+        audio.pause();
+        isPlay = false;
+        playerButton.classList.remove("pause");
+        buttonNext.classList.add("button-next-active");
+        buttonNext.style.pointerEvents = '';
+
+        // audioRightI.play();
+      }
+      
+      playerButtonInfo.classList.remove("pause");
+    });
+  });
+}
+
+function showInfoBird(element, data) {
+
+birdsData[questionNumber-1].forEach(elem => {
+
+  if(elem.name ==  element.id) {
+    createElementHtml (containerQuestionInfo, "container-question-info", choiceInfoBird);
+
+    createElementHtml (imageQuestionInfo, "image-question-info", containerQuestionInfo);
+
+    imageQuestionInfo.src = elem.image;
+
+    createElementHtml (containerQuestionMusicInfo, "container-question-music-info", containerQuestionInfo);
+
+    createElementHtml (nameGuessingBirdInfo, "name-guessing-bird-info", containerQuestionMusicInfo);
+
+    nameGuessingBirdInfo.textContent = elem.name;
+
+    createElementHtml (separatorInfo, "separator-info", containerQuestionMusicInfo);
+
+    createElementHtml (speciesBirdInfo, "species-bird-info", containerQuestionMusicInfo);
+
+    speciesBirdInfo.textContent = elem.species;
+
+    createElementHtml (separatorSpeciesInfo, "separator-info", containerQuestionMusicInfo);
+
+    createElementHtml (playerInfo, "player", containerQuestionMusicInfo);
+
+    createElementHtml (playerButtonInfo, "play-info", playerInfo);
+
+    createElementHtml (progressInfo, "progress", playerInfo);
+
+    createElementHtml (progressBarInfo, "progress-bar-info", progressInfo);
+    progressBarInfo.type = "range";
+    progressBarInfo.min = '0';
+    progressBarInfo.max = '40';
+    progressBarInfo.value = '0';
+
+    createElementHtml (timeContainerInfo, "time-container", progressInfo);
+
+    createElementHtml (currentTimeInfo, "current-time-info", timeContainerInfo);
+    currentTimeInfo.textContent = "00:00";
+
+    createElementHtml (durationTimeInfo, "duration-time-info", timeContainerInfo);
+    durationTimeInfo.textContent = "00:00";
+
+
+    createElementHtml (volumeSoundInfo, "volume-sound", containerQuestionMusicInfo);
+
+    createElementHtml (volumeImageInfo, "volume-image-info", volumeSoundInfo);
+
+    createElementHtml (soundInfo, "sound-info", volumeSoundInfo);
+    soundInfo.type = "range";
+    soundInfo.min = '0';
+    soundInfo.max = '100';
+    soundInfo.value = '40';
+
+    
+
+// Play - Pause
+
+  async function playAudioInfo() {
+    if (isPlayInfo === false) {
+      myAudio.src = elem.audio;
+      myAudio.currentTime = 0;
+
+      if (isPlay = true) {
+        isPlay = false;
+        audio.pause();
+        playerButton.classList.remove("pause");
+      }
+
+      isPlayInfo = true;
+
+      await myAudio.play();
+
+    } else {
+      isPlayInfo = false;
+
+      myAudio.pause();
+    }
+
+    playerButtonInfo.classList.toggle("pause");
+  
+    showDurationTimeInfo();
+
+    setInterval(progressCurrentTimeInfo, 100);
+  }
+
+  playerButtonInfo.addEventListener("click", playAudioInfo);
+
+// show Duration Time
+
+  function showDurationTimeInfo() {
+    let myAudioLength = elem.duration;
+    let myAudioTime = Math.round(myAudio.currentTime);
+
+    progressBarInfo.style.width = (myAudioTime * 100) / myAudioLength + "%";
+
+    durationTimeInfo.textContent = myAudioLength;
+  }
 
 // progress Current Time
 
-function progressCurrentTimeInfo() {
-  progressBarInfo.ontimeupdate = (audio.currentTime / audio.duration) * 100 + "%";
+  function progressCurrentTimeInfo() {
+    progressBarInfo.ontimeupdate = (myAudio.currentTime / myAudio.duration) * 100 + "%";
 
-  currentTimeInfo.textContent = formatTime(audio.currentTime);
-}
+    currentTimeInfo.textContent = formatTime(myAudio.currentTime);
+  }
 
 // click progress Current Time on progressBar
 
-progressBarInfo.addEventListener(
-  "click",
-  (e) => {
-    const timelineWidth = window.getComputedStyle(progressBar).width;
-    const timeToSeek = (e.offsetX / parseInt(timelineWidth)) * audio.duration;
-    audio.currentTime = timeToSeek;
-  },
-  false
-);
+  progressBarInfo.addEventListener(
+    "click",
+    (e) => {
+      const timelineWidth = window.getComputedStyle(progressBar).width;
+      const timeToSeek = (e.offsetX / parseInt(timelineWidth)) * myAudio.duration;
+      myAudio.currentTime = timeToSeek;
+    },
+    false
+  );
 
 // progress Bar play
 
-audio.ontimeupdate = function () {
-  progressBarInfo.max = audio.duration;
-  progressBarInfo.value = audio.currentTime;
-};
+myAudio.ontimeupdate = function () {
+    progressBarInfo.max = myAudio.duration;
+    progressBarInfo.value = myAudio.currentTime;
+  };
 
 // audio volume
 
-soundInfo.addEventListener(
-  "click",
-  (e) => {
-    const volumeLineWidth = window.getComputedStyle(sound).width;
-    const volumeToSeek = e.offsetX / parseInt(volumeLineWidth);
-    audio.volume = volumeToSeek;
-  },
-  false
-);
+  soundInfo.addEventListener(
+    "click",
+    (e) => {
+      const volumeLineWidth = window.getComputedStyle(soundInfo).width;
+      const volumeToSeek = e.offsetX / parseInt(volumeLineWidth);
+      myAudio.volume = volumeToSeek;
+    },
+    false
+  );
 
 // on or off the sound
 
-function onSoundInfo() {
-  if (audio.volume > 0) {
-    audio.volume = 0;
-    sound.value = 0;
-  } else {
-    audio.volume = 0.4;
-    sound.value = 40;
+  function onSoundInfo() {
+    if (myAudio.volume > 0) {
+      myAudio.volume = 0;
+      soundInfo.value = 0;
+    } else {
+      myAudio.volume = 0.4;
+      soundInfo.value = 40;
+    }
+
+    volumeImageInfo.classList.toggle("volume-image-off");
   }
 
-  volumeImageInfo.classList.toggle("volume-image-off");
+  volumeImageInfo.addEventListener("click", onSoundInfo);
+
+  createElementHtml (textInfo, "text-info", choiceInfoBird);
+
+  textInfo.textContent = elem.description;
+  }
+})
+
+  
+  
 }
 
-volumeImageInfo.addEventListener("click", onSoundInfo);
+function nextQuestion() {
+  questionNumber++;
+  if (questionNumber === 6) {
+    // questionNumber = 0;
+    buttonNext.textContent = '';
+    const link = document.createElement("a");
+    
+    link.href = "results.html";
+    link.textContent = "Next";
+  
+    createElementHtml (link, "link", buttonNext);
 
-createElementHtml (textInfo, "text-info", choiceInfoBird);
 
-textInfo.textContent = birdsData[playNum][playNum].description;
+  }
+}
+
+buttonNext.addEventListener("click", getQuestion);
+
+const audioN = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
+// const buttons = document.querySelectorAll(".kauvec_adelon");
+
+// buttons.forEach(button => {
+//   button.addEventListener("click", () => {
+//   audio.play();
+//   });
+// });

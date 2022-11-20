@@ -68,9 +68,12 @@ module.exports = {
       }, {
         test: /\.css$/,
         use: [MiniCssExtractPlugin.loader, 'css-loader'],
-      },{
+      }, {
         test: /\.(?:mp3|wav|ogg|mp4)$/i,
         loader: 'asset/resource',
+      }, {
+        test: /\.mp3$/,
+        loader: 'file-loader',
       },
     ]
   },

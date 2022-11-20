@@ -386,6 +386,10 @@
 
 .choice-input:checked {
   border: 1px solid #48ff00;
+  background: #9a3100;
+}
+.choice-input-active:checked {
+  border: 1px solid #48ff00;
   background: #009A76;
 }
 .choice {
@@ -402,6 +406,13 @@
   background-color: #363636;
   border-radius: 5px;
   padding: 5px;
+  color: #fff;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 140%;
+  margin-bottom: 10px;
 
   @media screen and (max-width: 600px){
     width: 100%;
@@ -469,4 +480,37 @@
   @media screen and (max-width: 900px) {
     width: 100%;
   }
+}
+
+.button-next {
+  width: 100%;
+  background-color: #868d8b;
+  font-family: "Roboto";
+  font-style: normal;
+  font-weight: 400;
+  font-size: 30px;
+  line-height: 140%;
+  margin-bottom: 10px;
+  border: none;
+  border-radius: 5px;
+
+    .link {
+      color:#000000;
+      font-size: 25px;
+
+      &:hover {
+        color: #000;
+      }
+
+      &:active {
+        color: #000;
+      }
+    }
+}
+.button-next-active {
+  background-color: #009A76;
+  cursor: pointer;
+}
+.button-next-active:hover {
+  background-color: #20f0bf;
 }
