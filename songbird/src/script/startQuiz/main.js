@@ -1,6 +1,5 @@
 import birdsData from "./birdsData";
 import defaultImage from '../../assets/default-image.png';
-// import audioRight from "../../assets/right.mp3";
 
 
 const main = document.createElement("main");
@@ -160,7 +159,7 @@ async function playAudio() {
 
   playerButton.classList.toggle("pause");
 
-  showDurationTime();
+  // showDurationTime();
 
   setInterval(progressCurrentTime, 100);
   
@@ -168,8 +167,10 @@ async function playAudio() {
 
 playerButton.addEventListener("click", playAudio);
 
-function showDurationTime() {
-  let audioLength = birdsData[playNum][playNum].duration;
+function showDurationTime(data) {
+  // const res = birdsData[questionNumber];
+  // const data = res[getRandomNum(0, res.length)];
+  let audioLength = data.duration;
   let audioTime = Math.round(audio.currentTime);
 
   progressBar.style.width = (audioTime * 100) / audioLength + "%";
@@ -284,6 +285,7 @@ function fistQuestionAudio(){
 
   compareNameBird(data);
   itemOfQuestionStyle();
+  showDurationTime(data);
 }
 fistQuestionAudio();
 
@@ -298,7 +300,6 @@ function itemOfQuestionStyle() {
       item.classList.add("item-questions-active");
     }
     
-    // console.log(index)
   })
 }
 
@@ -335,9 +336,9 @@ function getQuestion() {
   nextQuestion();
   compareNameBird(data);
   itemOfQuestionStyle();
+  showDurationTime(data);
 }
 
-// const audioRightI = new Audio(audioRight);
 
 
 
@@ -370,7 +371,6 @@ function compareNameBird(data){
         buttonNext.classList.add("button-next-active");
         buttonNext.style.pointerEvents = '';
 
-        // audioRightI.play();
       }
       
       playerButtonInfo.classList.remove("pause");
@@ -548,13 +548,7 @@ function nextQuestion() {
   questionNumber++;
   if (questionNumber === 6) {
     // questionNumber = 0;
-    buttonNext.textContent = '';
-    const link = document.createElement("a");
-    
-    link.href = "results.html";
-    link.textContent = "Next";
-  
-    createElementHtml (link, "link", buttonNext);
+    buttonNext.addEventListener("click", finishQuiz);
 
 
   }
@@ -563,10 +557,7 @@ function nextQuestion() {
 buttonNext.addEventListener("click", getQuestion);
 
 const audioN = new Audio("https://www.fesliyanstudios.com/play-mp3/387");
-// const buttons = document.querySelectorAll(".kauvec_adelon");
 
-// buttons.forEach(button => {
-//   button.addEventListener("click", () => {
-//   audio.play();
-//   });
-// });
+function finishQuiz() {
+  location.href='results.html';
+}
