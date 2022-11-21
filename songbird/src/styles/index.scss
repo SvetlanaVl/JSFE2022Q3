@@ -40,7 +40,7 @@
 } 
 .link {
   text-decoration: none;
-  color:#FFFFFF;
+  color:#b4cdc4;
   font-family: 'Roboto', sans-serif;
   font-style: normal;
   font-weight: 500;
@@ -54,7 +54,7 @@
   }
 
   &:active {
-    color: #20f0bf;
+    color: #30a58a;
   }
 }
 
@@ -70,7 +70,7 @@
 .hamburger-line {
   width: 25px;
   height: 2px;
-  background-color: #fff;
+  background-color: #b4cdc4;
   display: block;
   margin: 5px auto;
   border-radius: 2px;
@@ -119,7 +119,7 @@
 .line-burger {
   width: 25px;
   height: 2px;
-  background-color: #ffffff;
+  background-color: #b4cdc4;
   display: block;
   margin: 4px auto;
   border-radius: 3px;
@@ -147,11 +147,12 @@
   font-weight: 400;
   font-size: 35px;
   line-height: 140%;
-  color: #ffffff;
+  color: #b4cdc4;
   transition: all 0.5s ease-out;
 }
 .footer {
   background-color: #2c2a2a;
+  padding-top: 7px;
 
   .wrapper {
     display: flex;
@@ -160,7 +161,7 @@
   }
 }
 .footer-text {
-  color: #fff;
+  color: #b4cdc4;
   font-family: 'Roboto';
   font-style: normal;
   font-weight: 400;
@@ -187,7 +188,7 @@
   height: 780px;
 }
 .name-moves, .score {
-  color: #fff;
+  color: #b4cdc4;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -215,7 +216,7 @@
 }
 .item-questions {
   text-align: center;
-  color: #fff;
+  color: #b4cdc4;
   margin: 0;
   padding: 10px;
 }
@@ -227,7 +228,7 @@
 }
 
 .item-questions-active {
-  background-color: #20f0bf;
+  background-color: #30a58a;
 }
 .container-question {
   display: flex;
@@ -262,7 +263,7 @@
 .text-info,
 .name-guessing-bird-info,
 .species-bird-info {
-  color: #fff;
+  color: #b4cdc4;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -272,7 +273,7 @@
   margin-bottom: 5px;
 }
 .separator {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #b4cdc4;
   margin-bottom: 20px;
 }
 .player {
@@ -297,10 +298,10 @@
 .pause {
   background-image: url("../assets/pause.svg");
 }
-.play:hover, .pause:hover {
+.play:hover, .pause:hover, .play-info:hover {
   opacity: 1;
 }
-.play:active, .pause:active {
+.play:active, .pause:active, .play-info:active {
   border: 0;
   outline: 0;  
   transform: scale(1.1);
@@ -311,8 +312,28 @@
   width: 85%;
 }
 .progress-bar {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin-top: 5px;
   margin-bottom: 10px;
+  background: #2c2a2a;
+}
+.progress-bar::-webkit-slider-runnable-track {
+  border-radius: 10px; 
+  border: 1px solid #30a58a;
+  background: #2c2a2a;
+}
+.progress-bar::-webkit-slider-thumb {
+  background: #009A76;
+  border: 1px solid #009A76;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 10px;
+  height: 10px;
+  -webkit-appearance: none;
+  margin-top: 0;
+  transition: 0.5s ease-in-out;
 }
 .volume-sound {
   display: flex;
@@ -338,7 +359,27 @@
   background-image: url("../assets/volumeOff.png");
 }
 .sound {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin-top: 5px;
+  background: #2c2a2a;
+}
+.sound::-webkit-slider-runnable-track {
+  border-radius: 10px; 
+  border: 1px solid #30a58a;
+  background: #2c2a2a;
+}
+.sound::-webkit-slider-thumb {
+  background: #009A76;
+  border: 1px solid #009A76;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 7px;
+  height: 7px;
+  -webkit-appearance: none;
+  margin-top: 0;
+  transition: 0.5s ease-in-out;
 }
 .time-container {
   display: flex;
@@ -371,7 +412,7 @@
   border-radius: 50%;
 }
 .choice-label {
-  color: #fff;
+  color: #b4cdc4;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -386,7 +427,7 @@
 
 .choice-input:checked {
   border: 1px solid #48ff00;
-  background: #9a3100;
+  background: #993304;
 }
 .choice-input-active:checked {
   border: 1px solid #48ff00;
@@ -406,7 +447,7 @@
   background-color: #363636;
   border-radius: 5px;
   padding: 5px;
-  color: #fff;
+  color: #b4cdc4;
   font-family: "Roboto";
   font-style: normal;
   font-weight: 400;
@@ -424,10 +465,30 @@
   background-size: 40px 40px;
 }
 .progress-bar-info {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin-top: 14px;
   margin-bottom: 10px;
-  height: 5px;
+  background: #2c2a2a;
 }
+.progress-bar-info::-webkit-slider-runnable-track {
+  border-radius: 10px; 
+  border: 1px solid #30a58a;
+  background: #2c2a2a;
+}
+.progress-bar-info::-webkit-slider-thumb {
+  background: #009A76;
+  border: 1px solid #009A76;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 5px;
+  height: 5px;
+  -webkit-appearance: none;
+  margin-top: 0;
+  transition: 0.5s ease-in-out;
+}
+
 .current-time-info, .duration-time-info {
   font-size: 20px;
 }
@@ -443,14 +504,31 @@
   font-size: 25px;
 }
 .sound-info {
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
   margin-top: 15px;
+  background: #2c2a2a;
   height: 5px;
 }
-.sound {
-  margin-top: 5px;
+.sound-info::-webkit-slider-runnable-track {
+  border-radius: 10px; 
+  border: 1px solid #30a58a;
+  background: #2c2a2a;
+}
+.sound-info::-webkit-slider-thumb {
+  background: #009A76;
+  border: 1px solid #009A76;
+  border-radius: 50%;
+  cursor: pointer;
+  width: 5px;
+  height: 5px;
+  -webkit-appearance: none;
+  margin-top: 0;
+  transition: 0.5s ease-in-out;
 }
 .separator-info {
-  border-bottom: 1px solid #fff;
+  border-bottom: 1px solid #b4cdc4;
   margin-bottom: 10px;
 }
 .text-info {
@@ -482,7 +560,7 @@
   }
 }
 
-.button-next, .button-start {
+.button-next, .button-start, .button-start-quiz {
   width: 100%;
   background-color: #868d8b;
   font-family: "Roboto";
@@ -512,7 +590,7 @@
   cursor: pointer;
 }
 .button-next-active:hover {
-  background-color: #20f0bf;
+  background-color: #30a58a;
 }
 .main-results {
   background-color: #2c2a2a;
@@ -526,7 +604,7 @@
   font-size: 50px;
   line-height: 140%;
   margin-bottom: 10px;
-  color: #fff;
+  color: #b4cdc4;
   background-color: #009A76;
   padding: 10px;
   border-radius: 10px;
@@ -562,4 +640,21 @@
 }
 .button-start:hover {
   background-color: #05a781;
+}
+.button-start-quiz {
+  width: 280px;
+  margin-top: 300px;
+  cursor: pointer;
+  background-color: #05a781;
+  animation: glowing 1300ms infinite;
+
+  @keyframes glowing {
+    0% { background-color: #05a781; box-shadow: 0 0 5px #05a781; }
+    50% { background-color: #1ccda3; box-shadow: 0 0 20px #1ccda3; }
+    100% { background-color: #05a781; box-shadow: 0 0 5px #05a781; }
+    }
+  
+  
+  
+  
 }

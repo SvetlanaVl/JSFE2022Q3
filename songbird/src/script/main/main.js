@@ -1,5 +1,6 @@
 const main = document.createElement("main");
-// const wrapper = document.createElement("div");
+const wrapperMain = document.createElement("div");
+const buttonStartQuiz = document.createElement("button");
 
 function createElementHtml (nameElement, nameClass, elementContainer) {
 
@@ -10,4 +11,14 @@ function createElementHtml (nameElement, nameClass, elementContainer) {
 
 createElementHtml (main, "main", document.body);
 
-// createElementHtml (wrapper, "wrapper", footer);
+createElementHtml (wrapperMain, "wrapper", main);
+
+createElementHtml (buttonStartQuiz, "button-start-quiz", wrapperMain);
+
+buttonStartQuiz.textContent = 'Начать викторину!';
+
+function startQuiz() {
+  location.href='startQuiz.html';
+}
+
+buttonStartQuiz.addEventListener("click", startQuiz);

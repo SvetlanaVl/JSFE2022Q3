@@ -33,7 +33,6 @@ createElementHtml (list, "list", navigation);
 const menu = {
   "About" : "index.html",
   "Start" : "startQuiz.html",
-  "Results" : "results.html",
 };
 
 function createListHtml (elementContainer, nameClass) {
