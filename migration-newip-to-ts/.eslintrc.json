@@ -1,21 +1,45 @@
 {
-    "plugins": ["prettier", "import"],
+    "plugins": ["@typescript-eslint", "prettier", "import"],
     "extends": [
-        "plugin:prettier/recommended",
-        "prettier"
+      "airbnb-typescript/base",
+      "eslint:recommended",
+      "plugin:prettier/recommended",
+      "prettier",
+      "plugin:@typescript-eslint/recommended"
     ],
+    "parser": "@typescript-eslint/parser",
+    // "parser": "@babel/eslint-parser",
     "parserOptions": {
-        "ecmaVersion": 2020,
-        "sourceType": "module"
+      "ecmaVersion": 2020,
+      "sourceType": "module",
+      "tsconfigRootDir": "__dirname",
+      "project": "['./tsconfig.json']"
     },
     "env": {
-        "es6": true,
-        "browser": true,
-        "node": true
+      "es6": true,
+      "browser": true,
+      "node": true
     },
     "rules": {
-        "no-debugger": "off",
-        "no-console": 0,
-        "class-methods-use-this": "off"
-    }
-}
+      "no-plusplus": "off",
+      "no-debugger": "off",
+      "no-console": 0,
+      "class-methods-use-this": "off",
+      "max-len": ["warn", { "code": 120 }],
+      "indent": ["warn", 2, {
+        "SwitchCase": 1
+      }],
+      "@typescript-eslint/indent": ["warn", 2, {
+        "SwitchCase": 1
+      }],
+      "import/prefer-default-export": "off",
+      "no-param-reassign": ["error", {
+        "props": false
+      }],
+      "@typescript-eslint/no-var-requires": 0,
+    //   "@typescript-eslint/no-explicit-any": "off",
+      "@typescript-eslint/no-explicit-any": 2
+    },
+    "ignorePatterns": ["*config.js"],
+    "root": true
+  }
