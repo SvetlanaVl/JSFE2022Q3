@@ -37,9 +37,9 @@
         "props": false
       }],
       "@typescript-eslint/no-var-requires": 0,
-    //   "@typescript-eslint/no-explicit-any": "off",
+      // "@typescript-eslint/no-explicit-any": "off"
       "@typescript-eslint/no-explicit-any": 2
     },
-    "ignorePatterns": ["*config.js"],
+    "ignorePatterns": ["*config.ts"],
     "root": true
   }
