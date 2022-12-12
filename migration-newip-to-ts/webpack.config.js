@@ -50,7 +50,7 @@ const baseConfig = {
     new CleanWebpackPlugin(),
     new EslingPlugin({ extensions: 'ts' }),
     new MiniCssExtractPlugin({
-      filename: '[name].[contenthash].css',
+      filename: 'style.css',
     }),
   ],
 };

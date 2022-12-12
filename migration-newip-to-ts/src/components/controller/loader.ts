@@ -24,11 +24,11 @@ class Loader {
   }
 
   makeUrl(options: { apiKey: string }, endpoint: string) {
-    const urlOptions = { ...this.options, ...options };
+    const urlOptions : { [index: string]: string } = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
     Object.keys(urlOptions).forEach((key) => {
-      url += `${key}=${urlOptions[key as keyof typeof urlOptions]}&`;
+      url += `${key}=${urlOptions[key]}&`;
     });
 
     return url.slice(0, -1);
