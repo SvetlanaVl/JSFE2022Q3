@@ -16,6 +16,7 @@ header h1 {
 footer {
   height: 100px;
   display: flex;
+  gap: 5px;
   align-items: center;
   justify-content: space-around;
 }
@@ -35,4 +36,13 @@ footer .copyright:before {
 }
 footer .img-rsschool {
   width: 150px;
+}
+
+@media screen and (max-width: 500px) {
+  footer .img-rsschool {
+    width: 100px;
+  }
+  footer .img-github {
+    width: 50px;
+  }
 }
