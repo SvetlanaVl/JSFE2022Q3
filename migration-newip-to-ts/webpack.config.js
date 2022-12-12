@@ -27,6 +27,10 @@ const baseConfig = {
         test: /\.(eot|svg|ttf|woff|woff2|png|jpg|gif)$/i,
         type: 'asset',
       },
+      {
+        test: /\.(?:ico|gif|png|jpg|jpeg|svg)$/i,
+        type: 'asset/resource',
+      },
     ],
         
   },
@@ -36,6 +40,7 @@ const baseConfig = {
   output: {
     filename: 'index.js',
     path: path.resolve(__dirname, '../dist'),
+    assetModuleFilename: '../dist/assets/[hash][ext][query]',
   },
   plugins: [
     new HtmlWebpackPlugin({
