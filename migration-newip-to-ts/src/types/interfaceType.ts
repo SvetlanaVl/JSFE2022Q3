@@ -1,8 +1,7 @@
 export type urlParts = {
   endpoint: string;
   options?: {
-    sources?: string;
-    apiKey?: string;
+    sources: string;
   };
 };
 
@@ -11,7 +10,6 @@ export type callback<T> = (data: T) => void;
 export interface ISources {
   id: string;
   name: string;
-  
 }
 export interface INews {
   source: ISources;
