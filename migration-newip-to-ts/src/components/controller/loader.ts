@@ -10,7 +10,7 @@ class Loader {
   }
 
   getResp<T>(url: urlParts, callback: callback<T>) {
-    this.load('GET', url.endpoint, callback, this.options);
+    this.load('GET', url.endpoint, callback, url.options ?? {});
   }
 
   errorHandler(res: Response): Response | never {
@@ -23,7 +23,7 @@ class Loader {
     return res;
   }
 
-  makeUrl(options: { apiKey: string }, endpoint: string) {
+  makeUrl(options: { sources?: string }, endpoint: string) {
     const urlOptions : { [index: string]: string } = { ...this.options, ...options };
     let url = `${this.baseLink}${endpoint}?`;
 
@@ -34,12 +34,12 @@ class Loader {
     return url.slice(0, -1);
   }
 
-  load<T>(method: string, endpoint: string, callback: callback<T>, options: { apiKey: string }) {
+  load<T>(method: string, endpoint: string, callback: callback<T>, options: { sources?: string }) {
     fetch(this.makeUrl(options, endpoint), { method })
-      .then(this.errorHandler)
+      .then((res) => this.errorHandler(res))
       .then((res) => res.json())
-      .then((data) => callback(data))
-      .catch((err) => console.error(err));
+      .then((data: T) => callback(data))
+      .catch((err: Error) => console.error(err));
   }
 }
 

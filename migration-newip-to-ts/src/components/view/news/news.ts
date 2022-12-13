@@ -2,6 +2,8 @@ import './news.css';
 
 import type { INews } from '../../../types/interfaceType';
 
+const imgNewsPlaceholder = require('../../../img/news_placeholder.jpg');
+
 class News {
   draw(data: INews[]) {
     const news = data.length >= 10 ? data.filter((_item, idx) => idx < 10) : data;
@@ -21,7 +23,7 @@ class News {
           }
     
           (<HTMLElement>newsClone.querySelector('.news__meta-photo')).style.backgroundImage = `url(${
-            item.urlToImage || 'img/news_placeholder.jpg'
+            item.urlToImage || imgNewsPlaceholder
           })`;
           const metaAuthor = newsClone.querySelector('.news__meta-author');
           if(metaAuthor) {metaAuthor.textContent = item.author || item.source.name;}
